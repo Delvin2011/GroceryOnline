@@ -23,9 +23,13 @@ import {createStructuredSelector} from 'reselect';
 import {checkUserSession} from './redux/user/user-actions';
 import {selectCurrentUser} from './redux/user/user-selectors';
 
-import "assets/vendor/nucleo/css/nucleo.css";
+/*import "assets/vendor/nucleo/css/nucleo.css";
 import "assets/vendor/font-awesome/css/font-awesome.min.css";
-import "assets/scss/argon-design-system-react.scss?v1.1.0";
+import "assets/scss/argon-design-system-react.scss?v1.1.0";*/
+
+import "./assets/vendor/nucleo/css/nucleo.css";
+import "./assets/vendor/font-awesome/css/font-awesome.min.css";
+import "./assets/scss/argon-design-system-react.scss?v1.1.0";
 
 import Index from "views/Index.js";
 import Landing from "views/examples/Landing.js";
