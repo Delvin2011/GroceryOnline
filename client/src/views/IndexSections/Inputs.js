@@ -1,0 +1,108 @@
+/*!
+
+=========================================================
+* Argon Design System React - v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-design-system-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+import React from "react";
+// nodejs library that concatenates classes
+//import classnames from "classnames";
+// reactstrap components
+import {
+  FormGroup,
+  Input,
+  /*InputGroupAddon,
+  InputGroupText,
+  InputGroup,*/
+  Container,
+  Row,
+  Col
+} from "reactstrap";
+
+class Inputs extends React.Component {
+  state = {};
+  render() {
+    return (
+      <>
+        <section className="section pb-0 section-components">
+          <Container className="mb-5">
+            {/* Inputs */}
+            <h3 className="h4 text-success font-weight-bold mb-4">Inputs</h3>
+          </Container>
+          <div className="py-5 bg-secondary">
+            <Container>
+              {/* Inputs (alternative) */}
+              <div className="mb-3">
+                <small className="text-uppercase font-weight-bold">
+                  Form controls (alternative)
+                </small>
+              </div>
+              <Row>
+
+                <Col lg="3" sm="6">
+                  <FormGroup>
+                    <Input
+                      className="form-control-alternative"
+                      disabled
+                      placeholder="Regular"
+                      type="text"
+                    />
+                  </FormGroup>
+
+                </Col>
+                <Col lg="3" sm="6">
+                  <FormGroup>
+                    <Input
+                      className="form-control-alternative"
+                      disabled
+                      placeholder="Regular"
+                      type="text"
+                    />
+                  </FormGroup>
+                
+                </Col>
+                <Col lg="3" sm="6">
+                  <FormGroup>
+                    <Input
+                      className="form-control-alternative"
+                      disabled
+                      placeholder="Regular"
+                      type="text"
+                    />
+                  </FormGroup>
+
+                </Col>
+                <Col lg="3" sm="6">
+                  <FormGroup>
+                    <Input
+                      className="form-control-alternative"
+                      disabled
+                      placeholder="Regular"
+                      type="text"
+                    />
+                  </FormGroup>
+
+                </Col>
+                
+
+              </Row>
+            </Container>
+          </div>
+        </section>
+      </>
+    );
+  }
+}
+
+export default Inputs;
