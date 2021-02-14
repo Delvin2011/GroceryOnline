@@ -116,6 +116,28 @@ class SignUp extends React.Component {
               <small>Or sign up with credentials</small>
             </div>
             <Form role="form" onSubmit={this.handleSubmit}>
+            <FormGroup
+                className={classnames("mb-3", {
+                  focused: this.state.nameFocused
+                })}
+              >
+                <InputGroup className="input-group-alternative">
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>
+                      <i className="ni ni-user-run" />
+                    </InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    placeholder="Name & Surname"
+                    type="test"
+                    name = 'displayName'
+                    onChange={this.handleChange}
+                    value={this.state.displayName}
+                    onFocus={e => this.setState({ nameFocused: true })}
+                    onBlur={e => this.setState({ nameFocused: false })}
+                  />
+                </InputGroup>
+              </FormGroup>
               <FormGroup
                 className={classnames("mb-3", {
                   focused: this.state.emailFocused
@@ -138,6 +160,7 @@ class SignUp extends React.Component {
                   />
                 </InputGroup>
               </FormGroup>
+              
               <FormGroup
                 className={classnames({
                   focused: this.state.passwordFocused

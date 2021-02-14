@@ -17,9 +17,13 @@
 */
 import React from "react";
 // nodejs library that concatenates classes
+import {connect} from 'react-redux';
+
 import classnames from "classnames";
 import { Link } from "react-router-dom";
-//import Login from "../IndexSections/Login.js";
+import {selectCurrentUser, selectCurrentUserLoginError} from '../../redux/user/user-selectors';
+import {createStructuredSelector} from 'reselect'; //bcoz we gonna be pulling stufff off the state
+
 // reactstrap components
 import {
   Badge,
@@ -27,6 +31,7 @@ import {
   Card,
   CardBody,
   CardImg,
+  Form,
   FormGroup,
   Input,
   InputGroupAddon,
@@ -46,12 +51,64 @@ import CardsFooter from "components/Footers/CardsFooter.js";
 
 class Landing extends React.Component {
   state = {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: '',
+      phoneNumber: '',
+      message: '',
+      error: '',
+      success: '',
+      spinner: false
+    };
+  }
+  
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
+
+  handleSubmit = async event => {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form);
+    this.setState({
+      spinner: true});
+
+   fetch('/email', {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      "email" : data.get('email'),
+      "customerName" : data.get('customerName'),
+      "phoneNumber": data.get('phoneNumber'),
+      "subject": "Service Inquiry",
+      "message": data.get('message')
+    })
+
+      }).then((response) => {
+        this.setState({ response: response.status, spinner : false });
+        console.log('Success:', response.status);
+      })
+      .catch((error) => {
+        this.setState({ error: error });
+        console.error('Error:', error);
+      });
+  };
+
+  handleChange = event => {
+    const { value, name } = event.target;
+
+    this.setState({ [name]: value });
+  };
+
   render() {
+    const {customerName, email, phoneNumber,message,response,error,item,spinner} = this.state;
+    const {currentUser} = this.props;
+    
     return (
       <>
         <DemoNavbar />
@@ -202,7 +259,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="success"
-                            href="#pablo"
+                            href="/collection-page/shorts"
                             onClick={e => e.preventDefault()}
                           >
                             View more
@@ -239,7 +296,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="warning"
-                            href="#pablo"
+                            href="/collection-page/socks"
                             onClick={e => e.preventDefault()}
                           >
                             View more
@@ -461,9 +518,7 @@ class Landing extends React.Component {
               </Row>
             </Container>
           </section>
-
 {}
- 
           <section className="section section-lg bg-gradient-default">
             <Container className="pt-lg pb-300">
               <Row className="text-center justify-content-center">
@@ -547,85 +602,157 @@ class Landing extends React.Component {
                       <p className="mt-0">
                         Your inquiry is very important to us.
                       </p>
-                      <FormGroup
-                        className={classnames("mt-5", {
-                          focused: this.state.nameFocused
-                        })}
-                      >
-                        <InputGroup className="input-group-alternative">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              <i className="ni ni-user-run" />
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          <Input
-                            placeholder="Your name"
-                            type="text"
-                            onFocus={e => this.setState({ nameFocused: true })}
-                            onBlur={e => this.setState({ nameFocused: false })}
-                          />
-                        </InputGroup>
-                      </FormGroup>
-                      <FormGroup
-                        className={classnames({
-                          focused: this.state.emailFocused
-                        })}
-                      >
-                        <InputGroup className="input-group-alternative">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              <i className="ni ni-email-83" />
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          <Input
-                            placeholder="Email address"
-                            type="email"
-                            onFocus={e => this.setState({ emailFocused: true })}
-                            onBlur={e => this.setState({ emailFocused: false })}
-                          />
-                        </InputGroup>
-                      </FormGroup>
-                      <FormGroup
-                        className={classnames({
-                          focused: this.state.emailFocused
-                        })}
-                      >
-                        <InputGroup className="input-group-alternative">
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              <i className="ni ni-mobile-button" />
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          <Input
-                            placeholder="Phone Number"
-                            type="text"
-                            onFocus={e => this.setState({ emailFocused: true })}
-                            onBlur={e => this.setState({ emailFocused: false })}
-                          />
-                        </InputGroup>
-                      </FormGroup>
-                      <FormGroup className="mb-4">
-                        <Input
-                          className="form-control-alternative"
-                          cols="80"
-                          name="name"
-                          placeholder="Type a message..."
-                          rows="4"
-                          type="textarea"
-                        />
-                      </FormGroup>
-                      <div>
-                        <Button
-                          block
-                          className="btn-round"
-                          color="default"
-                          size="lg"
-                          type="button"
+                      <Form role="form" onSubmit={this.handleSubmit}>
+                        <FormGroup
+                          className={classnames("mt-5", {
+                            focused: this.state.nameFocused
+                          })}
                         >
-                          Send Message
-                        </Button>
-                      </div>
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-user-run" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            { currentUser ?                           
+                              <Input
+                              placeholder="Your name"
+                              type="text"
+                              name = 'customerName'
+                              onChange={this.handleChange}
+                              value={currentUser.displayName}
+                              onFocus={e => this.setState({ nameFocused: true })}
+                              onBlur={e => this.setState({ nameFocused: false })}
+                            />                           
+                            :  
+                            <Input
+                              placeholder="Your name"
+                              type="text"
+                              name = 'customerName'
+                              onChange={this.handleChange}
+                              value={customerName}
+                              onFocus={e => this.setState({ nameFocused: true })}
+                              onBlur={e => this.setState({ nameFocused: false })}
+                            />  
+                            }
+
+                          </InputGroup>
+                        </FormGroup>
+                        <FormGroup
+                          className={classnames({
+                            focused: this.state.emailFocused
+                          })}
+                        >
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-email-83" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            {currentUser?
+                              <Input
+                              placeholder="Email address"
+                              type="email"
+                              name = 'email'
+                              onChange={this.handleChange}
+                              value={currentUser.email}
+                              onFocus={e => this.setState({ emailFocused: true })}
+                              onBlur={e => this.setState({ emailFocused: false })}
+                            />
+                            :<Input
+                              placeholder="Email address"
+                              type="email"
+                              name = 'email'
+                              onChange={this.handleChange}
+                              value={email}
+                              onFocus={e => this.setState({ emailFocused: true })}
+                              onBlur={e => this.setState({ emailFocused: false })}
+                            />
+                            }
+                          </InputGroup>
+                        </FormGroup>
+                        <FormGroup
+                          className={classnames({
+                            focused: this.state.emailFocused
+                          })}
+                        >
+                          <InputGroup className="input-group-alternative">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-mobile-button" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="Phone Number"
+                              type="tel"
+                              name = 'phoneNumber'
+                              onChange={this.handleChange}
+                              value={phoneNumber}
+                              onFocus={e => this.setState({ emailFocused: true })}
+                              onBlur={e => this.setState({ emailFocused: false })}
+                            />
+                          </InputGroup>
+                        </FormGroup>
+                        <FormGroup className="mb-4">
+                          <Input
+                            className="form-control-alternative"
+                            cols="80"
+                            name="name"
+                            placeholder="Type a message..."
+                            rows="4"
+                            type="textarea"
+                            name = 'message'
+                            onChange={this.handleChange}
+                            value={message}
+                          />
+                        </FormGroup>
+                          {this.state.spinner?
+                            <Button
+                              block
+                              className="btn-round"
+                              color="default"
+                              size="lg"
+                              type="button"
+                              type='submit'
+                            >
+                              Loading...
+                            </Button>
+                          : response === 200  ?
+                              <Button
+                                block
+                                className="btn-round"
+                                color="default"
+                                size="lg"
+                                type="button"
+                              >
+                                Inquiry Submitted
+                              </Button>
+                          : response === 500 || response === 404 ?
+                              <Button
+                                block
+                                className="btn-round"
+                                color="default"
+                                size="lg"
+                                type="button"
+                                type='submit'
+                                >
+                                Error : Re-Submit
+                              </Button>
+                          :   <Button
+                                block
+                                className="btn-round"
+                                color="default"
+                                size="lg"
+                                type="button"
+                                type='submit'
+                                >
+                                Submit Inquiry
+                              </Button>
+                          }
+
+                      </Form>
                     </CardBody>
+                  
                   </Card>
                 </Col>
               </Row>
@@ -639,5 +766,11 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = createStructuredSelector ({
+  currentUser : selectCurrentUser,
+  error : selectCurrentUserLoginError
+});
+
+export default connect(mapStateToProps,null)(Landing);
+
 

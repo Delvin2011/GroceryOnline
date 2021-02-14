@@ -39,14 +39,14 @@ app.listen(port, error => {
 
 // email, subject, text (receiving data from the client)
 app.post('/email', (req, res) => {
-    const { customerName,phoneNumber,subject, email, message} = req.body;
+    const { customerName,phoneNumber,email, message} = req.body;
     
     var emailBody = "";
 
 
-    emailBody = "Good Sir/Madam" + '\n\n' + "Would like to inquire on the below details: " + '\n\n\t' +  "Inquiry : " + message + '\n\n' + "Yours faithfully" +  '\n\n' + customerName + '\n' + phoneNumber
+    emailBody = "Good Sir/Madam" + '\n\n' + "Would like to make an inquiry the below message: " + '\n\n\t' +  "Inquiry : " + message + '\n\n' + "Yours faithfully" +  '\n\n' + customerName + '\n' + phoneNumber
 
-    console.log(emailBody);
+    //console.log(emailBody);
    //console.log(email);
  
     sendMail(email,subject,emailBody, function(err, data) {
