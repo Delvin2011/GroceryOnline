@@ -17,12 +17,15 @@
 */
 import React from "react";
 // nodejs library that concatenates classes
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 
 import classnames from "classnames";
 import { Link } from "react-router-dom";
-import {selectCurrentUser, selectCurrentUserLoginError} from '../../redux/user/user-selectors';
-import {createStructuredSelector} from 'reselect'; //bcoz we gonna be pulling stufff off the state
+import {
+  selectCurrentUser,
+  selectCurrentUserLoginError,
+} from "../../redux/user/user-selectors";
+import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
 
 // reactstrap components
 import {
@@ -39,7 +42,7 @@ import {
   InputGroup,
   Container,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 // core components
@@ -55,60 +58,70 @@ class Landing extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      phoneNumber: '',
-      message: '',
-      error: '',
-      success: '',
-      spinner: false
+      email: "",
+      password: "",
+      phoneNumber: "",
+      message: "",
+      error: "",
+      success: "",
+      spinner: false,
     };
   }
-  
+
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const data = new FormData(form);
     this.setState({
-      spinner: true});
+      spinner: true,
+    });
 
-   fetch('/email', {
-    method: 'post',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      "email" : data.get('email'),
-      "customerName" : data.get('customerName'),
-      "phoneNumber": data.get('phoneNumber'),
-      "subject": "Service Inquiry",
-      "message": data.get('message')
+    fetch("/email", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: data.get("email"),
+        customerName: data.get("customerName"),
+        phoneNumber: data.get("phoneNumber"),
+        subject: "Service Inquiry",
+        message: data.get("message"),
+      }),
     })
-
-      }).then((response) => {
-        this.setState({ response: response.status, spinner : false });
-        console.log('Success:', response.status);
+      .then((response) => {
+        this.setState({ response: response.status, spinner: false });
+        console.log("Success:", response.status);
       })
       .catch((error) => {
         this.setState({ error: error });
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { value, name } = event.target;
 
     this.setState({ [name]: value });
   };
 
   render() {
-    const {customerName, email, phoneNumber,message,response,error,item,spinner} = this.state;
-    const {currentUser} = this.props;
-    
+    const {
+      customerName,
+      email,
+      phoneNumber,
+      message,
+      response,
+      error,
+      item,
+      spinner,
+    } = this.state;
+    const { currentUser } = this.props;
+
     return (
       <>
         <DemoNavbar />
@@ -132,13 +145,12 @@ class Landing extends React.Component {
                   <Row>
                     <Col lg="6">
                       <h1 className="display-3 text-white">
-                        Shoko Online Store{" "}
-                        <span>pride in fast delivery</span>
+                        Shoko Online Store <span>pride in fast delivery</span>
                       </h1>
                       <p className="lead text-white">
-                        Our shop has all you need at your convenience and 
-                        available for delivery to your desired 
-                        destination in no time.
+                        Our shop has all you need at your convenience and
+                        available for delivery to your desired destination in no
+                        time.
                       </p>
                       <div className="btn-wrapper">
                         <Button
@@ -188,12 +200,11 @@ class Landing extends React.Component {
             {/* 1st Hero Variation */}
           </div>
           <section className="section section-lg pt-lg-0 mt--200">
-            <Container>
-              <Row className="justify-content-center" >
+            <Container fluid>
+              <Row className="justify-content-center">
                 <Col lg="12">
                   <Row className="row-grid">
-                    <Col lg="4">
-
+                    <Col lg="2">
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-primary text-uppercase">
@@ -222,15 +233,14 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="primary"
-                            href="/collection-page/backpacks"                           
+                            href="/collection-page/backpacks"
                           >
                             View more
                           </Button>
                         </CardBody>
                       </Card>
-                    
                     </Col>
-                    <Col lg="4">
+                    <Col lg="2">
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-success text-uppercase">
@@ -260,14 +270,14 @@ class Landing extends React.Component {
                             className="mt-4"
                             color="success"
                             href="/collection-page/shorts"
-                            onClick={e => e.preventDefault()}
+                            onClick={(e) => e.preventDefault()}
                           >
                             View more
                           </Button>
                         </CardBody>
                       </Card>
                     </Col>
-                    <Col lg="4">
+                    <Col lg="2">
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-warning text-uppercase">
@@ -297,20 +307,14 @@ class Landing extends React.Component {
                             className="mt-4"
                             color="warning"
                             href="/collection-page/socks"
-                            onClick={e => e.preventDefault()}
+                            onClick={(e) => e.preventDefault()}
                           >
                             View more
                           </Button>
                         </CardBody>
                       </Card>
                     </Col>
-                  </Row>
-                </Col>
-              </Row>
-              <Row className="justify-content-center mt-5">
-                <Col lg="12">
-                  <Row className="row-grid">
-                    <Col lg="4">
+                    <Col lg="2">
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-primary text-uppercase">
@@ -339,14 +343,14 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="primary"
-                            href="/collection-page/balls"   
+                            href="/collection-page/balls"
                           >
                             view more
                           </Button>
                         </CardBody>
                       </Card>
                     </Col>
-                    <Col lg="4">
+                    <Col lg="2">
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-success text-uppercase">
@@ -375,19 +379,17 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="success"
-                            href="/collection-page/boots"   
+                            href="/collection-page/boots"
                           >
                             View more
                           </Button>
                         </CardBody>
                       </Card>
                     </Col>
-                    <Col lg="4">
+                    <Col lg="2">
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
-                          <h6 className="text-warning text-uppercase">
-                            Baby
-                          </h6>
+                          <h6 className="text-warning text-uppercase">Baby</h6>
                           <Link to="/landing-page">
                             <CardImg
                               alt="..."
@@ -411,7 +413,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="warning"
-                            href="/collection-page/jerseys"   
+                            href="/collection-page/jerseys"
                           >
                             View more
                           </Button>
@@ -421,7 +423,6 @@ class Landing extends React.Component {
                   </Row>
                 </Col>
               </Row>
-            
             </Container>
           </section>
           <section className="section section-lg">
@@ -474,7 +475,9 @@ class Landing extends React.Component {
                             </Badge>
                           </div>
                           <div>
-                            <h6 className="mb-0">Make online payment on checkout</h6>
+                            <h6 className="mb-0">
+                              Make online payment on checkout
+                            </h6>
                           </div>
                         </div>
                       </li>
@@ -506,9 +509,7 @@ class Landing extends React.Component {
                             </Badge>
                           </div>
                           <div>
-                            <h6 className="mb-0">
-                              We leave you satisfied
-                            </h6>
+                            <h6 className="mb-0">We leave you satisfied</h6>
                           </div>
                         </div>
                       </li>
@@ -518,7 +519,7 @@ class Landing extends React.Component {
               </Row>
             </Container>
           </section>
-{}
+          {}
           <section className="section section-lg bg-gradient-default">
             <Container className="pt-lg pb-300">
               <Row className="text-center justify-content-center">
@@ -591,7 +592,7 @@ class Landing extends React.Component {
                 />
               </svg>
             </div>
-          </section>   
+          </section>
           <section className="section section-lg pt-lg-0 section-contact-us">
             <Container>
               <Row className="justify-content-center mt--300">
@@ -605,7 +606,7 @@ class Landing extends React.Component {
                       <Form role="form" onSubmit={this.handleSubmit}>
                         <FormGroup
                           className={classnames("mt-5", {
-                            focused: this.state.nameFocused
+                            focused: this.state.nameFocused,
                           })}
                         >
                           <InputGroup className="input-group-alternative">
@@ -614,33 +615,40 @@ class Landing extends React.Component {
                                 <i className="ni ni-user-run" />
                               </InputGroupText>
                             </InputGroupAddon>
-                            { currentUser ?                           
+                            {currentUser ? (
                               <Input
-                              placeholder="Your name"
-                              type="text"
-                              name = 'customerName'
-                              onChange={this.handleChange}
-                              value={currentUser.displayName}
-                              onFocus={e => this.setState({ nameFocused: true })}
-                              onBlur={e => this.setState({ nameFocused: false })}
-                            />                           
-                            :  
-                            <Input
-                              placeholder="Your name"
-                              type="text"
-                              name = 'customerName'
-                              onChange={this.handleChange}
-                              value={customerName}
-                              onFocus={e => this.setState({ nameFocused: true })}
-                              onBlur={e => this.setState({ nameFocused: false })}
-                            />  
-                            }
-
+                                placeholder="Your name"
+                                type="text"
+                                name="customerName"
+                                onChange={this.handleChange}
+                                value={currentUser.displayName}
+                                onFocus={(e) =>
+                                  this.setState({ nameFocused: true })
+                                }
+                                onBlur={(e) =>
+                                  this.setState({ nameFocused: false })
+                                }
+                              />
+                            ) : (
+                              <Input
+                                placeholder="Your name"
+                                type="text"
+                                name="customerName"
+                                onChange={this.handleChange}
+                                value={customerName}
+                                onFocus={(e) =>
+                                  this.setState({ nameFocused: true })
+                                }
+                                onBlur={(e) =>
+                                  this.setState({ nameFocused: false })
+                                }
+                              />
+                            )}
                           </InputGroup>
                         </FormGroup>
                         <FormGroup
                           className={classnames({
-                            focused: this.state.emailFocused
+                            focused: this.state.emailFocused,
                           })}
                         >
                           <InputGroup className="input-group-alternative">
@@ -649,31 +657,40 @@ class Landing extends React.Component {
                                 <i className="ni ni-email-83" />
                               </InputGroupText>
                             </InputGroupAddon>
-                            {currentUser?
+                            {currentUser ? (
                               <Input
-                              placeholder="Email address"
-                              type="email"
-                              name = 'email'
-                              onChange={this.handleChange}
-                              value={currentUser.email}
-                              onFocus={e => this.setState({ emailFocused: true })}
-                              onBlur={e => this.setState({ emailFocused: false })}
-                            />
-                            :<Input
-                              placeholder="Email address"
-                              type="email"
-                              name = 'email'
-                              onChange={this.handleChange}
-                              value={email}
-                              onFocus={e => this.setState({ emailFocused: true })}
-                              onBlur={e => this.setState({ emailFocused: false })}
-                            />
-                            }
+                                placeholder="Email address"
+                                type="email"
+                                name="email"
+                                onChange={this.handleChange}
+                                value={currentUser.email}
+                                onFocus={(e) =>
+                                  this.setState({ emailFocused: true })
+                                }
+                                onBlur={(e) =>
+                                  this.setState({ emailFocused: false })
+                                }
+                              />
+                            ) : (
+                              <Input
+                                placeholder="Email address"
+                                type="email"
+                                name="email"
+                                onChange={this.handleChange}
+                                value={email}
+                                onFocus={(e) =>
+                                  this.setState({ emailFocused: true })
+                                }
+                                onBlur={(e) =>
+                                  this.setState({ emailFocused: false })
+                                }
+                              />
+                            )}
                           </InputGroup>
                         </FormGroup>
                         <FormGroup
                           className={classnames({
-                            focused: this.state.emailFocused
+                            focused: this.state.emailFocused,
                           })}
                         >
                           <InputGroup className="input-group-alternative">
@@ -685,11 +702,15 @@ class Landing extends React.Component {
                             <Input
                               placeholder="Phone Number"
                               type="tel"
-                              name = 'phoneNumber'
+                              name="phoneNumber"
                               onChange={this.handleChange}
                               value={phoneNumber}
-                              onFocus={e => this.setState({ emailFocused: true })}
-                              onBlur={e => this.setState({ emailFocused: false })}
+                              onFocus={(e) =>
+                                this.setState({ emailFocused: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ emailFocused: false })
+                              }
                             />
                           </InputGroup>
                         </FormGroup>
@@ -701,64 +722,62 @@ class Landing extends React.Component {
                             placeholder="Type a message..."
                             rows="4"
                             type="textarea"
-                            name = 'message'
+                            name="message"
                             onChange={this.handleChange}
                             value={message}
                           />
                         </FormGroup>
-                          {this.state.spinner?
-                            <Button
-                              block
-                              className="btn-round"
-                              color="default"
-                              size="lg"
-                              type="button"
-                              type='submit'
-                            >
-                              Loading...
-                            </Button>
-                          : response === 200  ?
-                              <Button
-                                block
-                                className="btn-round"
-                                color="default"
-                                size="lg"
-                                type="button"
-                              >
-                                Inquiry Submitted
-                              </Button>
-                          : response === 500 || response === 404 ?
-                              <Button
-                                block
-                                className="btn-round"
-                                color="default"
-                                size="lg"
-                                type="button"
-                                type='submit'
-                                >
-                                Error : Re-Submit
-                              </Button>
-                          :   <Button
-                                block
-                                className="btn-round"
-                                color="default"
-                                size="lg"
-                                type="button"
-                                type='submit'
-                                >
-                                Submit Inquiry
-                              </Button>
-                          }
-
+                        {this.state.spinner ? (
+                          <Button
+                            block
+                            className="btn-round"
+                            color="default"
+                            size="lg"
+                            type="button"
+                            type="submit"
+                          >
+                            Loading...
+                          </Button>
+                        ) : response === 200 ? (
+                          <Button
+                            block
+                            className="btn-round"
+                            color="default"
+                            size="lg"
+                            type="button"
+                          >
+                            Inquiry Submitted
+                          </Button>
+                        ) : response === 500 || response === 404 ? (
+                          <Button
+                            block
+                            className="btn-round"
+                            color="default"
+                            size="lg"
+                            type="button"
+                            type="submit"
+                          >
+                            Error : Re-Submit
+                          </Button>
+                        ) : (
+                          <Button
+                            block
+                            className="btn-round"
+                            color="default"
+                            size="lg"
+                            type="button"
+                            type="submit"
+                          >
+                            Submit Inquiry
+                          </Button>
+                        )}
                       </Form>
                     </CardBody>
-                  
                   </Card>
                 </Col>
               </Row>
             </Container>
           </section>
-          
         </main>
         <CardsFooter />
       </>
@@ -766,11 +785,12 @@ class Landing extends React.Component {
   }
 }
 
-const mapStateToProps = createStructuredSelector ({
-  currentUser : selectCurrentUser,
-  error : selectCurrentUserLoginError
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  error: selectCurrentUserLoginError,
 });
 
-export default connect(mapStateToProps,null)(Landing);
-
-
+export default connect(
+  mapStateToProps,
+  null
+)(Landing);

@@ -21,12 +21,15 @@ import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 // reactstrap components
 
-import {connect} from 'react-redux';
-import {selectCartItemsCount} from '../../redux/cart/cart-selectors';
-import {selectCartItems} from '../../redux/cart/cart-selectors';
-import {selectCurrentUser} from '../../redux/user/user-selectors';
-import {createStructuredSelector} from 'reselect'; //bcoz we gonna be pulling stufff off the state
-import {signOutStart} from '../../redux/user/user-actions';
+import { connect } from "react-redux";
+import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
+import { toggleCartHidden } from "../../redux/cart/cart-actions";
+import { selectCartItems } from "../../redux/cart/cart-selectors";
+import { selectCurrentUser } from "../../redux/user/user-selectors";
+import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
+import { signOutStart } from "../../redux/user/user-actions";
+import { selectCartHidden } from "../../redux/cart/cart-selectors";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.jsx";
 import classnames from "classnames";
 import {
   Button,
@@ -45,7 +48,7 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
-/*For modal*/
+  /*For modal*/
   Card,
   CardHeader,
   CardBody,
@@ -55,9 +58,9 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Modal
+  Modal,
 } from "reactstrap";
-import SignIn from '../../views/examples/SignIn';
+import SignIn from "../../views/examples/SignIn";
 class DemoNavbar extends React.Component {
   componentDidMount() {
     let headroom = new Headroom(document.getElementById("navbar-main"));
@@ -66,25 +69,25 @@ class DemoNavbar extends React.Component {
   }
   state = {
     collapseClasses: "",
-    collapseOpen: false
+    collapseOpen: false,
   };
 
   modelState = {};
-  toggleModal = modelState => {
+  toggleModal = (modelState) => {
     this.setState({
-      [modelState]: !this.state[modelState]
+      [modelState]: !this.state[modelState],
     });
   };
 
   onExiting = () => {
     this.setState({
-      collapseClasses: "collapsing-out"
+      collapseClasses: "collapsing-out",
     });
   };
 
   onExited = () => {
     this.setState({
-      collapseClasses: ""
+      collapseClasses: "",
     });
   };
 
@@ -132,8 +135,248 @@ class DemoNavbar extends React.Component {
                     </Col>
                   </Row>
                 </div>
-                <Nav className="navbar-nav-hover align-items-lg-center" navbar>
+                <Nav className="align-items-lg-center" navbar>
+                  <NavItem>
+                    <NavLink
+                      className="nav-link-icon"
+                      href="https://www.facebook.com/creativetim"
+                      id="tooltip333589074"
+                      target="_blank"
+                    >
+                      <i className="fa fa-facebook-square" />
+                      <span className="nav-link-inner--text d-lg-none ml-2">
+                        Facebook
+                      </span>
+                    </NavLink>
+                    <UncontrolledTooltip delay={0} target="tooltip333589074">
+                      Like us on Facebook
+                    </UncontrolledTooltip>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      className="nav-link-icon"
+                      href="https://www.instagram.com/creativetimofficial"
+                      id="tooltip356693867"
+                      target="_blank"
+                    >
+                      <i className="fa fa-instagram" />
+                      <span className="nav-link-inner--text d-lg-none ml-2">
+                        Instagram
+                      </span>
+                    </NavLink>
+                    <UncontrolledTooltip delay={0} target="tooltip356693867">
+                      Follow us on Instagram
+                    </UncontrolledTooltip>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      className="nav-link-icon"
+                      href="https://twitter.com/creativetim"
+                      id="tooltip184698705"
+                      target="_blank"
+                    >
+                      <i className="fa fa-twitter-square" />
+                      <span className="nav-link-inner--text d-lg-none ml-2">
+                        Twitter
+                      </span>
+                    </NavLink>
+                    <UncontrolledTooltip delay={0} target="tooltip184698705">
+                      Follow us on Twitter
+                    </UncontrolledTooltip>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      className="nav-link-icon"
+                      href="https://github.com/creativetimofficial/argon-design-system-react"
+                      id="tooltip112445449"
+                      target="_blank"
+                    >
+                      <i className="fa fa-github" />
+                      <span className="nav-link-inner--text d-lg-none ml-2">
+                        Github
+                      </span>
+                    </NavLink>
+                    <UncontrolledTooltip delay={0} target="tooltip112445449">
+                      Star us on Github
+                    </UncontrolledTooltip>
+                  </NavItem>
+                  {/*                <NavItem className="d-none d-lg-block ml-lg-4">
+                    <Button
+                      className="btn-neutral btn-icon"
+                      color="default"
+                      href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-navbar"
+                      target="_blank"
+                    >
+                      <span className="btn-inner--icon">
+                        <i className="fa fa-cloud-download mr-2" />
+                      </span>
+                      <span className="nav-link-inner--text ml-1">
+                        Download
+                      </span>
+                    </Button>
+                  </NavItem> */}
+                </Nav>
+                <Nav
+                  className="navbar-nav-hover align-items-lg-center  ml-lg-auto"
+                  navbar
+                >
+                  {this.props.currentUser ? (
+                    <UncontrolledDropdown nav onClick={this.props.signOutStart}>
+                      <DropdownToggle nav>
+                        <i className="ni ni-collection d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">Sign Out</span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  ) : (
+                    <UncontrolledDropdown
+                      nav
+                      onClick={() => this.toggleModal("formModal")}
+                    >
+                      <DropdownToggle nav>
+                        <i className="ni ni-collection d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">Sign In</span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  )}
+
                   <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      <i className="ni ni-collection d-lg-none mr-1" />
+                      <span className="nav-link-inner--text">Contact Us</span>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem
+                        onClick={() => this.toggleModal("notificationModal")}
+                      >
+                        Phone
+                      </DropdownItem>
+                      <DropdownItem to="/login-page" tag={Link}>
+                        WhatsApp
+                      </DropdownItem>
+                      <DropdownItem to="/register-page" tag={Link}>
+                        Facebook
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      <i className="ni ni-ui-04 d-lg-none mr-1" />
+                      <span className="nav-link-inner--text">Orders</span>
+                    </DropdownToggle>
+                  </UncontrolledDropdown>
+
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      <i className="ni ni-ui-04 d-lg-none mr-1" />
+                      <span className="nav-link-inner--text">Wishlist</span>
+                    </DropdownToggle>
+                  </UncontrolledDropdown>
+
+                  {this.props.currentUser ? (
+                    <UncontrolledDropdown
+                      nav
+                      onClick={this.props.toggleCartHidden}
+                    >
+                      <DropdownToggle nav>
+                        <i className="ni ni-ui-04 d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">
+                          Cart ({this.props.itemCount})
+                        </span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  ) : (
+                    <UncontrolledDropdown nav>
+                      <DropdownToggle nav>
+                        <i className="ni ni-ui-04 d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">Cart</span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  )}
+
+                  {this.props.hidden ? null : <CartDropdown /> // if hidden render nothing else render cart.
+                  }
+                  <Modal
+                    className="modal-dialog-centered"
+                    size="sm"
+                    isOpen={this.state.formModal}
+                    toggle={() => this.toggleModal("formModal")}
+                  >
+                    <SignIn />
+                  </Modal>
+                  <Modal
+                    className="modal-dialog-centered modal-danger"
+                    contentClassName="bg-gradient-danger"
+                    isOpen={this.state.notificationModal}
+                    toggle={() => this.toggleModal("notificationModal")}
+                  >
+                    <div className="modal-header">
+                      <h6 className="modal-title" id="modal-title-notification">
+                        Your call is greatly appreciated.
+                      </h6>
+                      <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                        onClick={() => this.toggleModal("notificationModal")}
+                      >
+                        <span aria-hidden={true}>×</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <div className="py-3 text-center">
+                        <i className="ni ni-mobile-button ni-3x" />
+                        <h4 className="heading mt-4">Give us a call</h4>
+                        <p>+27 7XX 8YYY</p>
+                      </div>
+                    </div>
+                    <div className="modal-footer">
+                      <Button
+                        className="btn-white"
+                        color="default"
+                        type="button"
+                        onClick={() => this.toggleModal("notificationModal")}
+                      >
+                        Ok, Got it
+                      </Button>
+                      <Button
+                        className="text-white ml-auto"
+                        color="link"
+                        data-dismiss="modal"
+                        type="button"
+                        onClick={() => this.toggleModal("notificationModal")}
+                      >
+                        Close
+                      </Button>
+                    </div>
+                  </Modal>
+                </Nav>
+              </UncontrolledCollapse>
+            </Container>
+          </Navbar>
+        </header>
+      </>
+    );
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  signOutStart: () => dispatch(signOutStart()),
+  toggleCartHidden: () => dispatch(toggleCartHidden()), //function that triggers toggle
+});
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  itemCount: selectCartItemsCount,
+  cartItems: selectCartItems,
+  hidden: selectCartHidden, //to show or hide the cart.
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DemoNavbar);
+
+/*                  <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
                       <span className="nav-link-inner--text">Cart</span>
@@ -199,192 +442,4 @@ class DemoNavbar extends React.Component {
                         </Media>
                       </div>
                     </DropdownMenu>
-                  </UncontrolledDropdown>
-
-                  {this.props.currentUser?
-                    <UncontrolledDropdown nav onClick = {this.props.signOutStart}>
-                      <DropdownToggle nav>
-                        <i className="ni ni-collection d-lg-none mr-1" />
-                        <span className="nav-link-inner--text">Sign Out</span>
-                      </DropdownToggle>
-                    </UncontrolledDropdown> 
-                  : <UncontrolledDropdown nav  onClick={() => this.toggleModal("formModal")}>
-                      <DropdownToggle nav>
-                        <i className="ni ni-collection d-lg-none mr-1" />
-                        <span className="nav-link-inner--text">Sign In</span>
-                      </DropdownToggle>
-                    </UncontrolledDropdown> 
-                  }
-
-                  <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
-                      <i className="ni ni-collection d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Contact Us</span>
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem onClick={() => this.toggleModal("notificationModal")}>
-                        Phone
-                      </DropdownItem>
-                      <DropdownItem to="/login-page" tag={Link}>
-                        WhatsApp
-                      </DropdownItem>
-                      <DropdownItem to="/register-page" tag={Link}>
-                        Facebook
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-                 
-                  <Modal
-                      className="modal-dialog-centered"
-                      size="sm"
-                      isOpen={this.state.formModal}
-                      toggle={() => this.toggleModal("formModal")}
-                    >
-                    <SignIn/>
-                  </Modal>
-                  <Modal
-                      className="modal-dialog-centered modal-danger"
-                      contentClassName="bg-gradient-danger"
-                      isOpen={this.state.notificationModal}
-                      toggle={() => this.toggleModal("notificationModal")}
-                    >
-                      <div className="modal-header">
-                        <h6 className="modal-title" id="modal-title-notification">
-                          Your call is greatly appreciated.
-                        </h6>
-                        <button
-                          aria-label="Close"
-                          className="close"
-                          data-dismiss="modal"
-                          type="button"
-                          onClick={() => this.toggleModal("notificationModal")}
-                        >
-                          <span aria-hidden={true}>×</span>
-                        </button>
-                      </div>
-                      <div className="modal-body">
-                        <div className="py-3 text-center">
-                          <i className="ni ni-mobile-button ni-3x" />
-                          <h4 className="heading mt-4">Give us a call</h4>
-                          <p>
-                            +27 7XX 8YYY
-                          </p>
-                        </div>
-                      </div>
-                      <div className="modal-footer">
-                        <Button className="btn-white" color="default" type="button" onClick={() => this.toggleModal("notificationModal")}>
-                          Ok, Got it
-                        </Button>
-                        <Button
-                          className="text-white ml-auto"
-                          color="link"
-                          data-dismiss="modal"
-                          type="button"
-                          onClick={() => this.toggleModal("notificationModal")}
-                        >
-                          Close
-                        </Button>
-                      </div>
-                  </Modal>
-          
-                </Nav>
-                <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://www.facebook.com/creativetim"
-                      id="tooltip333589074"
-                      target="_blank"
-                    >
-                      <i className="fa fa-facebook-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Facebook
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip333589074">
-                      Like us on Facebook
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://www.instagram.com/creativetimofficial"
-                      id="tooltip356693867"
-                      target="_blank"
-                    >
-                      <i className="fa fa-instagram" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Instagram
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip356693867">
-                      Follow us on Instagram
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://twitter.com/creativetim"
-                      id="tooltip184698705"
-                      target="_blank"
-                    >
-                      <i className="fa fa-twitter-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Twitter
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip184698705">
-                      Follow us on Twitter
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://github.com/creativetimofficial/argon-design-system-react"
-                      id="tooltip112445449"
-                      target="_blank"
-                    >
-                      <i className="fa fa-github" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Github
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip112445449">
-                      Star us on Github
-                    </UncontrolledTooltip>
-                  </NavItem>
-{  /*                <NavItem className="d-none d-lg-block ml-lg-4">
-                    <Button
-                      className="btn-neutral btn-icon"
-                      color="default"
-                      href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-navbar"
-                      target="_blank"
-                    >
-                      <span className="btn-inner--icon">
-                        <i className="fa fa-cloud-download mr-2" />
-                      </span>
-                      <span className="nav-link-inner--text ml-1">
-                        Download
-                      </span>
-                    </Button>
-                  </NavItem> */}
-                </Nav>
-              </UncontrolledCollapse>
-            </Container>
-          </Navbar>
-        </header>
-      </>
-    );
-  }
-}
-
-const mapDispatchToProps = dispatch => ({
-  signOutStart: () => dispatch(signOutStart())
-});
-const mapStateToProps = createStructuredSelector ({
-  currentUser : selectCurrentUser,
-  itemCount: selectCartItemsCount,
-  cartItems: selectCartItems
-});
-
-export default connect(mapStateToProps,mapDispatchToProps)(DemoNavbar);
+                  </UncontrolledDropdown>*/
