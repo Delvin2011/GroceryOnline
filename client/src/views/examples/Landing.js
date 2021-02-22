@@ -26,7 +26,10 @@ import {
   selectCurrentUserLoginError,
 } from "../../redux/user/user-selectors";
 import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
-
+import Baby from "assets/img/theme/Baby.png";
+import Cereals from "assets/img/theme/Cereals.png";
+import Drinks from "assets/img/theme/Drinks.png";
+import DryFood from "assets/img/theme/DryFood.png";
 // reactstrap components
 import {
   Badge,
@@ -43,6 +46,7 @@ import {
   Container,
   Row,
   Col,
+  UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
@@ -122,6 +126,33 @@ class Landing extends React.Component {
     } = this.state;
     const { currentUser } = this.props;
 
+    const items = [
+      {
+        src: Baby,
+        altText: "",
+        caption: "",
+        header: "",
+      },
+      {
+        src: Cereals,
+        altText: "",
+        caption: "",
+        header: "",
+      },
+      {
+        src: Drinks,
+        altText: "",
+        caption: "",
+        header: "",
+      },
+      {
+        src: DryFood,
+        altText: "",
+        caption: "",
+        header: "",
+      },
+    ];
+
     return (
       <>
         <DemoNavbar />
@@ -171,10 +202,13 @@ class Landing extends React.Component {
                           <span className="btn-inner--icon mr-1">
                             <i className="ni ni-cloud-download-95" />
                           </span>
-                          <span className="btn-inner--text">
-                            Delivery Routes
-                          </span>
+                          <span className="btn-inner--text">View Combos</span>
                         </Button>
+                      </div>
+                    </Col>
+                    <Col className="mb-lg-auto" lg="6">
+                      <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
+                        <UncontrolledCarousel items={items} />
                       </div>
                     </Col>
                   </Row>
