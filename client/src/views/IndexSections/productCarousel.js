@@ -32,9 +32,9 @@ export default function Carousel(props) {
   const items = [
     {
       src: props.item.imageUrl,
-      altText: props.item.Description,
-      caption: props.item.Description,
-      header: props.item.Description,
+      altText: "",
+      caption: "",
+      header: "",
     },
     {
       src: props.item.imageUrl2,
@@ -45,14 +45,14 @@ export default function Carousel(props) {
     {
       src: props.item.imageUrl3,
       altText: "",
-      caption: "hjukhjkhjkhj",
-      header: "hjkhjkjhkjhk",
+      caption: "",
+      header: "",
     },
     {
       src: props.item.imageUrl4,
-      altText: "hjkjkjhk",
-      caption: "jhhhkjhk",
-      header: "kjkjhkhjkjhkhjkjkh",
+      altText: "",
+      caption: "",
+      header: "",
     },
   ];
   return (

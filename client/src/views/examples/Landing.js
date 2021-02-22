@@ -30,6 +30,8 @@ import Baby from "assets/img/theme/Baby.png";
 import Cereals from "assets/img/theme/Cereals.png";
 import Drinks from "assets/img/theme/Drinks.png";
 import DryFood from "assets/img/theme/DryFood.png";
+
+import PopularCarousel from "../IndexSections/popularCarousel.jsx";
 // reactstrap components
 import {
   Badge,
@@ -459,6 +461,19 @@ class Landing extends React.Component {
               </Row>
             </Container>
           </section>
+
+          <section className="section section-lg pt-lg-0 mt--500">
+            <Container fluid>
+              <Row className="text-center justify-content-center">
+                <div>
+                  <h2 className="display-3 text-black">Popular Products</h2>
+                </div>
+              </Row>
+
+              <PopularCarousel />
+            </Container>
+          </section>
+
           <section className="section section-lg">
             <Container>
               <Row className="row-grid align-items-center">
