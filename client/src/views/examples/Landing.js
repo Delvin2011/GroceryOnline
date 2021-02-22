@@ -462,8 +462,8 @@ class Landing extends React.Component {
             </Container>
           </section>
 
-          <section className="section section-lg pt-lg-0 mt--500">
-            <Container fluid>
+          <section className="section section-lg pt-lg-0  pb-lg-0 mt--500">
+            <Container>
               <Row className="text-center justify-content-center">
                 <div>
                   <h2 className="display-3 text-black">Popular Products</h2>

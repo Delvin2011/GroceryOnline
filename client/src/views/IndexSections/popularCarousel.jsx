@@ -1,5 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
+import { Link } from "react-router-dom";
+
 import "react-multi-carousel/lib/styles.css";
 import DryFood from "assets/img/theme/DryFood.png";
 import Baby from "assets/img/theme/Baby.png";
@@ -10,7 +12,8 @@ import {
   Button,
   Card,
   CardBody,
-  CardImg, //,
+  CardImg,
+  Row, //,
   /* FormGroup,
     Input,
     InputGroupAddon,
@@ -41,53 +44,209 @@ export default function PopulaCarousel(props) {
   return (
     <>
       <Carousel responsive={responsive}>
-        <div>
-          <CardImg alt="..." src={DryFood} />
-        </div>
-        <div>
-          <CardImg alt="..." src={DryFood} />
-        </div>
-        <div>
-          <CardImg alt="..." src={DryFood} />
-        </div>
-        <div>
-          <CardImg alt="..." src={DryFood} />
-        </div>
-        <div>
-          <div>
-            <CardImg alt="..." src={Baby} />
-          </div>
-        </div>
-        <div>
-          {" "}
-          <div>
-            <CardImg alt="..." src={Cereals} />
-          </div>
-        </div>
-        <div>
-          {" "}
-          <div>
-            <CardImg alt="..." src={Drinks} />
-          </div>
-        </div>
-        <div>
-          {" "}
-          <div>
-            <CardImg alt="..." src={Drinks} />
-          </div>
-        </div>
-        <div>
-          {" "}
-          <div>
-            <CardImg alt="..." src={Drinks} />
-          </div>
-        </div>
-        <div>
-          {" "}
-          <div>
-            <CardImg alt="..." src={Drinks} />
-          </div>
-        </div>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={DryFood} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={Baby} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={Cereals} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={DryFood} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={Cereals} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={DryFood} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
+        <Card className="card-lift--hover shadow border-0">
+          <CardBody className="py-5">
+            <Link to="/landing-page">
+              <CardImg alt="..." src={DryFood} />
+            </Link>
+            <div className="mt-4">
+              <Badge color="success" pill className="mr-1">
+                Cooking Oil 2L
+              </Badge>
+              <Badge color="success" pill className="mr-1">
+                R 20
+              </Badge>
+            </div>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              Add
+            </Button>
+            <Button
+              className="mt-4"
+              color="primary"
+              href="/collection-page/backpacks"
+            >
+              View
+            </Button>
+          </CardBody>
+        </Card>
       </Carousel>
     </>
   );
