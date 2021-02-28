@@ -269,7 +269,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="primary"
-                            href="/collection-page/backpacks"
+                            href="/collection-page/cooking-ingredients"
                           >
                             View more
                           </Button>
@@ -305,8 +305,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="success"
-                            href="/collection-page/shorts"
-                            onClick={(e) => e.preventDefault()}
+                            href="/collection-page/breakfast-cereals"
                           >
                             View more
                           </Button>
@@ -342,8 +341,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="warning"
-                            href="/collection-page/socks"
-                            onClick={(e) => e.preventDefault()}
+                            href="/collection-page/dry-foods"
                           >
                             View more
                           </Button>
@@ -354,7 +352,7 @@ class Landing extends React.Component {
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-primary text-uppercase">
-                            Healthy & Beauty
+                            Health & Beauty
                           </h6>
                           <Link to="/landing-page">
                             <CardImg
@@ -379,7 +377,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="primary"
-                            href="/collection-page/balls"
+                            href="/collection-page/healthy&beauty"
                           >
                             view more
                           </Button>
@@ -390,7 +388,7 @@ class Landing extends React.Component {
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-success text-uppercase">
-                            Drinks
+                            Cleaning-Detergents
                           </h6>
                           <Link to="/landing-page">
                             <CardImg
@@ -415,7 +413,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="success"
-                            href="/collection-page/boots"
+                            href="/collection-page/cleaning-detergents"
                           >
                             View more
                           </Button>
@@ -449,7 +447,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="warning"
-                            href="/collection-page/jerseys"
+                            href="/collection-page/baby"
                           >
                             View more
                           </Button>

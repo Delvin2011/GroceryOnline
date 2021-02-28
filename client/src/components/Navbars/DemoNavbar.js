@@ -48,6 +48,7 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
+  CardImg,
   /*For modal*/
   Card,
   CardHeader,
@@ -104,6 +105,7 @@ class DemoNavbar extends React.Component {
               <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
                 <img
                   alt="..."
+                  class="img-responsive"
                   src={require("assets/img/brand/argon-react-white.png")}
                 />
               </NavbarBrand>

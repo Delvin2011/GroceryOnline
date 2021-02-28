@@ -1,21 +1,21 @@
-import firebase from 'firebase/app'; //firebase keyword is going to give us access to the below
-import 'firebase/firestore'; //import dependances for the database
-import 'firebase/auth'; //import dependances for the authentification
+import firebase from "firebase/app"; //firebase keyword is going to give us access to the below
+import "firebase/firestore"; //import dependances for the database
+import "firebase/auth"; //import dependances for the authentification
 
 const config = {
-    apiKey: "AIzaSyCplMBR0PDYnSYWkQMJQwnVITsBbajyk-A",
-    authDomain: "lavie-db.firebaseapp.com",
-    databaseURL: "https://lavie-db.firebaseio.com",
-    projectId: "lavie-db",
-    storageBucket: "",
-    messagingSenderId: "792040743338",
-    appId: "1:792040743338:web:336ca3f57c94719b7c4bd3"
-  };
+  apiKey: "AIzaSyCplMBR0PDYnSYWkQMJQwnVITsBbajyk-A",
+  authDomain: "lavie-db.firebaseapp.com",
+  databaseURL: "https://lavie-db.firebaseio.com",
+  projectId: "lavie-db",
+  storageBucket: "",
+  messagingSenderId: "792040743338",
+  appId: "1:792040743338:web:336ca3f57c94719b7c4bd3",
+};
 
 firebase.initializeApp(config); //firebase initialisation
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-  if(!userAuth) return;
+  if (!userAuth) return;
 
   const userRef = firestore.doc(`users/${userAuth.uid}`); //string interpolation. Checking if the user object from the authentication, exists in the database.
   //uid is the dynamically generated ID string that google made when authentication the user using google signIN
@@ -24,15 +24,13 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   //the 'exists' on the snapShot tells us if their is any user data.
   // if no data, create data using the user.Auth object (take from the object what we need to stroe in the database) and put in users collection.
-  
+
   //const collectionRef = firestore.collection('users'); //query collection of users in firebase
   //const collectionSnapshot = await collectionRef.get(); //docs, empty, size. - gives us an array of docs inside of the collection.
   //console.log({collection: collectionSnapshot.docs.map(doc => doc.data())});
-  
-  
-  
-  if(!snapShot.exists) {
-    const {displayName, email} = userAuth;
+
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
     const createdAt = new Date(); //the time when the is created.
 
     //asynchronous request to the database to store the data.
@@ -42,24 +40,25 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       });
-
-    } catch (error){
-  console.log('error creating user', error.message)
+    } catch (error) {
+      console.log("error creating user", error.message);
     }
   }
 
- // console.log(snapShot);
+  // console.log(snapShot);
   return userRef;
-}
+};
 
-export const getUserCartRef = async userId => {
-  const cartsRef = firestore.collection('bookings').where('userId', '==', userId);
+export const getUserCartRef = async (userId) => {
+  const cartsRef = firestore
+    .collection("shoko-carts")
+    .where("userId", "==", userId);
   const snapShot = await cartsRef.get();
 
   if (snapShot.empty) {
-    const cartDocRef = firestore.collection('bookings').doc();
+    const cartDocRef = firestore.collection("shoko-carts").doc();
     await cartDocRef.set({ userId, cartItems: [] });
     return cartDocRef;
   } else {
@@ -67,63 +66,64 @@ export const getUserCartRef = async userId => {
   }
 };
 
-
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
   const collectionRef = firestore.collection(collectionKey);
 
   const batch = firestore.batch();
-  objectsToAdd.forEach(obj => {
-    const newDocRef = collectionRef.doc();//we want to get the doc at an empty string. Asking firebase to give a new doc ref and randomly generete an ID
-    batch.set(newDocRef, obj)
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc(); //we want to get the doc at an empty string. Asking firebase to give a new doc ref and randomly generete an ID
+    batch.set(newDocRef, obj);
   });
-return await batch.commit(); //will fire off the batch request and returns a promise
+  return await batch.commit(); //will fire off the batch request and returns a promise
 
   //console.log(collectionRef); //firestore will always return a ref and when commit succeeds it will come back and resolve a void value/null
-}
+};
 
-export const convertCollectionsSnapshotToMap = collections => {
-  const transformedCollection = collections.docs.map(doc => {
-    const {title, items} = doc.data();
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, routeName, items } = doc.data();
 
     return {
-      routeName: encodeURI(title.toLowerCase()), //javascript - pass it any string and it will return any characters URL can't handle/process e.g symbol 
+      routeName: encodeURI(routeName.toLowerCase()), //javascript - pass it any string and it will return any characters URL can't handle/process e.g symbol
       id: doc.id,
       title,
-      items
-    }
+      items,
+    };
   });
 
   //the initla object goew into the 1st new collection, and sets the 1st value equal to the title but in lowe case e.g hats
   // returns hats and goes intno the 2nd object.
   //until we have an object where the titles of all the 5 collection objects are the keys and they equal their respective objects
-  return transformedCollection.reduce((accumulator,collection) => {
-    accumulator[collection.title.toLowerCase()] = collection;
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.routeName.toLowerCase()] = collection;
     return accumulator;
   }, {});
-  
-  //console.log(transformedCollection);
-}
 
-export const getCurrentUser = ()=> {
+  //console.log(transformedCollection);
+};
+
+export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       unsubscribe();
       resolve(userAuth);
-    }, reject)
+    }, reject);
   });
-}
-  //required for google authentication
+};
+//required for google authentication
 
 export const auth = firebase.auth(); //.auth() from import 'firebase/auth'
 export const firestore = firebase.firestore();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider(); //access to the class GoogleAuthProvider
-googleProvider.setCustomParameters({prompt: 'select_account'}); // we always want to trigger the Google popup whenever we use the GoogleAuthProvider for authentication & SignIn
+googleProvider.setCustomParameters({ prompt: "select_account" }); // we always want to trigger the Google popup whenever we use the GoogleAuthProvider for authentication & SignIn
 export const signInWithGoogle = () => auth.signInWithPopup(googleProvider); //trigger the popup only for signin with Google
 
 //enable signIn with google on Firebase by clicking Develop>Authentication>Sign-in method>Google
 export default firebase;
-
 
 /*export const getUserDecorCartRef = async userId => {
   const cartsRef = firestore.collection('DecorCart').where('userId', '==', userId);
