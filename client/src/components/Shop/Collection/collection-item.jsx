@@ -28,38 +28,36 @@ import {
 const CollectionItem = ({ item, addItem, history }) => {
   const { name, price, imageUrl } = item;
   return (
-    <div>
-      <Card className="card-lift--hover shadow border-0">
-        <CardBody className="py-5">
-          <Link to="/landing-page">
-            <CardImg alt="..." src={imageUrl} />
-          </Link>
-          <div className="mt-2">
-            <Badge color="success" pill className="mr-1 text-capitalize">
-              {name}
-            </Badge>
-            <Badge color="white" pill className="mr-1"></Badge>
-            <Badge color="white" pill className="mr-1"></Badge>
-            <Badge color="success" pill className="mr-1">
-              R {price}
-            </Badge>
-          </div>
-          <div className="mt-2">
-            <Button color="primary" onClick={() => addItem(item)}>
-              Add
-            </Button>
-            <Button
-              color="primary"
-              onClick={() => {
-                history.push("/product-page", item);
-              }}
-            >
-              View
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
-    </div>
+    <Card className="card-lift--hover shadow border-0">
+      <CardBody className="py-5">
+        <Link to="/landing-page">
+          <CardImg alt="..." src={imageUrl} />
+        </Link>
+        <div className="mt-2">
+          <Badge color="success" pill className="mr-1 text-capitalize">
+            {name}
+          </Badge>
+          <Badge color="white" pill className="mr-1"></Badge>
+          <Badge color="white" pill className="mr-1"></Badge>
+          <Badge color="success" pill className="mr-1">
+            R {price}
+          </Badge>
+        </div>
+        <div className="mt-2">
+          <Button color="primary" onClick={() => addItem(item)}>
+            Add
+          </Button>
+          <Button
+            color="primary"
+            onClick={() => {
+              history.push("/product-page", item);
+            }}
+          >
+            View
+          </Button>
+        </div>
+      </CardBody>
+    </Card>
   );
 };
 

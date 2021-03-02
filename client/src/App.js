@@ -18,11 +18,11 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import { connect } from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-import {checkUserSession} from './redux/user/user-actions';
-import {selectCurrentUser} from './redux/user/user-selectors';
-
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { checkUserSession } from "./redux/user/user-actions";
+import { selectCurrentUser } from "./redux/user/user-selectors";
+import { fetchCollectionsStart } from "./redux/shop/shop-actions";
 /*import "assets/vendor/nucleo/css/nucleo.css";
 import "assets/vendor/font-awesome/css/font-awesome.min.css";
 import "assets/scss/argon-design-system-react.scss?v1.1.0";*/
@@ -33,69 +33,72 @@ import "./assets/scss/argon-design-system-react.scss?v1.1.0";
 
 import Index from "views/Index.js";
 import Landing from "views/examples/Landing.js";
+import LandingPageContainer from "views/examples/LandingPageContainer.js";
+
 //import Login from "views/examples/Login.js";
 import Profile from "views/examples/Profile.js";
 import Register from "views/examples/Register.js";
 import Product from "views/examples/Product.js";
 import Checkout from "views/examples/Checkout.js";
 import AboutUs from "views/examples/AboutUs.js";
-import Shop from 'views/shop/shop.jsx';
-
+import Shop from "views/shop/shop.jsx";
 
 class App extends React.Component {
+  unsubscribeFromAuth = null;
 
-    unsubscribeFromAuth = null;
-  
-    componentDidMount() {
-      const {checkUserSession} = this.props;
-      checkUserSession();
-    }
+  componentDidMount() {
+    const { checkUserSession, fetchCollectionsStart } = this.props;
+    checkUserSession();
+    fetchCollectionsStart();
+  }
 
-    render() {
-        return (
-          <div>
-    <Switch>
-      <Route path="/" exact render={props => <Landing {...props} />} />
-      <Route path="/checkout-page" exact render={props => <Checkout {...props} />} />
-      <Route path="/collection-page"  component = {Shop}/>
-      <Route path="/product-page"  component = {Product}/>
-      <Route path="/aboutUs-page"  component = {AboutUs}/>
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route path="/" component={LandingPageContainer} />
+          <Route
+            path="/checkout-page"
+            exact
+            render={(props) => <Checkout {...props} />}
+          />
+          <Route path="/collection-page" component={Shop} />
+          <Route path="/product-page" component={Product} />
+          <Route path="/aboutUs-page" component={AboutUs} />
 
-      <Route
-        path="/landing-page"
-        exact
-        render={props => <Landing {...props} />}
-      />
-      <Route
-        path="/profile-page"
-        exact
-        render={props => <Profile {...props} />}
-      />
-      <Route
-        path="/register-page"
-        exact
-        render={props => <Register {...props} />}
-      />
-      <Redirect to="/" />
-    </Switch>
-    </div>
+          <Route path="/landing-page" component={LandingPageContainer} />
+          <Route
+            path="/profile-page"
+            exact
+            render={(props) => <Profile {...props} />}
+          />
+          <Route
+            path="/register-page"
+            exact
+            render={(props) => <Register {...props} />}
+          />
+          <Redirect to="/" />
+        </Switch>
+      </div>
     );
   }
 }
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
 
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+});
+//App doesn't need the current user state, apart from the header component, it only sets the default state.
+//Therefore passing null.
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
 
-const mapStateToProps = createStructuredSelector ({
-    currentUser: selectCurrentUser
-  });
-  
-  const mapDispatchToProps = dispatch => ({
-    checkUserSession: () => dispatch(checkUserSession())
-  });
-  //App doesn't need the current user state, apart from the header component, it only sets the default state.
-  //Therefore passing null.
-  export default connect(mapStateToProps,mapDispatchToProps)(App);
-
-  /*login-page" - about us page
+/*login-page" - about us page
       <Route path="/login-page" exact render={props => <Login {...props} />} /> 
   */

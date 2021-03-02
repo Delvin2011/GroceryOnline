@@ -25,6 +25,7 @@ import {
   selectCurrentUser,
   selectCurrentUserLoginError,
 } from "../../redux/user/user-selectors";
+import { fetchCollectionsStart } from "../../redux/shop/shop-actions";
 import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
 import Baby from "assets/img/theme/Baby.png";
 import Cereals from "assets/img/theme/Cereals.png";
@@ -78,6 +79,9 @@ class Landing extends React.Component {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
+
+    //const { fetchCollectionsStart } = this.props;
+    //fetchCollectionsStart();
   }
 
   handleSubmit = async (event) => {
@@ -154,6 +158,10 @@ class Landing extends React.Component {
         header: "",
       },
     ];
+
+    const { match } = this.props;
+    //oonly renders withspinner if isCollectionLoaded is true
+    console.log(match);
 
     return (
       <>
@@ -831,6 +839,10 @@ class Landing extends React.Component {
     );
   }
 }
+
+/*const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+});*/
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

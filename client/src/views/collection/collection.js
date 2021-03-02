@@ -33,7 +33,7 @@ const CollectionPage = ({ props, collection }) => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, []);
-  console.log(collection);
+  //console.log(collection);
   const { title, items } = collection;
   const { ...rest } = props;
   return (
