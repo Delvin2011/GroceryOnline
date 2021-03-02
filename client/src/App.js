@@ -56,7 +56,7 @@ class App extends React.Component {
     return (
       <div>
         <Switch>
-          <Route path="/" component={LandingPageContainer} />
+          <Route path="/" exact component={LandingPageContainer} />
           <Route
             path="/checkout-page"
             exact
@@ -66,7 +66,7 @@ class App extends React.Component {
           <Route path="/product-page" component={Product} />
           <Route path="/aboutUs-page" component={AboutUs} />
 
-          <Route path="/landing-page" component={LandingPageContainer} />
+          <Route path="/landing-page" exact component={LandingPageContainer} />
           <Route
             path="/profile-page"
             exact
