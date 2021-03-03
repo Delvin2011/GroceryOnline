@@ -29,24 +29,51 @@ import {
   TabContent,
   TabPane,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 class TabsSection extends React.Component {
   state = {
     iconTabs: 1,
-    plainTabs: 1
+    plainTabs: 1,
   };
+
   toggleNavs = (e, state, index) => {
     e.preventDefault();
     this.setState({
-      [state]: index
+      [state]: index,
     });
   };
+
+  splitsDescription = (description) => {
+    var result = description.split(".");
+    var list = [];
+    console.log(result.length);
+    for (var i = 0; i < result.length - 1; i++) {
+      list.push(<li>{result[i]}.</li>);
+    }
+    return list;
+  };
+
+  splitproductInfo = (productInfo, size) => {
+    var result = productInfo.split(";");
+    var infoList = [];
+    for (var i = 0; i < result.length; i++) {
+      var info = result[i]; //.split("~");
+      infoList.push(<li>{info.toString().replace("~", " - ")}.</li>);
+    }
+    infoList.push(<li>Size - {size}.</li>);
+    return infoList;
+  };
+
   render() {
+    const { item } = this.props;
+    console.log(item);
     return (
       <>
-        <h3 className="h4 text-success font-weight-bold text-uppercase mb-2">Product Details</h3>
+        <h3 className="h4 text-success font-weight-bold text-uppercase mb-2">
+          Product Details
+        </h3>
         <Row className="justify-content-center">
           <Col lg="8">
             {/* Tabs with icons */}
@@ -61,9 +88,9 @@ class TabsSection extends React.Component {
                   <NavLink
                     aria-selected={this.state.iconTabs === 1}
                     className={classnames("mb-sm-3 mb-md-0", {
-                      active: this.state.iconTabs === 1
+                      active: this.state.iconTabs === 1,
                     })}
-                    onClick={e => this.toggleNavs(e, "iconTabs", 1)}
+                    onClick={(e) => this.toggleNavs(e, "iconTabs", 1)}
                     href="#pablo"
                     role="tab"
                   >
@@ -75,9 +102,9 @@ class TabsSection extends React.Component {
                   <NavLink
                     aria-selected={this.state.iconTabs === 2}
                     className={classnames("mb-sm-3 mb-md-0", {
-                      active: this.state.iconTabs === 2
+                      active: this.state.iconTabs === 2,
                     })}
-                    onClick={e => this.toggleNavs(e, "iconTabs", 2)}
+                    onClick={(e) => this.toggleNavs(e, "iconTabs", 2)}
                     href="#pablo"
                     role="tab"
                   >
@@ -89,9 +116,9 @@ class TabsSection extends React.Component {
                   <NavLink
                     aria-selected={this.state.iconTabs === 3}
                     className={classnames("mb-sm-3 mb-md-0", {
-                      active: this.state.iconTabs === 3
+                      active: this.state.iconTabs === 3,
                     })}
-                    onClick={e => this.toggleNavs(e, "iconTabs", 3)}
+                    onClick={(e) => this.toggleNavs(e, "iconTabs", 3)}
                     href="#pablo"
                     role="tab"
                   >
@@ -106,24 +133,12 @@ class TabsSection extends React.Component {
                 <TabContent activeTab={"iconTabs" + this.state.iconTabs}>
                   <TabPane tabId="iconTabs1">
                     <p className="description">
-                      Raw denim you probably haven't heard of them jean shorts
-                      Austin. Nesciunt tofu stumptown aliqua, retro synth master
-                      cleanse. Mustache cliche tempor, williamsburg carles vegan
-                      helvetica. Reprehenderit butcher retro keffiyeh
-                      dreamcatcher synth.
-                    </p>
-                    <p className="description">
-                      Raw denim you probably haven't heard of them jean shorts
-                      Austin. Nesciunt tofu stumptown aliqua, retro synth master
-                      cleanse.
+                      {this.splitsDescription(item.fullDescription)}
                     </p>
                   </TabPane>
                   <TabPane tabId="iconTabs2">
                     <p className="description">
-                      Cosby sweater eu banh mi, qui irure terry richardson ex
-                      squid. Aliquip placeat salvia cillum iphone. Seitan
-                      aliquip quis cardigan american apparel, butcher voluptate
-                      nisi qui.
+                      {this.splitproductInfo(item.productInfo, item.size)}
                     </p>
                   </TabPane>
                   <TabPane tabId="iconTabs3">
@@ -139,7 +154,6 @@ class TabsSection extends React.Component {
               </CardBody>
             </Card>
           </Col>
-
         </Row>
       </>
     );

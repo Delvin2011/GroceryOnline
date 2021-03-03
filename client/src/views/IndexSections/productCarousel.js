@@ -35,7 +35,7 @@ export default function Carousel(props) {
       altText: "",
       caption: "",
       header: "",
-    },
+    } /*,
     {
       src: props.item.imageUrl2,
       altText: "",
@@ -53,7 +53,7 @@ export default function Carousel(props) {
       altText: "",
       caption: "",
       header: "",
-    },
+    },*/,
   ];
   return (
     <>
@@ -69,10 +69,10 @@ export default function Carousel(props) {
         <Container className="py-md">
           <Row className="justify-content-between align-items-center">
             <Col className="mb-5 mb-lg-0" lg="5">
-              <h1 className="text-white font-weight-light">
+              <h3 className="text-white font-weight-light">
                 {props.item.name}
-              </h1>
-              <p className="lead text-white mt-4">{props.item.Description}</p>
+              </h3>
+              <p className="lead text-white mt-4">{props.item.description}</p>
               <div>
                 <Badge color="success" pill className="mr-1">
                   Price : R {props.item.price}
@@ -98,7 +98,7 @@ export default function Carousel(props) {
             </Col>
             <Col className="mb-lg-auto" lg="6">
               <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
-                <UncontrolledCarousel items={items} />
+                <UncontrolledCarousel items={items} className="md" />
               </div>
             </Col>
           </Row>

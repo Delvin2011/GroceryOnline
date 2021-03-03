@@ -27,13 +27,13 @@ import CardsFooter from "components/Footers/CardsFooter.js";
 // index page sections
 import Carousel from "../IndexSections/productCarousel.js";
 import Tabs from "../IndexSections/Tabs.js";
-import { connect } from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-import { addItem } from '../../redux/cart/cart-actions';
-import {selectCurrentUser} from '../../redux/user/user-selectors';
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { addItem } from "../../redux/cart/cart-actions";
+import { selectCurrentUser } from "../../redux/user/user-selectors";
 //import {signOutStart} from '../../redux/user/user-actions';
 //import SignIn from "components/sign-in/sign-in";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 const Product = (props) => {
   var items = props.history.location.state; //props.location.state[0];
@@ -44,7 +44,7 @@ const Product = (props) => {
   //const { price,name,Description,imageUrl} = items;
 
   //const TotalPrice = parseFloat(price) * parseFloat(quantity);
-  const onSetQuantity = useCallback((ev)  => {
+  const onSetQuantity = useCallback((ev) => {
     setQuantity(ev.target.value);
     /*items.quantity = ev.target.value;
     items.price = parseFloat(price) * parseFloat(quantity);
@@ -53,31 +53,32 @@ const Product = (props) => {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-  }, [])
+  }, []);
 
-    return (
-      <>
-        <DemoNavbar />
-          <Carousel item = {items}/>
-          <section className="section section-components">
-          <Container>
-               
-            <Tabs />          
-          </Container>         
-          </section>
-        <CardsFooter />
-      </>
-    );
-  };
+  return (
+    <>
+      <DemoNavbar />
+      <Carousel item={items} />
+      <section className="section section-components">
+        <Container>
+          <Tabs item={items} />
+        </Container>
+      </section>
+      <CardsFooter />
+    </>
+  );
+};
 
-const mapDispatchToProps = dispatch => ({
-  addItem: items => dispatch(addItem(items))
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (items) => dispatch(addItem(items)),
 });
 const mapStateToProps = createStructuredSelector({
-  currentUser : selectCurrentUser
-}); 
+  currentUser: selectCurrentUser,
+});
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Product)); 
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Product)
+);
