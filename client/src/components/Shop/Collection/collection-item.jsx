@@ -28,19 +28,30 @@ import {
 const CollectionItem = ({ item, addItem, history }) => {
   const { name, price, imageUrl } = item;
   return (
-    <Card className="card-lift--hover shadow border-0">
-      <CardBody className="py-5">
-        <Link to="/landing-page">
+    <Card
+      className="card-lift--hover shadow border-0"
+      style={{ backgroundColor: "transparent" }}
+      onClick={() => {
+        history.push("/product-page", item);
+      }}
+    >
+      <CardBody className="py-3 px-3">
+        <Link>
           <CardImg alt="..." src={imageUrl} />
         </Link>
         <div className="mt-2">
           <Badge color="success" pill className="mr-1 text-capitalize">
             {name}
           </Badge>
-          <Badge color="white" pill className="mr-1"></Badge>
-          <Badge color="white" pill className="mr-1"></Badge>
-          <Badge color="success" pill className="mr-1">
-            R {price}
+        </div>
+        <div>
+          <Badge
+            color="success"
+            pill
+            className="mr-1 lg mt-2"
+            style={{ fontSize: "14px" }}
+          >
+            R {price.toFixed(2)}
           </Badge>
         </div>
         <div className="mt-2">

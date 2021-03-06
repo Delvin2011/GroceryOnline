@@ -48,7 +48,7 @@ const CollectionPage = ({ props, collection }) => {
               <Col lg="12">
                 <Row className="row-grid">
                   {items.map((item) => (
-                    <Col lg="4">
+                    <Col lg="4" className="mt-10">
                       <CollectionItem key={item.id} item={item} />
                     </Col>
                   ))}

@@ -254,26 +254,12 @@ class Landing extends React.Component {
                           <h6 className="text-primary text-uppercase">
                             Cooking Ingredients
                           </h6>
-                          <Link to="/landing-page">
+                          <Link to="/collection-page/cooking-ingredients">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Ingredients.png")}
                             />
                           </Link>
-                          <div className="mt-4">
-                            <Badge color="success" pill className="mr-1">
-                              sauce
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              cooking oil
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              salt
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              etc...
-                            </Badge>
-                          </div>
                           <Button
                             className="mt-4"
                             color="primary"
@@ -290,26 +276,12 @@ class Landing extends React.Component {
                           <h6 className="text-success text-uppercase">
                             Breakfast Cereals
                           </h6>
-                          <Link to="/landing-page">
+                          <Link to="/collection-page/breakfast-cereals">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Cereals.png")}
                             />
                           </Link>
-                          <div className="mt-4">
-                            <Badge color="success" pill className="mr-1">
-                              Oats
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              Corn Flakes
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              Muesli
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              etc...
-                            </Badge>
-                          </div>
                           <Button
                             className="mt-4"
                             color="success"
@@ -326,26 +298,13 @@ class Landing extends React.Component {
                           <h6 className="text-warning text-uppercase">
                             Dry foods
                           </h6>
-                          <Link to="/landing-page">
+                          <Link to="/collection-page/dry-foods">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/DryFood.png")}
                             />
                           </Link>
-                          <div className="mt-4">
-                            <Badge color="warning" pill className="mr-1">
-                              Sugar
-                            </Badge>
-                            <Badge color="warning" pill className="mr-1">
-                              Rice
-                            </Badge>
-                            <Badge color="warning" pill className="mr-1">
-                              Pasta
-                            </Badge>
-                            <Badge color="warning" pill className="mr-1">
-                              etc...
-                            </Badge>
-                          </div>
+
                           <Button
                             className="mt-4"
                             color="warning"
@@ -362,30 +321,16 @@ class Landing extends React.Component {
                           <h6 className="text-primary text-uppercase">
                             Health & Beauty
                           </h6>
-                          <Link to="/landing-page">
+                          <Link to="/collection-page/healthy&beauty">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Healthy&Beauty.png")}
                             />
                           </Link>
-                          <div className="mt-4">
-                            <Badge color="primary" pill className="mr-1">
-                              soap
-                            </Badge>
-                            <Badge color="primary" pill className="mr-1">
-                              tissues
-                            </Badge>
-                            <Badge color="primary" pill className="mr-1">
-                              lotion
-                            </Badge>
-                            <Badge color="primary" pill className="mr-1">
-                              etc...
-                            </Badge>
-                          </div>
                           <Button
                             className="mt-4"
                             color="primary"
-                            href="/collection-page/healthy&beauty"
+                            href="/collection-page/health&beauty"
                           >
                             view more
                           </Button>
@@ -398,26 +343,12 @@ class Landing extends React.Component {
                           <h6 className="text-success text-uppercase">
                             Cleaning-Detergents
                           </h6>
-                          <Link to="/landing-page">
+                          <Link to="/collection-page/cleaning-detergents">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Drinks.png")}
                             />
                           </Link>
-                          <div className="mt-4">
-                            <Badge color="success" pill className="mr-1">
-                              Tea
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              Coffee
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              carbonated
-                            </Badge>
-                            <Badge color="success" pill className="mr-1">
-                              etc..
-                            </Badge>
-                          </div>
                           <Button
                             className="mt-4"
                             color="success"
@@ -432,26 +363,12 @@ class Landing extends React.Component {
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-warning text-uppercase">Baby</h6>
-                          <Link to="/landing-page">
+                          <Link to="/collection-page/baby">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Baby.png")}
                             />
                           </Link>
-                          <div className="mt-4">
-                            <Badge color="warning" pill className="mr-1">
-                              Cerelac
-                            </Badge>
-                            <Badge color="warning" pill className="mr-1">
-                              Nan
-                            </Badge>
-                            <Badge color="warning" pill className="mr-1">
-                              Pampers
-                            </Badge>
-                            <Badge color="warning" pill className="mr-1">
-                              etc...
-                            </Badge>
-                          </div>
                           <Button
                             className="mt-4"
                             color="warning"
