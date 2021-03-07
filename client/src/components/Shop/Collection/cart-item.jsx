@@ -8,7 +8,7 @@ import { selectCartItemsCount } from "../../../redux/cart/cart-selectors";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { addItem } from "../../../redux/cart/cart-actions";
+import { addItem, removeItem } from "../../../redux/cart/cart-actions";
 import { selectCurrentUser } from "../../../redux/user/user-selectors";
 import SignIn from "../../../views/examples/SignIn";
 import SignUp from "../../../views/examples/SignUp";
@@ -30,8 +30,15 @@ import {
   Col*/
 } from "reactstrap";
 
-const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
-  const { name, price, imageUrl } = item;
+const CollectionItem = ({
+  item,
+  addItem,
+  history,
+  itemCount,
+  currentUser,
+  removeItem,
+}) => {
+  const { name, price, imageUrl, quantity } = item;
   const [timeLeft, setTimeLeft] = useState(null);
   const [modal, setModal] = useState(false);
   //const [modal, setSignInModal] = useState(false);
@@ -88,15 +95,23 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
               className="mr-1 lg mt-2"
               style={{ fontSize: "14px" }}
             >
+              {quantity} X
+            </Badge>
+            <Badge
+              color="success"
+              pill
+              className="mr-1 lg mt-2"
+              style={{ fontSize: "14px" }}
+            >
               R {price.toFixed(2)}
             </Badge>
           </div>
           {currentUser ? (
             <div className="mt-2">
               {timeLeft >= 3 && timeLeft < 6 ? (
-                <Button color="primary">Loading...</Button>
+                <Button color="primary">...</Button>
               ) : timeLeft < 3 && timeLeft > 0 ? (
-                <Button color="primary">Done...</Button>
+                <Button color="primary">...</Button>
               ) : (
                 <Button
                   color="primary"
@@ -105,13 +120,21 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
                     setTimeLeft(5);
                   }}
                 >
-                  Add
+                  +
                 </Button>
               )}
 
               {/*<Button color="primary" onClick={() => addItem(item)}>
             Add
           </Button>*/}
+              <Button
+                color="primary"
+                onClick={() => {
+                  removeItem(item);
+                }}
+              >
+                -
+              </Button>
               <Button
                 color="primary"
                 onClick={() => {
@@ -231,6 +254,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
+  removeItem: (item) => dispatch(removeItem(item)),
 });
 
 export default withRouter(

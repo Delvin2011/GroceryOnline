@@ -1,51 +1,48 @@
 .checkout-item {
-    width: 100%;
-    display: flex;
-    min-height: 100px;
-    border-bottom: 1px solid darkgrey;
-    padding: 15px 0;
-    font-size: 18px;
-    align-items: center;
-  
-    .image-container {
-      width: 23%;
-      padding-right: 15px;
-  
-      img {
-        width: 100%;
-        height: 100%;
-      }
+  width: 100%;
+  display: flex;
+  min-height: 100px;
+  border-bottom: 1px solid darkgrey;
+  padding: 15px 0;
+  font-size: 18px;
+  align-items: center;
+
+  .image-container {
+    width: 23%;
+    padding-right: 15px;
+
+    img {
+      width: 100%;
+      height: 100%;
     }
-    .name,
-    .quantity,
-    .price {
-      width: 23%; //the width od the categories is the same as the width of the  headers
-    }
+  }
   .name,
   .quantity,
-  .price{
+  .price {
+    width: 23%; //the width od the categories is the same as the width of the  headers
+  }
+  .name,
+  .quantity,
+  .price {
     @media screen and (max-width: 800px) {
       width: 25%;
       font-size: 15px;
-  }
-
-  }
-    .quantity {
-      display: flex; //to have the arrows and the quantity horizontally aligned depending on the space
-
-      .arrow {
-        cursor: pointer;
-      }
-
-
-      .value {
-        margin: 0 10px;
-      }
     }
-  
-    .remove-button {
-      padding-left: 12px;
+  }
+  .quantity {
+    display: flex; //to have the arrows and the quantity horizontally aligned depending on the space
+
+    .arrow {
       cursor: pointer;
     }
+
+    .value {
+      margin: 0 10px;
+    }
   }
-  
+
+  .remove-button {
+    padding-left: 12px;
+    cursor: pointer;
+  }
+}

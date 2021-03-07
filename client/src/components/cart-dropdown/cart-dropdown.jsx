@@ -4,12 +4,15 @@ import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 
 import "./cart-dropdown.scss";
-import { selectCartItems } from "../../redux/cart/cart-selectors";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../redux/cart/cart-selectors";
 import { toggleCartHidden } from "../../redux/cart/cart-actions";
 import { Button } from "reactstrap";
-import CartItem from "../Shop/Collection/collection-item";
+import CartItem from "../Shop/Collection/cart-item";
 
-const CartDropdown = ({ cartItems, history, dispatch }) => (
+const CartDropdown = ({ cartItems, history, dispatch, total }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {cartItems.length ? (
@@ -23,11 +26,11 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
     <Button
       color="primary"
       onClick={() => {
-        history.push("/checkout");
+        history.push("/checkout-page");
         dispatch(toggleCartHidden());
       }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
     >
-      GO TO CHECKOUT
+      GO TO CHECKOUT (R {total.toFixed(2)})
     </Button>
   </div>
 );
@@ -35,6 +38,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 //this will make sure the cardDropdown component is not getting re-rendered whenever the state cchanges not related to dropdown
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
+  total: selectCartTotal,
 });
 //withRouter - taking the component returned with the connect as its
 export default withRouter(connect(mapStateToProps)(CartDropdown));
