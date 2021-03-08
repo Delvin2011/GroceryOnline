@@ -10,32 +10,29 @@ import {
 import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
 
 import "./checkout.scss";
+import { CheckOutContainer, HeaderTitle } from "./checkout-styles";
 
 const CheckoutPage = ({ cartItems, total }) => (
-  <section className="section section-sm">
-    <Container className="py-md">
-      <Row className="justify-content-center">
-        <Col sm="12">
-          <Row className="row-grid align-items-left">
-            <Col sm="4">
-              <h4>Product</h4>
-            </Col>
-            <Col sm="3">
-              <h4>Description</h4>
-            </Col>
-            <Col sm="2">
-              <h4>Quantity</h4>
-            </Col>
-            <Col sm="2">
-              <h4>Unit Price</h4>
-            </Col>
-            <Col sm="1">
-              <h4>Remove</h4>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+  <section className="fluid lg">
+    <div className="checkout-page">
+      <div className="checkout-header">
+        <div className="header-block">
+          <span>Product</span>
+        </div>
+        <div className="header-block">
+          <span>Name</span>
+        </div>
+        <div className="header-block">
+          <span>Quantity</span>
+        </div>
+        <div className="header-block">
+          <span>Price</span>
+        </div>
+        <div className="header-block">
+          <span>Clear</span>
+        </div>
+      </div>
+    </div>
     {cartItems.map((cartItem) => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}

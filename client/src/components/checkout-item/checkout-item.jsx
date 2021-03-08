@@ -16,43 +16,26 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     //disstructuring the values we are going to need
-    <section className="section section-sm">
-      <Container className="py-md">
-        <Row className="justify-content-center">
-          <Col sm="12">
-            <Row className="row-grid className image-container">
-              <Col sm="4" className="checkout-item">
-                <img src={imageUrl} alt="item" />
-              </Col>
-              <Col sm="3" className="checkout-item">
-                <span>{name}</span>
-              </Col>
-              <Col sm="2" className="checkout-item">
-                <span className="quantity">
-                  <span className="arrow" onClick={() => removeItem(cartItem)}>
-                    &#10094;
-                  </span>
-                  <span className="value"> {quantity} </span>
-                  <span className="arrow" onClick={() => addItem(cartItem)}>
-                    &#10095;
-                  </span>
-                </span>
-              </Col>
-              <Col sm="2" className="checkout-item centre">
-                <span>R {price.toFixed(2)}</span>
-              </Col>
-              <Col sm="1" className="checkout-item">
-                <div
-                  className="remove-button"
-                  onClick={() => clearItem(cartItem)}
-                >
-                  &#10005;
-                </div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+    <section className="fluid lg">
+      <div className="checkout-item">
+        <div className="image-container">
+          <img src={imageUrl} alt="item" />
+        </div>
+        <span className="name">{name}</span>
+        <span className="quantity">
+          <div className="arrow" onClick={() => removeItem(cartItem)}>
+            &#10094;
+          </div>
+          <span className="value">{quantity}</span>
+          <div className="arrow" onClick={() => addItem(cartItem)}>
+            &#10095;
+          </div>
+        </span>
+        <span className="price">R {price.toFixed(2)}</span>
+        <div className="remove-button" onClick={() => clearItem(cartItem)}>
+          &#10005;
+        </div>
+      </div>
     </section>
   );
 };
