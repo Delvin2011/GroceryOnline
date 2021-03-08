@@ -11,18 +11,23 @@ import {
 import { toggleCartHidden } from "../../redux/cart/cart-actions";
 import { Button } from "reactstrap";
 import CartItem from "../Shop/Collection/cart-item";
+import {
+  DropdownContainer,
+  CartItemsContainer,
+  EmptyMessage,
+} from "./cart-dropdown-styles";
 
 const CartDropdown = ({ cartItems, history, dispatch, total }) => (
-  <div className="cart-dropdown">
-    <div className="cart-items">
+  <DropdownContainer>
+    <CartItemsContainer>
       {cartItems.length ? (
         cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
-        <span className="empty-message">Your Cart is Empty</span>
+        <EmptyMessage>Your Cart is Empty</EmptyMessage>
       )}
-    </div>
+    </CartItemsContainer>
     <Button
       color="primary"
       onClick={() => {
@@ -32,7 +37,7 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => (
     >
       GO TO CHECKOUT (R {total.toFixed(2)})
     </Button>
-  </div>
+  </DropdownContainer>
 );
 
 //this will make sure the cardDropdown component is not getting re-rendered whenever the state cchanges not related to dropdown
