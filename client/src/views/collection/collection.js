@@ -36,6 +36,8 @@ const CollectionPage = ({ props, collection }) => {
   //console.log(collection);
   const { title, items } = collection;
   const { ...rest } = props;
+
+  console.log(items);
   return (
     <>
       <DemoNavbar />
