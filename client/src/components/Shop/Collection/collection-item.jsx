@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 //import Login from "../IndexSections/Login.js";
 // reactstrap components
 import { selectCartItemsCount } from "../../../redux/cart/cart-selectors";
+import { selectWishCartItemsCount } from "../../../redux/wish/wish-selectors";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { addItem } from "../../../redux/cart/cart-actions";
+import { addWishItem } from "../../../redux/wish/wish-actions";
 import { selectCurrentUser } from "../../../redux/user/user-selectors";
 import SignIn from "../../../views/examples/SignIn";
 import SignUp from "../../../views/examples/SignUp";
@@ -19,7 +21,8 @@ import {
   Card,
   CardBody,
   CardImg,
-  Modal, //,
+  Modal,
+  Spinner, //,
   /* FormGroup,
   Input,
   InputGroupAddon,
@@ -30,9 +33,18 @@ import {
   Col*/
 } from "reactstrap";
 
-const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
+const CollectionItem = ({
+  item,
+  addItem,
+  history,
+  addWishItem,
+  itemCount,
+  currentUser,
+}) => {
   const { name, price, imageUrl } = item;
   const [timeLeft, setTimeLeft] = useState(null);
+  const [timeWishLeft, setTimeWishLeft] = useState(null);
+
   const [modal, setModal] = useState(false);
   //const [modal, setSignInModal] = useState(false);
   //const [modal, setSignUpModal] = useState(false);
@@ -60,6 +72,25 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
   }, [timeLeft]);
+
+  useEffect(() => {
+    if (timeWishLeft === 0) {
+      setTimeWishLeft(null);
+    }
+    // exit early when we reach 0
+    if (!timeWishLeft) return;
+    // save intervalId to clear the interval when the
+    // component re-renders
+    const intervalId = setInterval(() => {
+      setTimeWishLeft(timeWishLeft - 1);
+      console.log("TIME LEFT IS {0}", timeWishLeft);
+    }, 1000);
+
+    // clear interval on re-render to avoid memory leaks
+    return () => clearInterval(intervalId);
+    // add timeLeft as a dependency to re-rerun the effect
+    // when we update it
+  }, [timeWishLeft]);
 
   return (
     <div>
@@ -94,9 +125,13 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
           {currentUser ? (
             <div className="mt-2">
               {timeLeft >= 3 && timeLeft < 6 ? (
-                <Button color="primary">Loading...</Button>
+                <Button color="primary">
+                  <Spinner color="white" size="sm" />
+                </Button>
               ) : timeLeft < 3 && timeLeft > 0 ? (
-                <Button color="primary">Done...</Button>
+                <Button color="primary">
+                  <i className="ni ni-check-bold" />
+                </Button>
               ) : (
                 <Button
                   color="primary"
@@ -105,7 +140,8 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
                     setTimeLeft(5);
                   }}
                 >
-                  Add
+                  <i className="ni ni-fat-add mr-0" />
+                  <i className="ni ni-cart" />
                 </Button>
               )}
 
@@ -120,11 +156,32 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
               >
                 View
               </Button>
+              {timeWishLeft >= 3 && timeWishLeft < 6 ? (
+                <Button color="primary">
+                  <Spinner color="white" size="sm" />
+                </Button>
+              ) : timeWishLeft < 3 && timeWishLeft > 0 ? (
+                <Button color="primary">
+                  <i className="ni ni-check-bold" />
+                </Button>
+              ) : (
+                <Button
+                  color="primary"
+                  onClick={() => {
+                    addWishItem(item);
+                    setTimeWishLeft(5);
+                  }}
+                >
+                  <i className="ni ni-fat-add mr-0" />
+                  <i className="ni ni-favourite-28" />
+                </Button>
+              )}
             </div>
           ) : (
             <div className="mt-2">
               <Button color="primary" onClick={toggle}>
-                Add
+                <i className="ni ni-fat-add mr-0" />
+                <i className="ni ni-favourite-28" />
               </Button>
               <Button
                 color="primary"
@@ -133,6 +190,10 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
                 }}
               >
                 View
+              </Button>
+              <Button color="primary" onClick={toggle}>
+                <i className="ni ni-favourite-28 mr-0" />
+                <i className="ni ni-cart" />
               </Button>
               <Modal
                 className="modal-dialog-centered modal-danger"
@@ -226,11 +287,13 @@ const CollectionItem = ({ item, addItem, history, itemCount, currentUser }) => {
 
 const mapStateToProps = createStructuredSelector({
   itemCount: selectCartItemsCount,
+  wishItemCount: selectWishCartItemsCount,
   currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
+  addWishItem: (item) => dispatch(addWishItem(item)),
 });
 
 export default withRouter(
@@ -241,3 +304,5 @@ export default withRouter(
 );
 
 //style={{width:"100%", height:"100%"}}
+
+//https://www.creative-tim.com/learning-lab/reactstrap/icons/argon-design-system

@@ -23,6 +23,7 @@ import Headroom from "headroom.js";
 
 import { connect } from "react-redux";
 import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
+import { selectWishCartItemsCount } from "../../redux/wish/wish-selectors";
 import { toggleCartHidden } from "../../redux/cart/cart-actions";
 import { selectCartItems } from "../../redux/cart/cart-selectors";
 import { selectCurrentUser } from "../../redux/user/user-selectors";
@@ -267,13 +268,26 @@ class DemoNavbar extends React.Component {
                     </DropdownToggle>
                   </UncontrolledDropdown>
 
-                  <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
-                      <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Wishlist</span>
-                    </DropdownToggle>
-                  </UncontrolledDropdown>
-
+                  {this.props.currentUser ? (
+                    <UncontrolledDropdown
+                      nav
+                      onClick={this.props.toggleCartHidden}
+                    >
+                      <DropdownToggle nav>
+                        <i className="ni ni-ui-04 d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">
+                          Wishlist ({this.props.wishItemCount})
+                        </span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  ) : (
+                    <UncontrolledDropdown nav>
+                      <DropdownToggle nav>
+                        <i className="ni ni-ui-04 d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">Wishlist</span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  )}
                   {this.props.currentUser ? (
                     <UncontrolledDropdown
                       nav
@@ -369,6 +383,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   itemCount: selectCartItemsCount,
+  wishItemCount: selectWishCartItemsCount,
   cartItems: selectCartItems,
   hidden: selectCartHidden, //to show or hide the cart.
 });

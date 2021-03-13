@@ -66,6 +66,21 @@ export const getUserCartRef = async (userId) => {
   }
 };
 
+export const getUserWishCartRef = async (userId) => {
+  const cartsRef = firestore
+    .collection("shoko-wishCarts")
+    .where("userId", "==", userId);
+  const snapShot = await cartsRef.get();
+
+  if (snapShot.empty) {
+    const cartDocRef = firestore.collection("shoko-wishCarts").doc();
+    await cartDocRef.set({ userId, cartItems: [] });
+    return cartDocRef;
+  } else {
+    return snapShot.docs[0].ref;
+  }
+};
+
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
