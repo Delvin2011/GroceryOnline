@@ -4,11 +4,11 @@ import classnames from "classnames";
 import { Link } from "react-router-dom";
 //import Login from "../IndexSections/Login.js";
 // reactstrap components
-import { selectCartItemsCount } from "../../../redux/cart/cart-selectors";
+import { selectWishCartItemsCount } from "../../../redux/wish/wish-selectors";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { addItem, removeItem } from "../../../redux/cart/cart-actions";
+import { addWishItem, removeWishItem } from "../../../redux/wish/wish-actions";
 import { selectCurrentUser } from "../../../redux/user/user-selectors";
 import SignIn from "../../../views/examples/SignIn";
 import SignUp from "../../../views/examples/SignUp";
@@ -31,15 +31,15 @@ import {
   Col*/
 } from "reactstrap";
 
-const CollectionItem = ({
-  item,
-  addItem,
+const WishCartItem = ({
+  cartWishItem,
+  addWishItem,
   history,
-  itemCount,
+  wishItemCount,
   currentUser,
-  removeItem,
+  removeWishItem,
 }) => {
-  const { name, price, imageUrl, quantity } = item;
+  const { name, price, imageUrl, quantity } = cartWishItem;
   const [timeLeft, setTimeLeft] = useState(null);
   const [modal, setModal] = useState(false);
   //const [modal, setSignInModal] = useState(false);
@@ -78,7 +78,7 @@ const CollectionItem = ({
         <CardBody className="py-3 px-3">
           <a
             onClick={() => {
-              history.push("/product-page", item);
+              history.push("/product-page", cartWishItem);
             }}
             style={{ cursor: "pointer" }}
           >
@@ -121,7 +121,7 @@ const CollectionItem = ({
                 <Button
                   color="primary"
                   onClick={() => {
-                    addItem(item);
+                    addWishItem(cartWishItem);
                     setTimeLeft(5);
                   }}
                 >
@@ -135,7 +135,7 @@ const CollectionItem = ({
               <Button
                 color="primary"
                 onClick={() => {
-                  removeItem(item);
+                  removeWishItem(cartWishItem);
                 }}
               >
                 -
@@ -143,7 +143,7 @@ const CollectionItem = ({
               <Button
                 color="primary"
                 onClick={() => {
-                  history.push("/product-page", item);
+                  history.push("/product-page", cartWishItem);
                 }}
               >
                 View
@@ -152,12 +152,12 @@ const CollectionItem = ({
           ) : (
             <div className="mt-2">
               <Button color="primary" onClick={toggle}>
-                Add
+                +
               </Button>
               <Button
                 color="primary"
                 onClick={() => {
-                  history.push("/product-page", item);
+                  history.push("/product-page", cartWishItem);
                 }}
               >
                 View
@@ -253,20 +253,20 @@ const CollectionItem = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  itemCount: selectCartItemsCount,
+  wishItemCount: selectWishCartItemsCount,
   currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-  removeItem: (item) => dispatch(removeItem(item)),
+  addWishItem: (cartWishItem) => dispatch(addWishItem(cartWishItem)),
+  removeWishItem: (cartWishItem) => dispatch(removeWishItem(cartWishItem)),
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(CollectionItem)
+  )(WishCartItem)
 );
 
 //style={{width:"100%", height:"100%"}}

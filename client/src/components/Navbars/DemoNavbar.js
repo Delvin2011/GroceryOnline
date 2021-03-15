@@ -23,14 +23,21 @@ import Headroom from "headroom.js";
 
 import { connect } from "react-redux";
 import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
-import { selectWishCartItemsCount } from "../../redux/wish/wish-selectors";
 import { toggleCartHidden } from "../../redux/cart/cart-actions";
 import { selectCartItems } from "../../redux/cart/cart-selectors";
 import { selectCurrentUser } from "../../redux/user/user-selectors";
 import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
 import { signOutStart } from "../../redux/user/user-actions";
 import { selectCartHidden } from "../../redux/cart/cart-selectors";
+
+import { toggleWishCartHidden } from "../../redux/wish/wish-actions";
+import { selectWishCartItems } from "../../redux/wish/wish-selectors";
+import { selectWishCartItemsCount } from "../../redux/wish/wish-selectors";
+import { selectWishCartHidden } from "../../redux/wish/wish-selectors";
+
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.jsx";
+import WishCartDropdown from "../../components/wish-dropdown/wish-dropdown.jsx";
+
 import classnames from "classnames";
 import {
   Button,
@@ -49,17 +56,6 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
-  CardImg,
-  /*For modal*/
-  Card,
-  CardHeader,
-  CardBody,
-  FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Modal,
 } from "reactstrap";
 import SignIn from "../../views/examples/SignIn";
@@ -271,7 +267,7 @@ class DemoNavbar extends React.Component {
                   {this.props.currentUser ? (
                     <UncontrolledDropdown
                       nav
-                      onClick={this.props.toggleCartHidden}
+                      onClick={this.props.toggleWishCartHidden}
                     >
                       <DropdownToggle nav>
                         <i className="ni ni-ui-04 d-lg-none mr-1" />
@@ -310,6 +306,8 @@ class DemoNavbar extends React.Component {
                   )}
 
                   {this.props.hidden ? null : <CartDropdown /> // if hidden render nothing else render cart.
+                  }
+                  {this.props.wishCartHidden ? null : <WishCartDropdown /> // if hidden render nothing else render cart.
                   }
                   <Modal
                     className="modal-dialog-centered"
@@ -379,13 +377,17 @@ class DemoNavbar extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   signOutStart: () => dispatch(signOutStart()),
   toggleCartHidden: () => dispatch(toggleCartHidden()), //function that triggers toggle
+  toggleWishCartHidden: () => dispatch(toggleWishCartHidden()),
 });
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   itemCount: selectCartItemsCount,
-  wishItemCount: selectWishCartItemsCount,
   cartItems: selectCartItems,
   hidden: selectCartHidden, //to show or hide the cart.
+
+  wishItemCount: selectWishCartItemsCount,
+  wishCartItems: selectWishCartItems,
+  wishCartHidden: selectWishCartHidden,
 });
 
 export default connect(

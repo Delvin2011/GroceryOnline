@@ -10,7 +10,7 @@ export const DropdownContainer = styled.div`
   border: 1px solid black;
   background-color: white;
   top: 90px;
-  right: 13%;
+  right: 17%;
   z-index: 5;
 
   @media screen and (max-width: 800px) {
