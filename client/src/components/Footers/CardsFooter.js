@@ -29,7 +29,7 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip
+  UncontrolledTooltip,
 } from "reactstrap";
 
 class CardsFooter extends React.Component {
@@ -37,7 +37,7 @@ class CardsFooter extends React.Component {
     return (
       <>
         <footer className="footer has-cards">
-{          /*<Container className="container-lg">
+          {/*<Container className="container-lg">
             <Row>
               <Col className="mb-5 mb-md-0" md="6">
                 <Card className="card-lift--hover shadow border-0">
@@ -135,10 +135,7 @@ class CardsFooter extends React.Component {
               <Col md="6">
                 <div className="copyright">
                   © {new Date().getFullYear()}{" "}
-                  <a
-                    href=""
-                    target="_blank"
-                  >
+                  <a href="" target="_blank">
                     LaVie WebHome
                   </a>
                   .
@@ -147,26 +144,22 @@ class CardsFooter extends React.Component {
               <Col md="6">
                 <Nav className="nav-footer justify-content-end">
                   <NavItem>
-                    <NavLink
-                      href="/aboutUs-page"
-                      target="_blank"
-                    >
+                    <NavLink href="/aboutUs-page" target="_blank">
                       About Us
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink
-                      href=""
-                      target="_blank"
-                    >
+                    <NavLink href="/terms-and-conditions" target="_blank">
+                      T&C's
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="" target="_blank">
                       Blog
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink
-                      href=""
-                      target="_blank"
-                    >
+                    <NavLink href="" target="_blank">
                       Help
                     </NavLink>
                   </NavItem>

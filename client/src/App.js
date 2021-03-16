@@ -42,6 +42,7 @@ import Product from "views/examples/Product.js";
 import Checkout from "views/examples/Checkout.js";
 import WishList from "views/examples/WishList.js";
 import AboutUs from "views/examples/AboutUs.js";
+import TermsAndConditions from "views/examples/TermsAndConditions.js";
 import Shop from "views/shop/shop.jsx";
 
 class App extends React.Component {
@@ -67,6 +68,11 @@ class App extends React.Component {
             path="/wish-list"
             exact
             render={(props) => <WishList {...props} />}
+          />
+          <Route
+            path="/terms-and-conditions"
+            exact
+            render={(props) => <TermsAndConditions {...props} />}
           />
           <Route path="/collection-page" component={Shop} />
           <Route path="/product-page" component={Product} />
