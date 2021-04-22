@@ -46,6 +46,7 @@ import {
   Col,
   Modal,
 } from "reactstrap";
+import "./sign-in.scss";
 import classnames from "classnames";
 // core components
 /*import DemoNavbar from "components/Navbars/DemoNavbar.js";
@@ -62,12 +63,19 @@ class SignIn extends React.Component {
       error: "",
       success: "",
       spinner: false,
+      googleSpinner: false,
     };
   }
 
   showPopUpSignUp(event) {
     this.setState({
       showPopUpSignUp: !this.state.showPopUpSignUp,
+    });
+  }
+
+  onGoogleSignIn() {
+    this.setState({
+      googleSpinner: true,
     });
   }
 
@@ -88,129 +96,196 @@ class SignIn extends React.Component {
   render() {
     const { googleSignInStart, currentUser, error } = this.props;
     //var spinner = googleSignInStart || currentUser || error ? false : this.state.spinner;
-
+    console.log(this.state.googleSpinner);
     return (
       <div className="modal-body p-0">
         {!this.state.showPopUpSignUp ? (
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-white pb-5">
-              <div className="text-muted text-center mb-3">
-                <small>Sign in with</small>
-              </div>
-              <div className="btn-wrapper text-center">
-                <Button
-                  className="btn-icon mt-2 mb-2 ml-0"
-                  color="neutral"
-                  onClick={googleSignInStart}
-                >
-                  <span className="btn-inner--icon mr-1">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/google.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Google</span>
-                </Button>
-              </div>
-            </CardHeader>
-            <CardBody className="px-lg-5 py-lg-5">
-              <div className="text-center text-muted mb-4">
-                <small>Or sign in with credentials</small>
-              </div>
-              <Form role="form" onSubmit={this.handleSubmit}>
-                <FormGroup
-                  className={classnames("mb-3", {
-                    focused: this.state.emailFocused,
-                  })}
-                >
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-email-83" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Email"
-                      type="email"
-                      name="email"
-                      onChange={this.handleChange}
-                      value={this.state.email}
-                      onFocus={(e) => this.setState({ emailFocused: true })}
-                      onBlur={(e) => this.setState({ emailFocused: false })}
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup
-                  className={classnames({
-                    focused: this.state.passwordFocused,
-                  })}
-                >
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Password"
-                      name="password"
-                      type="password"
-                      autoComplete="off"
-                      value={this.state.password}
-                      onChange={this.handleChange}
-                      onFocus={(e) => this.setState({ passwordFocused: true })}
-                      onBlur={(e) => this.setState({ passwordFocused: false })}
-                    />
-                  </InputGroup>
-                </FormGroup>
+              {!this.state.googleSpinner && !currentUser ? (
+                <div className="btn-wrapper text-center">
+                  <h5>Sign in with</h5>
+                  <Button
+                    className="btn-icon mt-2 mb-2 ml-0"
+                    color="neutral"
+                    onClick={() => {
+                      googleSignInStart();
+                      this.onGoogleSignIn();
+                    }}
+                  >
+                    <span className="btn-inner--icon mr-1">
+                      <img
+                        alt="..."
+                        src={require("assets/img/icons/common/google.svg")}
+                      />
+                    </span>
+                    <span className="btn-inner--text">Google</span>
+                  </Button>
+                </div>
+              ) : this.state.googleSpinner && !currentUser ? (
                 <div className="text-center">
-                  {this.state.spinner && !this.props.currentUser ? (
-                    this.props.error ? (
-                      <Button
-                        className="my-2"
-                        color="primary"
-                        type="button"
-                        type="submit"
-                      >
-                        Error : Re-Submit
-                      </Button>
-                    ) : (
-                      <Button className="my-4" color="primary" type="button">
-                        Loading...
-                      </Button>
-                    )
-                  ) : this.props.currentUser ? (
-                    <Button className="my-4" color="primary" type="button">
-                      Signed In. Thank you
-                    </Button>
-                  ) : (
+                  <svg
+                    class="spinner"
+                    width="60px"
+                    height="60px"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="path"
+                      fill="none"
+                      stroke-width="6"
+                      stroke-linecap="round"
+                      cx="33"
+                      cy="33"
+                      r="30"
+                    ></circle>
+                  </svg>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <h5>Signed In With</h5>
+                  <Button className="btn-icon mt-2 mb-2 ml-0" color="neutral">
+                    <span className="btn-inner--icon mr-1">
+                      <img
+                        alt="..."
+                        src={require("assets/img/icons/common/google.svg")}
+                      />
+                    </span>
+                    <span className="btn-inner--text">Google</span>
+                  </Button>
+                </div>
+              )}
+            </CardHeader>
+            {currentUser ? (
+              <CardBody className="px-lg-5 py-lg-5">
+                <h5 className="text-center">
+                  Thank you {currentUser.displayName}
+                </h5>
+              </CardBody>
+            ) : (
+              <div>
+                <CardBody className="px-lg-5 py-lg-5">
+                  <div className="text-center text-muted mb-4">
+                    <small>Or sign in with credentials</small>
+                  </div>
+                  <Form role="form" onSubmit={this.handleSubmit}>
+                    <FormGroup
+                      className={classnames("mb-3", {
+                        focused: this.state.emailFocused,
+                      })}
+                    >
+                      <InputGroup className="input-group-alternative">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="ni ni-email-83" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          placeholder="Email"
+                          type="email"
+                          name="email"
+                          onChange={this.handleChange}
+                          value={this.state.email}
+                          onFocus={(e) => this.setState({ emailFocused: true })}
+                          onBlur={(e) => this.setState({ emailFocused: false })}
+                        />
+                      </InputGroup>
+                    </FormGroup>
+                    <FormGroup
+                      className={classnames({
+                        focused: this.state.passwordFocused,
+                      })}
+                    >
+                      <InputGroup className="input-group-alternative">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="ni ni-lock-circle-open" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          placeholder="Password"
+                          name="password"
+                          type="password"
+                          autoComplete="off"
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                          onFocus={(e) =>
+                            this.setState({ passwordFocused: true })
+                          }
+                          onBlur={(e) =>
+                            this.setState({ passwordFocused: false })
+                          }
+                        />
+                      </InputGroup>
+                    </FormGroup>
+                    <div className="text-center">
+                      {this.state.spinner && !this.props.currentUser ? (
+                        this.props.error ? (
+                          <div>
+                            {this.props.error.code === "auth/wrong-password" ? (
+                              <h6 style={{ color: "red" }}>
+                                Wrong credentials.
+                              </h6>
+                            ) : this.props.error.code ===
+                              "auth/user-not-found" ? (
+                              <h6 style={{ color: "red" }}>
+                                Account not found.
+                              </h6>
+                            ) : null}
+
+                            <Button
+                              className="my-2"
+                              color="primary"
+                              type="button"
+                              type="submit"
+                            >
+                              Error : Re-Submit
+                            </Button>
+                          </div>
+                        ) : (
+                          <Button
+                            className="my-4"
+                            color="primary"
+                            type="button"
+                          >
+                            Loading...
+                          </Button>
+                        )
+                      ) : this.props.currentUser ? (
+                        <Button className="my-4" color="primary" type="button">
+                          Signed In. Thank you
+                        </Button>
+                      ) : (
+                        <Button
+                          className="my-2"
+                          color="primary"
+                          type="button"
+                          type="submit"
+                        >
+                          Sign In
+                        </Button>
+                      )}
+                    </div>
+                  </Form>
+                </CardBody>
+                <CardHeader className="bg-white pb-5">
+                  <div className="text-muted text-center mb-3">
+                    <small>Don't have Account?</small>
+                  </div>
+                  <div className="btn-wrapper text-center">
                     <Button
                       className="my-2"
                       color="primary"
                       type="button"
-                      type="submit"
+                      onClick={this.showPopUpSignUp.bind(this)}
                     >
-                      Sign In
+                      Sign Up
                     </Button>
-                  )}
-                </div>
-              </Form>
-            </CardBody>
-            <CardHeader className="bg-white pb-5">
-              <div className="text-muted text-center mb-3">
-                <small>Don't have Account?</small>
+                  </div>
+                </CardHeader>
               </div>
-              <div className="btn-wrapper text-center">
-                <Button
-                  className="my-2"
-                  color="primary"
-                  type="button"
-                  onClick={this.showPopUpSignUp.bind(this)}
-                >
-                  Sign Up
-                </Button>
-              </div>
-            </CardHeader>
+            )}
           </Card>
         ) : (
           <SignUp />
