@@ -44,34 +44,9 @@ class Hero extends React.Component {
               <div className="col px-0">
                 <Row className="align-items-center justify-content-center">
                   <Col className="text-center" lg="6">
-                  <h1 className="display-3 text-white">
-                        Shoko Online Store{" "}
-                        <span>pride in fast delivery</span>
-                      </h1>
-                    <div className="btn-wrapper mt-5">
-                    <Button
-                          className="btn-icon mb-3 mb-sm-0"
-                          color="info"
-                          href="/collection-page"
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <i className="fa fa-code" />
-                          </span>
-                          <span className="btn-inner--text">Shop Online</span>
-                        </Button>
-                        <Button
-                          className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
-                          color="default"
-                          href=""
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <i className="ni ni-cloud-download-95" />
-                          </span>
-                          <span className="btn-inner--text">
-                            Delivery Routes
-                          </span>
-                        </Button>
-                    </div>
+                    <h1 className="display-3 text-white">
+                      Shoko Online Store <span>pride in fast delivery</span>
+                    </h1>
                   </Col>
                 </Row>
               </div>
@@ -100,3 +75,28 @@ class Hero extends React.Component {
 }
 
 export default Hero;
+
+/*                    <div className="btn-wrapper mt-5">
+<Button
+      className="btn-icon mb-3 mb-sm-0"
+      color="info"
+      href="/collection-page"
+    >
+      <span className="btn-inner--icon mr-1">
+        <i className="fa fa-code" />
+      </span>
+      <span className="btn-inner--text">Shop Online</span>
+    </Button>
+    <Button
+      className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
+      color="default"
+      href=""
+    >
+      <span className="btn-inner--icon mr-1">
+        <i className="ni ni-cloud-download-95" />
+      </span>
+      <span className="btn-inner--text">
+        Delivery Routes
+      </span>
+    </Button>
+</div>*/

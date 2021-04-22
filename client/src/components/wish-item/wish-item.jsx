@@ -8,7 +8,7 @@ import {
 } from "../../redux/wish/wish-actions";
 import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
 
-import "./wish-item.scss";
+import "../checkout-item/checkout-item.scss";
 
 //we don't have access to the cartItem property, so we do an explicit return in the function and make sure to set the const of the value.
 //so as to have access to the cartItem and the clearItem function

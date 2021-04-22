@@ -1,4 +1,4 @@
-.checkout-item {
+/*.checkout-item {
   width: 100%;
   display: flex;
   min-height: 100px;
@@ -8,7 +8,7 @@
   align-items: center;
 
   .image-container {
-    width: 23%;
+    width: 15%;
     padding-right: 15px;
 
     img {
@@ -26,7 +26,7 @@
   .name,
   .quantity,
   .price {
-    width: 23%; //the width od the categories is the same as the width of the  headers
+    width: 25%; //the width od the categories is the same as the width of the  headers
   }
   .name,
   .quantity,
@@ -64,4 +64,4 @@
   @media screen and (max-width: 800px) {
     padding: 5px 0;
   }
-}
+}*/

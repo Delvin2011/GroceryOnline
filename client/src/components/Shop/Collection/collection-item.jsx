@@ -181,7 +181,7 @@ const CollectionItem = ({
             <div className="mt-2">
               <Button color="primary" onClick={toggle}>
                 <i className="ni ni-fat-add mr-0" />
-                <i className="ni ni-favourite-28" />
+                <i className="ni ni-cart" />
               </Button>
               <Button
                 color="primary"
@@ -192,8 +192,8 @@ const CollectionItem = ({
                 View
               </Button>
               <Button color="primary" onClick={toggle}>
-                <i className="ni ni-favourite-28 mr-0" />
-                <i className="ni ni-cart" />
+                <i className="ni ni-fat-add mr-0" />
+                <i className="ni ni-favourite-28" />
               </Button>
               <Modal
                 className="modal-dialog-centered modal-danger"

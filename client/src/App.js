@@ -40,6 +40,7 @@ import Profile from "views/examples/Profile.js";
 import Register from "views/examples/Register.js";
 import Product from "views/examples/Product.js";
 import Checkout from "views/examples/Checkout.js";
+import Checkout2 from "views/examples/Checkout2.jsx";
 import WishList from "views/examples/WishList.js";
 import AboutUs from "views/examples/AboutUs.js";
 import TermsAndConditions from "views/examples/TermsAndConditions.js";
@@ -63,6 +64,11 @@ class App extends React.Component {
             path="/checkout-page"
             exact
             render={(props) => <Checkout {...props} />}
+          />
+          <Route
+            path="/checkout2-page"
+            exact
+            render={(props) => <Checkout2 {...props} />}
           />
           <Route
             path="/wish-list"

@@ -28,15 +28,26 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => (
         <EmptyMessage>Your Cart is Empty</EmptyMessage>
       )}
     </CartItemsContainer>
-    <Button
-      color="primary"
-      onClick={() => {
-        history.push("/checkout-page");
-        dispatch(toggleCartHidden());
-      }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
-    >
-      GO TO CHECKOUT (R {total.toFixed(2)})
-    </Button>
+    <div className="mt-2">
+      <Button
+        color="primary"
+        onClick={() => {
+          history.push("/checkout-page");
+          dispatch(toggleCartHidden());
+        }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
+      >
+        Cart
+      </Button>
+      <Button
+        color="primary"
+        onClick={() => {
+          history.push("/checkout2-page");
+          dispatch(toggleCartHidden());
+        }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
+      >
+        CHECKOUT (R {total.toFixed(2)})
+      </Button>
+    </div>
   </DropdownContainer>
 );
 

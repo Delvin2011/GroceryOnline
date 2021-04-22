@@ -34,7 +34,7 @@ import {
 
 class TabsSection extends React.Component {
   state = {
-    iconTabs: 1,
+    iconTabs: 2,
     plainTabs: 1,
   };
 
