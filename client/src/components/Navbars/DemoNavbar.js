@@ -104,7 +104,7 @@ class DemoNavbar extends React.Component {
                   alt="..."
                   class="img-responsive"
                   src={require("assets/img/brand/argon-react-white.png")}
-                  style={{ height: "60px" }}
+                  style={{ height: "80px" }}
                 />
               </NavbarBrand>
               <button className="navbar-toggler" id="navbar_global">
