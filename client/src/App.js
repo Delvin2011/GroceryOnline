@@ -44,6 +44,8 @@ import Checkout2 from "views/examples/Checkout2.jsx";
 import WishList from "views/examples/WishList.js";
 import AboutUs from "views/examples/AboutUs.js";
 import TermsAndConditions from "views/examples/TermsAndConditions.js";
+import TransactionSuccess from "views/Transactions/TransactionSuccess.js";
+import TransactionFailed from "views/Transactions/TransactionFailed.js";
 import Shop from "views/shop/shop.jsx";
 
 class App extends React.Component {
@@ -83,7 +85,8 @@ class App extends React.Component {
           <Route path="/collection-page" component={Shop} />
           <Route path="/product-page" component={Product} />
           <Route path="/aboutUs-page" component={AboutUs} />
-
+          <Route path="/transaction-success" component={TransactionSuccess} />
+          <Route path="/transaction-failed" component={TransactionFailed} />
           <Route path="/landing-page" exact component={LandingPageContainer} />
           <Route
             path="/profile-page"

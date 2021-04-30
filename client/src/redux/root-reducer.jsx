@@ -19,11 +19,12 @@ import userReducer from "./user/user-reducer";
 import cartReducer from "./cart/cart-reducer";
 import wishCartReducer from "./wish/wish-reducer";
 import shopReducer from "./shop/shop-reducer";
+import orderCartReducer from "./order/order-reducer";
 
 const persistConfig = {
   key: "root", //telling at what point in the reducer we want to start storing everything
   storage,
-  whitelist: ["cart", "wishCart"], //contains the string names of any of the reducer that we want to store, user and cart. But user info is being persisted by firebase, so only cart reducer
+  whitelist: ["cart", "wishCart", "orderCart"], //contains the string names of any of the reducer that we want to store, user and cart. But user info is being persisted by firebase, so only cart reducer
 };
 
 const rootReducer = combineReducers({
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   wishCart: wishCartReducer,
   shop: shopReducer,
+  orderCart: orderCartReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer); // return the modified version of the rootReducer with the persistConfig - persistance capabilities

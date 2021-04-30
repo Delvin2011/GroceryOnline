@@ -31,8 +31,12 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../redux/cart/cart-selectors";
+import { selectCurrentUser } from "../../redux/user/user-selectors";
+import { addOrderItem } from "../../redux/order/order-actions";
 import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
 import { selectCartTotalWeight } from "../../redux/cart/cart-selectors";
+
+//import CustomButton from "components/CustomButtons/Button";
 // reactstrap components
 import {
   Card,
@@ -65,11 +69,30 @@ class Checkout2Page extends React.Component {
     plainTabs: 1,
     destination: "",
     open: false,
+    openPayment: false,
     productsConfirm: false,
-    customerName: "",
+    recipientName: "",
     email: "",
     phoneNumber: "",
-    message: "",
+    address: "",
+    item: [],
+    order: {
+      recipientName: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      totalCost: "",
+      items: {
+        id: "",
+        description: "",
+        fullDescription: "",
+        imageUrl: "",
+        name: "",
+        price: "",
+        size: "",
+        quantity: "",
+      },
+    },
   };
 
   toggleDestination = (destination) => {
@@ -84,6 +107,12 @@ class Checkout2Page extends React.Component {
     });
   };
 
+  toggleOpenPayment = () => {
+    this.setState({
+      openPayment: !this.state.openPayment,
+    });
+  };
+
   toggleNavs = (e, state, index) => {
     e.preventDefault();
     this.setState({
@@ -93,36 +122,43 @@ class Checkout2Page extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-    this.setState({
-      spinner: true,
-    });
+    const { signUpStart } = this.props;
+  };
 
-    fetch("/email", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: data.get("email"),
-        customerName: data.get("customerName"),
-        phoneNumber: data.get("phoneNumber"),
-        subject: "Service Inquiry",
-        message: data.get("message"),
-      }),
-    })
-      .then((response) => {
-        this.setState({ response: response.status, spinner: false });
-        console.log("Success:", response.status);
-      })
-      .catch((error) => {
-        this.setState({ error: error });
-        console.error("Error:", error);
-      });
+  handleSubmitPayment = async (event) => {
+    event.preventDefault();
+    this.props.addOrderItem(this.state.order);
+    this.setState({
+      openPayment: !this.state.openPayment,
+    });
   };
 
   handleChange = (event) => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
+  };
+
+  setOrderCart = (totalCost) => {
+    const { cartItems } = this.props;
+    const { recipientName, email, phoneNumber, address } = this.state;
+    var len = cartItems.length;
+    var allItems = [];
+
+    for (var i = 0; i < len; i++) {
+      allItems.push(cartItems[i]);
+    }
+    this.setState({
+      order: {
+        recipientName: recipientName,
+        email: email,
+        phoneNumber: phoneNumber,
+        address: address,
+        totalCost: totalCost,
+        items: allItems,
+      },
+    });
+
+    console.log(this.state.order);
   };
 
   render() {
@@ -140,6 +176,8 @@ class Checkout2Page extends React.Component {
         : this.props.totalWeight > 30
         ? baseCost + (baseCost / 30) * (this.props.totalWeight - 30)
         : 0;
+
+    const totalCost = transportCost + this.props.total;
 
     return (
       <>
@@ -293,9 +331,9 @@ class Checkout2Page extends React.Component {
                                   <Input
                                     placeholder="Recepient's name"
                                     type="text"
-                                    name="customerName"
+                                    name="recipientName"
                                     onChange={this.handleChange}
-                                    value={this.state.customerName}
+                                    value={this.state.recipientName}
                                     onFocus={(e) =>
                                       this.setState({ nameFocused: true })
                                     }
@@ -361,25 +399,24 @@ class Checkout2Page extends React.Component {
                                 <Input
                                   className="form-control-alternative"
                                   cols="80"
-                                  name="name"
+                                  name="address"
                                   placeholder="Address..."
                                   rows="4"
                                   type="textarea"
-                                  name="message"
                                   onChange={this.handleChange}
-                                  value={this.state.message}
+                                  value={this.state.address}
                                 />
                               </FormGroup>
                               <Button
                                 className="my-2"
                                 color="primary"
                                 type="button"
-                                onClick={(e) =>
-                                  this.toggleNavs(e, "iconTabs", 3)
-                                }
+                                onClick={(e) => {
+                                  this.toggleNavs(e, "iconTabs", 3);
+                                  this.setOrderCart(totalCost.toFixed(2));
+                                }}
                               >
-                                Proceed to Pay R (
-                                {transportCost + this.props.total})
+                                Proceed to Pay R ({totalCost.toFixed(2)})
                               </Button>
                             </Form>
                           </CardBody>
@@ -388,13 +425,99 @@ class Checkout2Page extends React.Component {
                     ) : null}
                   </TabPane>
                   <TabPane tabId="iconTabs3">
-                    <p className="description">
-                      Raw denim you probably haven't heard of them jean shorts
-                      Austin. Nesciunt tofu stumptown aliqua, retro synth master
-                      cleanse. Mustache cliche tempor, williamsburg carles vegan
-                      helvetica. Reprehenderit butcher retro keffiyeh
-                      dreamcatcher synth.
-                    </p>
+                    <Card className="bg-secondary shadow border-0">
+                      <CardBody className="px-lg-5 py-lg-5">
+                        <form
+                          action="https://sandbox.payfast.co.za/eng/process"
+                          method="POST"
+                          id="checkout"
+                        >
+                          <input
+                            type="hidden"
+                            name="merchant_id"
+                            value="10000100"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="merchant_key"
+                            value="46f0cd694581a"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="return_url"
+                            value="https://www.shokoonline.com/transaction-success"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="cancel_url"
+                            value="https://www.shokoonline.com/transaction-failed"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="notify_url"
+                            value="https://www.starhomecleaners.co.za/notify.html"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="name_first"
+                            value={this.props.currentUser.displayName}
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="email_address"
+                            value={this.props.currentUser.email}
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="m_payment_id"
+                            value="1"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="amount"
+                            value={totalCost.toFixed(2)}
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="item_name"
+                            value={this.state.recipientName}
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="item_description"
+                            value="Grossary"
+                            onChange={this.handleChange}
+                          />
+                          <input
+                            type="hidden"
+                            name="custom_int1"
+                            value="1"
+                            onChange={this.handleChange}
+                          />
+
+                          <Button
+                            className="my-2"
+                            color="primary"
+                            type="submit"
+                            onClick={() =>
+                              this.props.addOrderItem(this.state.order)
+                            }
+                          >
+                            Pay R {totalCost.toFixed(2)}
+                          </Button>
+                        </form>
+                      </CardBody>
+                    </Card>
                   </TabPane>
                 </TabContent>
               </CardBody>
@@ -412,28 +535,17 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal,
   itemCount: selectCartItemsCount,
   totalWeight: selectCartTotalWeight,
+  currentUser: selectCurrentUser,
 });
+
+const mapDispatchToProps = (dispatch) => ({
+  addOrderItem: (item) => dispatch(addOrderItem(item)),
+});
+
 //withRouter - taking the component returned with the connect as its
-export default withRouter(connect(mapStateToProps)(Checkout2Page));
-
-/* splitsDescription = (description) => {
-    var result = description.split(".");
-    var list = [];
-    console.log(result.length);
-    for (var i = 0; i < result.length - 1; i++) {
-      list.push(<li>{result[i]}.</li>);
-    }
-    return list;
-  };
-
-  splitproductInfo = (productInfo, size) => {
-    var result = productInfo.split(";");
-    var infoList = [];
-    for (var i = 0; i < result.length; i++) {
-      var info = result[i]; //.split("~");
-      infoList.push(<li>{info.toString().replace("~", " - ")}.</li>);
-    }
-    infoList.push(<li>Size - {size}.</li>);
-    return infoList;
-  };
-*/
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Checkout2Page)
+);
