@@ -25,18 +25,33 @@ import SimpleFooter from "components/Footers/SimpleFooter.js";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectOrderCartItems } from "../../redux/order/order-selectors";
+import {
+  selectOrderCartItems,
+  selectOrderCartItemsCount,
+} from "../../redux/order/order-selectors";
 import { clearOrderItemFromCart } from "../../redux/order/order-actions";
 import { selectCurrentUser } from "../../redux/user/user-selectors";
 
 import { withRouter } from "react-router-dom";
 
 class TransactionFailed extends React.Component {
+  state = {
+    clearOrderCart: false,
+  };
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
+
+  clearOrderCartItems = () => {
+    const { orderCartItems } = this.props;
+    this.setState({
+      clearOrderCart: true,
+    });
+
+    this.props.clearOrderItem(orderCartItems[orderCartItems.length - 1]);
+  };
 
   render() {
     return (
@@ -71,38 +86,37 @@ class TransactionFailed extends React.Component {
                           className="mr-1"
                           style={{ fontSize: "14px" }}
                         >
-                          Failed
+                          Unsuccessful
                         </Badge>
                       </div>
                       <CardHeader className="bg-white pb-5">
-                        <h4>Go to checkout?</h4>
-                        <Button
-                          color="primary"
-                          href="/checkout2-page"
-                          onClick={() => {
-                            this.props.clearOrderItem(
-                              this.props.orderCartItems[
-                                this.props.orderCartItems.length - 1
-                              ]
-                            );
-                          }}
-                        >
-                          Checkout
-                        </Button>
-                        <h4>Return to home page.</h4>
-                        <Button
-                          color="primary"
-                          href="/"
-                          onClick={() => {
-                            this.props.clearOrderItem(
-                              this.props.orderCartItems[
-                                this.props.orderCartItems.length - 1
-                              ]
-                            );
-                          }}
-                        >
-                          Home
-                        </Button>
+                        {!this.props.currentUser ||
+                        (this.props.orderCartItemsCount != 0 &&
+                          this.props.currentUser &&
+                          this.state.clearOrderCart) ? (
+                          <Button color="primary">Loading...</Button>
+                        ) : this.props.orderCartItemsCount == 0 &&
+                          this.props.currentUser ? (
+                          <Button color="primary" href="/" type="button">
+                            Return to Home Page
+                          </Button>
+                        ) : (
+                          <div>
+                            <h4>
+                              Sorry {this.props.currentUser.displayName} for the
+                              failed transaction.
+                            </h4>
+                            <Button
+                              color="primary"
+                              type="button"
+                              onClick={() => {
+                                this.clearOrderCartItems();
+                              }}
+                            >
+                              Close
+                            </Button>
+                          </div>
+                        )}
                       </CardHeader>
                     </CardBody>
                   </Card>
@@ -125,6 +139,7 @@ const mapStateToProps = createStructuredSelector({
   //state will be the root.reducer
   orderCartItems: selectOrderCartItems,
   currentUser: selectCurrentUser,
+  orderCartItemsCount: selectOrderCartItemsCount,
 });
 
 //export default withRouter(TransactionFailed);

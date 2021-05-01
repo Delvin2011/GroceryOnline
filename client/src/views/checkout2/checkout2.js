@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
 
@@ -35,6 +35,8 @@ import { selectCurrentUser } from "../../redux/user/user-selectors";
 import { addOrderItem } from "../../redux/order/order-actions";
 import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
 import { selectCartTotalWeight } from "../../redux/cart/cart-selectors";
+
+import { selectOrderCartItemsCount } from "../../redux/order/order-selectors";
 
 //import CustomButton from "components/CustomButtons/Button";
 // reactstrap components
@@ -69,13 +71,13 @@ class Checkout2Page extends React.Component {
     plainTabs: 1,
     destination: "",
     open: false,
-    openPayment: false,
-    productsConfirm: false,
+    placeOrder: false,
+    //productsConfirm: false,
     recipientName: "",
     email: "",
     phoneNumber: "",
     address: "",
-    item: [],
+    orderItemCount: this.props.orderItemCount,
     order: {
       recipientName: "",
       email: "",
@@ -107,12 +109,6 @@ class Checkout2Page extends React.Component {
     });
   };
 
-  toggleOpenPayment = () => {
-    this.setState({
-      openPayment: !this.state.openPayment,
-    });
-  };
-
   toggleNavs = (e, state, index) => {
     e.preventDefault();
     this.setState({
@@ -123,14 +119,6 @@ class Checkout2Page extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { signUpStart } = this.props;
-  };
-
-  handleSubmitPayment = async (event) => {
-    event.preventDefault();
-    this.props.addOrderItem(this.state.order);
-    this.setState({
-      openPayment: !this.state.openPayment,
-    });
   };
 
   handleChange = (event) => {
@@ -148,17 +136,20 @@ class Checkout2Page extends React.Component {
       allItems.push(cartItems[i]);
     }
     this.setState({
+      placeOrder: true,
       order: {
         recipientName: recipientName,
         email: email,
         phoneNumber: phoneNumber,
         address: address,
+        deliveryStatus: "Pending",
+        paymentStatus: "Paid",
         totalCost: totalCost,
         items: allItems,
       },
     });
 
-    console.log(this.state.order);
+    console.log(this.state.orderItemCount);
   };
 
   render() {
@@ -407,17 +398,30 @@ class Checkout2Page extends React.Component {
                                   value={this.state.address}
                                 />
                               </FormGroup>
-                              <Button
-                                className="my-2"
-                                color="primary"
-                                type="button"
-                                onClick={(e) => {
-                                  this.toggleNavs(e, "iconTabs", 3);
-                                  this.setOrderCart(totalCost.toFixed(2));
-                                }}
-                              >
-                                Proceed to Pay R ({totalCost.toFixed(2)})
-                              </Button>
+                              {!this.state.placeOrder ? (
+                                <Button
+                                  className="my-2"
+                                  color="primary"
+                                  type="button"
+                                  onClick={(e) => {
+                                    this.setOrderCart(totalCost.toFixed(2));
+                                  }}
+                                >
+                                  Place Order
+                                </Button>
+                              ) : (
+                                <Button
+                                  className="my-2"
+                                  color="primary"
+                                  type="button"
+                                  onClick={(e) => {
+                                    this.toggleNavs(e, "iconTabs", 3);
+                                    this.props.addOrderItem(this.state.order);
+                                  }}
+                                >
+                                  Proceed to Pay ({totalCost.toFixed(2)})
+                                </Button>
+                              )}
                             </Form>
                           </CardBody>
                         </Card>
@@ -509,9 +513,6 @@ class Checkout2Page extends React.Component {
                             className="my-2"
                             color="primary"
                             type="submit"
-                            onClick={() =>
-                              this.props.addOrderItem(this.state.order)
-                            }
                           >
                             Pay R {totalCost.toFixed(2)}
                           </Button>
@@ -536,6 +537,7 @@ const mapStateToProps = createStructuredSelector({
   itemCount: selectCartItemsCount,
   totalWeight: selectCartTotalWeight,
   currentUser: selectCurrentUser,
+  orderItemCount: selectOrderCartItemsCount,
 });
 
 const mapDispatchToProps = (dispatch) => ({

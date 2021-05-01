@@ -25,13 +25,19 @@ import SimpleFooter from "components/Footers/SimpleFooter.js";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectCartItems } from "../../redux/cart/cart-selectors";
+import {
+  selectCartItems,
+  selectCartItemsCount,
+} from "../../redux/cart/cart-selectors";
 import { clearItemFromCart } from "../../redux/cart/cart-actions";
 import { selectCurrentUser } from "../../redux/user/user-selectors";
 
 import { withRouter } from "react-router-dom";
 
 class TransactionSuccess extends React.Component {
+  state = {
+    clearCart: false,
+  };
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -41,7 +47,9 @@ class TransactionSuccess extends React.Component {
   clearCartItems = () => {
     const { cartItems } = this.props;
     var len = cartItems.length;
-
+    this.setState({
+      clearCart: true,
+    });
     for (var i = 0; i < len; i++) {
       this.props.clearItem(cartItems[i]);
     }
@@ -84,16 +92,33 @@ class TransactionSuccess extends React.Component {
                         </Badge>
                       </div>
                       <CardHeader className="bg-white pb-5">
-                        <h4>Thank you for shopping with us!!!</h4>
-                        <Button
-                          color="primary"
-                          href="/"
-                          onClick={() => {
-                            this.clearCartItems();
-                          }}
-                        >
-                          Close
-                        </Button>
+                        {!this.props.currentUser ||
+                        (this.props.itemCount != 0 &&
+                          this.props.currentUser &&
+                          this.state.clearCart) ? (
+                          <Button color="primary">Loading...</Button>
+                        ) : this.props.itemCount == 0 &&
+                          this.props.currentUser ? (
+                          <Button color="primary" href="/" type="button">
+                            Return to Home Page
+                          </Button>
+                        ) : (
+                          <div>
+                            <h4>
+                              Thank you {this.props.currentUser.displayName} for
+                              shopping with us!!!
+                            </h4>
+                            <Button
+                              color="primary"
+                              type="button"
+                              onClick={() => {
+                                this.clearCartItems();
+                              }}
+                            >
+                              Close
+                            </Button>
+                          </div>
+                        )}
                       </CardHeader>
                     </CardBody>
                   </Card>
@@ -116,6 +141,7 @@ const mapStateToProps = createStructuredSelector({
   //state will be the root.reducer
   cartItems: selectCartItems,
   currentUser: selectCurrentUser,
+  itemCount: selectCartItemsCount,
 });
 
 //export default withRouter(TransactionFailed);

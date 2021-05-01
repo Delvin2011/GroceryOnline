@@ -35,6 +35,9 @@ import { selectWishCartItems } from "../../redux/wish/wish-selectors";
 import { selectWishCartItemsCount } from "../../redux/wish/wish-selectors";
 import { selectWishCartHidden } from "../../redux/wish/wish-selectors";
 
+import { selectOrderCartItems } from "../../redux/order/order-selectors";
+import { selectOrderCartItemsCount } from "../../redux/order/order-selectors";
+
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.jsx";
 import WishCartDropdown from "../../components/wish-dropdown/wish-dropdown.jsx";
 
@@ -258,12 +261,26 @@ class DemoNavbar extends React.Component {
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
-                  <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
-                      <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Orders</span>
-                    </DropdownToggle>
-                  </UncontrolledDropdown>
+                  {this.props.currentUser ? (
+                    <UncontrolledDropdown
+                      nav
+                      //onClick={this.props.toggleWishCartHidden}
+                    >
+                      <DropdownToggle nav>
+                        <i className="ni ni-ui-04 d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">
+                          Orders ({this.props.orderCartItemsCount})
+                        </span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  ) : (
+                    <UncontrolledDropdown nav>
+                      <DropdownToggle nav>
+                        <i className="ni ni-ui-04 d-lg-none mr-1" />
+                        <span className="nav-link-inner--text">Orders</span>
+                      </DropdownToggle>
+                    </UncontrolledDropdown>
+                  )}
 
                   {this.props.currentUser ? (
                     <UncontrolledDropdown
@@ -389,6 +406,9 @@ const mapStateToProps = createStructuredSelector({
   wishItemCount: selectWishCartItemsCount,
   wishCartItems: selectWishCartItems,
   wishCartHidden: selectWishCartHidden,
+
+  orderCartItems: selectOrderCartItems,
+  orderCartItemsCount: selectOrderCartItemsCount,
 });
 
 export default connect(
