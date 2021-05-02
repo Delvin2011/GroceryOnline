@@ -36,7 +36,10 @@ import { addOrderItem } from "../../redux/order/order-actions";
 import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
 import { selectCartTotalWeight } from "../../redux/cart/cart-selectors";
 
-import { selectOrderCartItemsCount } from "../../redux/order/order-selectors";
+import {
+  selectOrderCartItemsCount,
+  selectOrderCartItems,
+} from "../../redux/order/order-selectors";
 
 //import CustomButton from "components/CustomButtons/Button";
 // reactstrap components
@@ -79,6 +82,7 @@ class Checkout2Page extends React.Component {
     address: "",
     orderItemCount: this.props.orderItemCount,
     order: {
+      id: 0,
       recipientName: "",
       email: "",
       phoneNumber: "",
@@ -127,7 +131,7 @@ class Checkout2Page extends React.Component {
   };
 
   setOrderCart = (totalCost) => {
-    const { cartItems } = this.props;
+    const { cartItems, orderCartItems } = this.props;
     const { recipientName, email, phoneNumber, address } = this.state;
     var len = cartItems.length;
     var allItems = [];
@@ -138,6 +142,7 @@ class Checkout2Page extends React.Component {
     this.setState({
       placeOrder: true,
       order: {
+        id: orderCartItems.length + 1,
         recipientName: recipientName,
         email: email,
         phoneNumber: phoneNumber,
@@ -538,6 +543,7 @@ const mapStateToProps = createStructuredSelector({
   totalWeight: selectCartTotalWeight,
   currentUser: selectCurrentUser,
   orderItemCount: selectOrderCartItemsCount,
+  orderCartItems: selectOrderCartItems,
 });
 
 const mapDispatchToProps = (dispatch) => ({

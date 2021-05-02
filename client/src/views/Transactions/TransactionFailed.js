@@ -54,6 +54,7 @@ class TransactionFailed extends React.Component {
   };
 
   render() {
+    const { orderCartItems } = this.props;
     return (
       <>
         <DemoNavbar />
