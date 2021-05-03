@@ -31,12 +31,15 @@ import {
 } from "../../redux/cart/cart-selectors";
 import { clearItemFromCart } from "../../redux/cart/cart-actions";
 import { selectCurrentUser } from "../../redux/user/user-selectors";
+import { selectOrderCartItems } from "../../redux/order/order-selectors";
 
 import { withRouter } from "react-router-dom";
 
 class TransactionSuccess extends React.Component {
   state = {
     clearCart: false,
+    response: "",
+    error: "",
   };
   componentDidMount() {
     document.documentElement.scrollTop = 0;
@@ -44,15 +47,81 @@ class TransactionSuccess extends React.Component {
     this.refs.main.scrollTop = 0;
   }
 
-  clearCartItems = () => {
-    const { cartItems } = this.props;
+  clearCartItems = async () => {
+    const { cartItems, orderCartItems } = this.props;
     var len = cartItems.length;
     this.setState({
       clearCart: true,
     });
+
+    var order = "";
+    var orderDetails = "";
     for (var i = 0; i < len; i++) {
+      order +=
+        "<tr><td>" +
+        cartItems[i].name +
+        "</td>" +
+        "<tr><td>" +
+        cartItems[i].size +
+        "</td>" +
+        "<tr><td>" +
+        cartItems[i].price +
+        "</td>" +
+        "<tr><td>" +
+        cartItems[i].quantity +
+        "</td></tr>";
       this.props.clearItem(cartItems[i]);
     }
+    orderDetails =
+      "<table><tr><th>Name</th>" +
+      "<th>Unit Size</th>" +
+      "<th>Unit Price</th>" +
+      "<th>Quantity</th></tr>" +
+      order +
+      "</table>";
+
+    var recipient =
+      "<tr><td>" +
+      orderCartItems[orderCartItems.length - 1].recipientName +
+      "</td>" +
+      "<tr><td>" +
+      orderCartItems[orderCartItems.length - 1].email +
+      "</td>" +
+      "<tr><td>" +
+      orderCartItems[orderCartItems.length - 1].phoneNumber +
+      "</td>" +
+      "<tr><td>" +
+      orderCartItems[orderCartItems.length - 1].address +
+      "</td></tr>";
+
+    var recipientDetails =
+      "<table><tr><th>Name</th>" +
+      "<th>Email Address</th>" +
+      "<th>Phone Number</th>" +
+      "<th>Address</th></tr>" +
+      recipient +
+      "</table>";
+
+    fetch("/email", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: this.props.currentUser.email,
+        subject: "Shoko Enterprise Order",
+        customerName: this.props.currentUser.displayName,
+        message: orderDetails,
+        recipient: recipientDetails,
+        totalCost: orderCartItems[orderCartItems.length - 1].totalCost,
+      }),
+    })
+      .then((response) => {
+        this.setState({ response: response.status, clearCart: false });
+        console.log("Success:", response.status);
+      })
+      .catch((error) => {
+        this.setState({ error: error });
+        console.error("Error:", error);
+      });
   };
 
   render() {
@@ -92,13 +161,9 @@ class TransactionSuccess extends React.Component {
                         </Badge>
                       </div>
                       <CardHeader className="bg-white pb-5">
-                        {!this.props.currentUser ||
-                        (this.props.itemCount != 0 &&
-                          this.props.currentUser &&
-                          this.state.clearCart) ? (
+                        {!this.props.currentUser || this.state.clearCart ? (
                           <Button color="primary">Loading...</Button>
-                        ) : this.props.itemCount == 0 &&
-                          this.props.currentUser ? (
+                        ) : this.state.response ? (
                           <Button color="primary" href="/" type="button">
                             Return to Home Page
                           </Button>
@@ -142,6 +207,7 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   currentUser: selectCurrentUser,
   itemCount: selectCartItemsCount,
+  orderCartItems: selectOrderCartItems,
 });
 
 //export default withRouter(TransactionFailed);
