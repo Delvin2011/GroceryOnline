@@ -61,13 +61,13 @@ class TransactionSuccess extends React.Component {
         "<tr><td>" +
         cartItems[i].name +
         "</td>" +
-        "<tr><td>" +
+        "<td>" +
         cartItems[i].size +
         "</td>" +
-        "<tr><td>" +
+        "<td>" +
         cartItems[i].price +
         "</td>" +
-        "<tr><td>" +
+        "<td>" +
         cartItems[i].quantity +
         "</td></tr>";
       this.props.clearItem(cartItems[i]);
@@ -84,13 +84,13 @@ class TransactionSuccess extends React.Component {
       "<tr><td>" +
       orderCartItems[orderCartItems.length - 1].recipientName +
       "</td>" +
-      "<tr><td>" +
+      "<td>" +
       orderCartItems[orderCartItems.length - 1].email +
       "</td>" +
-      "<tr><td>" +
+      "<td>" +
       orderCartItems[orderCartItems.length - 1].phoneNumber +
       "</td>" +
-      "<tr><td>" +
+      "<td>" +
       orderCartItems[orderCartItems.length - 1].address +
       "</td></tr>";
 
