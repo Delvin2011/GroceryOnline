@@ -37,6 +37,7 @@ import { withRouter } from "react-router-dom";
 class TransactionFailed extends React.Component {
   state = {
     clearOrderCart: false,
+    initialOrderCount: 0,
   };
   componentDidMount() {
     document.documentElement.scrollTop = 0;
@@ -48,6 +49,7 @@ class TransactionFailed extends React.Component {
     const { orderCartItems } = this.props;
     this.setState({
       clearOrderCart: true,
+      initialOrderCount: orderCartItems.length,
     });
 
     this.props.clearOrderItem(orderCartItems[orderCartItems.length - 1]);
@@ -92,11 +94,15 @@ class TransactionFailed extends React.Component {
                       </div>
                       <CardHeader className="bg-white pb-5">
                         {!this.props.currentUser ||
-                        (this.props.orderCartItemsCount != 0 &&
+                        (this.state.initialOrderCount != 0 &&
+                          this.state.initialOrderCount ===
+                            this.props.orderCartItemsCount &&
                           this.props.currentUser &&
                           this.state.clearOrderCart) ? (
                           <Button color="primary">Loading...</Button>
-                        ) : this.props.orderCartItemsCount == 0 &&
+                        ) : this.state.initialOrderCount >
+                            this.props.orderCartItemsCount &&
+                          this.state.initialOrderCount != 0 &&
                           this.props.currentUser ? (
                           <Button color="primary" href="/" type="button">
                             Return to Home Page
