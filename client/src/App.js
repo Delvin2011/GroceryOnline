@@ -47,6 +47,7 @@ import TermsAndConditions from "views/examples/TermsAndConditions.js";
 import TransactionSuccess from "views/Transactions/TransactionSuccess.js";
 import TransactionFailed from "views/Transactions/TransactionFailed.js";
 import Shop from "views/shop/shop.jsx";
+import Orders from "views/order/Orders.jsx";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -76,6 +77,11 @@ class App extends React.Component {
             path="/wish-list"
             exact
             render={(props) => <WishList {...props} />}
+          />
+          <Route
+            path="/orders"
+            exact
+            render={(props) => <Orders {...props} />}
           />
           <Route
             path="/terms-and-conditions"

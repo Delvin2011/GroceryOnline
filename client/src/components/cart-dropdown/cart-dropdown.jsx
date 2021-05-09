@@ -17,7 +17,13 @@ import {
   EmptyMessage,
 } from "./cart-dropdown-styles";
 
-const CartDropdown = ({ cartItems, history, dispatch, total }) => (
+const CartDropdown = ({
+  cartItems,
+  history,
+  dispatch,
+  total,
+  toggleCartHidden,
+}) => (
   <DropdownContainer>
     <CartItemsContainer>
       {cartItems.length ? (
@@ -33,30 +39,46 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => (
         color="primary"
         onClick={() => {
           history.push("/checkout-page");
-          dispatch(toggleCartHidden());
+          toggleCartHidden();
         }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
       >
-        Cart
+        <i className="ni ni-cart" />
       </Button>
       <Button
         color="primary"
         onClick={() => {
           history.push("/checkout2-page");
-          dispatch(toggleCartHidden());
+          toggleCartHidden();
         }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
       >
-        CHECKOUT (R {total.toFixed(2)})
+        CHECKOUT (R{total.toFixed(0)})
+      </Button>
+      <Button
+        color="primary"
+        onClick={() => {
+          toggleCartHidden();
+        }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
+      >
+        <i className="ni ni-fat-remove" />
       </Button>
     </div>
   </DropdownContainer>
 );
 
+const mapDispatchToProps = (dispatch) => ({
+  toggleCartHidden: () => dispatch(toggleCartHidden()),
+});
 //this will make sure the cardDropdown component is not getting re-rendered whenever the state cchanges not related to dropdown
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
 });
 //withRouter - taking the component returned with the connect as its
-export default withRouter(connect(mapStateToProps)(CartDropdown));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CartDropdown)
+);
 
 //history - revisit lesson 116

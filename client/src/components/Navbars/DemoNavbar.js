@@ -262,11 +262,8 @@ class DemoNavbar extends React.Component {
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   {this.props.currentUser ? (
-                    <UncontrolledDropdown
-                      nav
-                      //onClick={this.props.toggleWishCartHidden}
-                    >
-                      <DropdownToggle nav>
+                    <UncontrolledDropdown nav to="/orders" tag={Link}>
+                      <DropdownToggle nav to="/orders" tag={Link}>
                         <i className="ni ni-ui-04 d-lg-none mr-1" />
                         <span className="nav-link-inner--text">
                           Orders ({this.props.orderCartItemsCount})

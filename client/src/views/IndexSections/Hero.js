@@ -47,6 +47,20 @@ class Hero extends React.Component {
                     <h1 className="display-3 text-white">
                       Shoko Online Store <span>pride in fast delivery</span>
                     </h1>
+                    <div className="btn-wrapper">
+                      <Button
+                        className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
+                        color="default"
+                        href="/"
+                      >
+                        <span className="btn-inner--icon mr-1">
+                          <i className="ni ni-shop" />
+                        </span>
+                        <span className="btn-inner--text">
+                          Continue Shopping
+                        </span>
+                      </Button>
+                    </div>
                   </Col>
                 </Row>
               </div>

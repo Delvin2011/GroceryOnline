@@ -75,6 +75,7 @@ class Checkout2Page extends React.Component {
     destination: "",
     open: false,
     placeOrder: false,
+    placeOrderMessage: "Place Order",
     //productsConfirm: false,
     recipientName: "",
     email: "",
@@ -136,23 +137,29 @@ class Checkout2Page extends React.Component {
     var len = cartItems.length;
     var allItems = [];
 
-    for (var i = 0; i < len; i++) {
-      allItems.push(cartItems[i]);
+    if (recipientName && phoneNumber && address) {
+      for (var i = 0; i < len; i++) {
+        allItems.push(cartItems[i]);
+      }
+      this.setState({
+        placeOrder: true,
+        order: {
+          id: orderCartItems.length + 1,
+          recipientName: recipientName,
+          email: email,
+          phoneNumber: phoneNumber,
+          address: address,
+          deliveryStatus: "Pending",
+          paymentStatus: "Paid",
+          totalCost: totalCost,
+          items: allItems,
+        },
+      });
+    } else {
+      this.setState({
+        placeOrderMessage: "Please Complete Form!!!",
+      });
     }
-    this.setState({
-      placeOrder: true,
-      order: {
-        id: orderCartItems.length + 1,
-        recipientName: recipientName,
-        email: email,
-        phoneNumber: phoneNumber,
-        address: address,
-        deliveryStatus: "Pending",
-        paymentStatus: "Paid",
-        totalCost: totalCost,
-        items: allItems,
-      },
-    });
 
     console.log(this.state.orderItemCount);
   };
@@ -412,7 +419,7 @@ class Checkout2Page extends React.Component {
                                     this.setOrderCart(totalCost.toFixed(2));
                                   }}
                                 >
-                                  Place Order
+                                  {this.state.placeOrderMessage}
                                 </Button>
                               ) : (
                                 <Button
