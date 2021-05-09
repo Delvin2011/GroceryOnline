@@ -154,12 +154,12 @@ class CardsFooter extends React.Component {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="" target="_blank">
+                    <NavLink href="/" target="_blank">
                       Blog
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="" target="_blank">
+                    <NavLink href="/" target="_blank">
                       Help
                     </NavLink>
                   </NavItem>
