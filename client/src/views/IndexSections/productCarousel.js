@@ -108,8 +108,8 @@ const Carousel = ({
                   {/*<Button color="primary" onClick={() => addItem(item)}>
             Add
           </Button>*/}
-                  <Button color="primary" href="/checkout-page">
-                    Go to Checkout
+                  <Button color="primary" href="/cart-page">
+                    Go to Cart
                   </Button>
                 </div>
               ) : (
@@ -118,7 +118,7 @@ const Carousel = ({
                     Add to Cart
                   </Button>
                   <Button color="primary" onClick={toggle}>
-                    Go to checkout
+                    Go to Cart
                   </Button>
                   <Modal
                     className="modal-dialog-centered modal-danger"
