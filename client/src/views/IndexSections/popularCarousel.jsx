@@ -1,20 +1,12 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
-import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import CollectionItem from "../../components/Shop/Collection/collection-item.jsx";
-import { selectCollection } from "../../redux/shop/shop-selectors";
 import { selectCollectionsForPreview } from "../../redux/shop/shop-selectors";
 import "react-multi-carousel/lib/styles.css";
 
-import { Badge, Button, Card, CardBody, CardImg, Row, Col } from "reactstrap";
-import DryFood from "assets/img/theme/DryFood.png";
-import Baby from "assets/img/theme/Baby.png";
-import Cereals from "assets/img/theme/Cereals.png";
-import Drinks from "assets/img/theme/Drinks.png";
-import CollectionPreview from "../../components/Shop/Preview/collections-preview"; //'../../Components/preview-collection/preview-collection';
 const PopulaCarousel = ({ collections }) => {
   const responsive = {
     desktop: {

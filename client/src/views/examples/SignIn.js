@@ -41,10 +41,6 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Container,
-  Row,
-  Col,
-  Modal,
 } from "reactstrap";
 import "./sign-in.scss";
 import classnames from "classnames";
@@ -94,7 +90,7 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
   render() {
-    const { googleSignInStart, currentUser, error } = this.props;
+    const { googleSignInStart, currentUser } = this.props;
     //var spinner = googleSignInStart || currentUser || error ? false : this.state.spinner;
     console.log(this.state.googleSpinner);
     return (

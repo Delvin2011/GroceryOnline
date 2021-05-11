@@ -6,12 +6,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col,
@@ -56,7 +50,6 @@ class TransactionFailed extends React.Component {
   };
 
   render() {
-    const { orderCartItems } = this.props;
     return (
       <>
         <DemoNavbar />
@@ -94,7 +87,7 @@ class TransactionFailed extends React.Component {
                       </div>
                       <CardHeader className="bg-white pb-5">
                         {!this.props.currentUser ||
-                        (this.state.initialOrderCount != 0 &&
+                        (this.state.initialOrderCount !== 0 &&
                           this.state.initialOrderCount ===
                             this.props.orderCartItemsCount &&
                           this.props.currentUser &&
@@ -102,7 +95,7 @@ class TransactionFailed extends React.Component {
                           <Button color="primary">Loading...</Button>
                         ) : this.state.initialOrderCount >
                             this.props.orderCartItemsCount &&
-                          this.state.initialOrderCount != 0 &&
+                          this.state.initialOrderCount !== 0 &&
                           this.props.currentUser ? (
                           <Button color="primary" href="/" type="button">
                             Return to Home Page

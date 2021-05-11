@@ -7,10 +7,8 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../redux/cart/cart-selectors";
-import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
 
 import "./checkout.scss";
-import { CheckOutContainer, HeaderTitle } from "./checkout-styles";
 
 const CheckoutPage = ({ cartItems, total }) => (
   <section className="fluid lg">

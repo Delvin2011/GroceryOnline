@@ -75,7 +75,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
-                  href=""
+                  href="/"
                   id="tooltip475038074"
                   target="_blank"
                 >
@@ -103,7 +103,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="dribbble"
-                  href=""
+                  href="/"
                   id="tooltip829810202"
                   target="_blank"
                 >
@@ -114,7 +114,7 @@ class CardsFooter extends React.Component {
                 <UncontrolledTooltip delay={0} target="tooltip829810202">
                   Follow us
                 </UncontrolledTooltip>
-                <Button
+                {/*<Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="github"
                   href=""
@@ -127,7 +127,7 @@ class CardsFooter extends React.Component {
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip495507257">
                   Star on Github
-                </UncontrolledTooltip>
+                </UncontrolledTooltip>*/}
               </Col>
             </Row>
             <hr />
@@ -151,16 +151,6 @@ class CardsFooter extends React.Component {
                   <NavItem>
                     <NavLink href="/terms-and-conditions" target="_blank">
                       T&C's
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="/" target="_blank">
-                      Blog
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="/" target="_blank">
-                      Help
                     </NavLink>
                   </NavItem>
                 </Nav>

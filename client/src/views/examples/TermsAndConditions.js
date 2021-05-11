@@ -15,32 +15,15 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState, useCallback, useEffect } from "react";
+import React from "react";
 
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  Container,
-  Row,
-  Col,
-} from "reactstrap";
-
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
+import { Container } from "reactstrap";
 
 import "react-accessible-accordion/dist/fancy-example.css";
-import styled from "styled-components";
+
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import SimpleFooter from "components/Footers/SimpleFooter.js";
 import TandCsPage from "../TandCs/TandCs.jsx";
 
 import CardsFooter from "components/Footers/CardsFooter.js";

@@ -78,7 +78,12 @@ const Carousel = ({
               <h3 className="text-white font-weight-light">{name}</h3>
               <p className="lead text-white mt-4">{description}</p>
               <div>
-                <Badge color="success" pill className="mr-1">
+                <Badge
+                  color="success"
+                  pill
+                  className="mr-1"
+                  style={{ fontSize: "14px" }}
+                >
                   Price : R {price.toFixed(2)}
                 </Badge>
               </div>

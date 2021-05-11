@@ -38,7 +38,7 @@ const CartDropdown = ({
       <Button
         color="primary"
         onClick={() => {
-          history.push("/checkout-page");
+          history.push("/cart-page");
           toggleCartHidden();
         }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
       >
@@ -47,7 +47,7 @@ const CartDropdown = ({
       <Button
         color="primary"
         onClick={() => {
-          history.push("/checkout2-page");
+          history.push("/checkout-page");
           toggleCartHidden();
         }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
       >

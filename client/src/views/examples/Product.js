@@ -37,19 +37,6 @@ import { withRouter } from "react-router-dom";
 
 const Product = (props) => {
   var items = props.history.location.state; //props.location.state[0];
-
-  const [quantity, setQuantity] = useState(1);
-  const [SigningIn, setSigningIn] = useState(false);
-  const [addToCart, setAddToCart] = useState(false);
-  //const { price,name,Description,imageUrl} = items;
-
-  //const TotalPrice = parseFloat(price) * parseFloat(quantity);
-  const onSetQuantity = useCallback((ev) => {
-    setQuantity(ev.target.value);
-    /*items.quantity = ev.target.value;
-    items.price = parseFloat(price) * parseFloat(quantity);
-    items.TotalPrice = parseFloat(price) * parseFloat(quantity); */
-  }, []);
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;

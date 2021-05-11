@@ -413,11 +413,6 @@ class Landing extends React.Component {
                       <i className="ni ni-settings-gear-65" />
                     </div>
                     <h3>How this works</h3>
-                    <p>
-                      The kit comes with three pre-built pages to help you get
-                      started faster. You can change the text and images and
-                      you're good to go.
-                    </p>
                     <ul className="list-unstyled mt-5">
                       <li className="py-2">
                         <div className="d-flex align-items-center">

@@ -38,16 +38,8 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Container,
-  Row,
-  Col,
-  Modal,
 } from "reactstrap";
 import classnames from "classnames";
-// core components
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import SimpleFooter from "components/Footers/SimpleFooter.js";
-import Headroom from "headroom.js";
 
 class SignUp extends React.Component {
   constructor(props) {

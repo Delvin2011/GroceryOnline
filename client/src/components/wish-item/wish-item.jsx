@@ -6,7 +6,7 @@ import {
   addWishItem,
   removeWishItem,
 } from "../../redux/wish/wish-actions";
-import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
+import { Button } from "reactstrap";
 
 import "../checkout-item/checkout-item.scss";
 

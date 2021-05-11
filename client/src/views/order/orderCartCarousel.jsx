@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
-import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectOrderCartItems } from "../../redux/order/order-selectors";
 import { selectOrderCartItemsCount } from "../../redux/order/order-selectors";
+import { addItem } from "../../redux/cart/cart-actions";
 
 import "react-multi-carousel/lib/styles.css";
 import OrderItem from "../../components/Shop/Collection/order-item";
 
-import { Badge, Container } from "reactstrap";
-const OrderCartCarousel = ({ orderCartItems, orderItemCount }) => {
+import { Badge, Container, Button, Spinner } from "reactstrap";
+const OrderCartCarousel = ({ orderCartItems, addItem }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -30,9 +30,33 @@ const OrderCartCarousel = ({ orderCartItems, orderItemCount }) => {
     },
   };
 
-  //const { paymentStatus, totalCost, deliveryStatus, recipientName, phoneNumber, address } = orderCartItems;
-  //const { ...rest } = props;
-  //console.log(collections);
+  const ReOrderItems = (items) => {
+    var len = items.length;
+    for (var i = 0; i < len; i++) {
+      addItem(items[i]);
+    }
+  };
+
+  const [timeLeft, setTimeLeft] = useState(null);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setTimeLeft(null);
+    }
+    // exit early when we reach 0
+    if (!timeLeft) return;
+    // save intervalId to clear the interval when the
+    // component re-renders
+    const intervalId = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
+      console.log("TIME LEFT IS {0}", timeLeft);
+    }, 1000);
+
+    // clear interval on re-render to avoid memory leaks
+    return () => clearInterval(intervalId);
+    // add timeLeft as a dependency to re-rerun the effect
+    // when we update it
+  }, [timeLeft]);
 
   return (
     <>
@@ -101,6 +125,25 @@ const OrderCartCarousel = ({ orderCartItems, orderItemCount }) => {
                   <p>Your Cart is Empty</p>
                 )}
               </Carousel>
+              {timeLeft >= 3 && timeLeft < 6 ? (
+                <Button color="primary">
+                  <Spinner color="white" size="sm" />
+                </Button>
+              ) : timeLeft < 3 && timeLeft > 0 ? (
+                <Button color="primary">
+                  <i className="ni ni-check-bold" />
+                </Button>
+              ) : (
+                <Button
+                  color="primary"
+                  onClick={() => {
+                    ReOrderItems(orderCart.items);
+                    setTimeLeft(5);
+                  }}
+                >
+                  Re-Order
+                </Button>
+              )}
               <hr />
             </Container>
           ))
@@ -117,5 +160,14 @@ const mapStateToProps = createStructuredSelector({
   orderCartItems: selectOrderCartItems,
   orderItemCount: selectOrderCartItemsCount,
 });
+
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+});
 //withRouter - taking the component returned with the connect as its
-export default withRouter(connect(mapStateToProps)(OrderCartCarousel));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(OrderCartCarousel)
+);

@@ -64,12 +64,12 @@ class App extends React.Component {
         <Switch>
           <Route path="/" exact component={LandingPageContainer} />
           <Route
-            path="/checkout-page"
+            path="/cart-page"
             exact
             render={(props) => <Checkout {...props} />}
           />
           <Route
-            path="/checkout2-page"
+            path="/checkout-page"
             exact
             render={(props) => <Checkout2 {...props} />}
           />

@@ -112,20 +112,6 @@ class TabsSection extends React.Component {
                     Product Information
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink
-                    aria-selected={this.state.iconTabs === 3}
-                    className={classnames("mb-sm-3 mb-md-0", {
-                      active: this.state.iconTabs === 3,
-                    })}
-                    onClick={(e) => this.toggleNavs(e, "iconTabs", 3)}
-                    href="#pablo"
-                    role="tab"
-                  >
-                    <i className="ni ni-calendar-grid-58 mr-2" />
-                    Delivery & Returns
-                  </NavLink>
-                </NavItem>
               </Nav>
             </div>
             <Card className="shadow">
@@ -139,15 +125,6 @@ class TabsSection extends React.Component {
                   <TabPane tabId="iconTabs2">
                     <p className="description">
                       {this.splitproductInfo(item.productInfo, item.size)}
-                    </p>
-                  </TabPane>
-                  <TabPane tabId="iconTabs3">
-                    <p className="description">
-                      Raw denim you probably haven't heard of them jean shorts
-                      Austin. Nesciunt tofu stumptown aliqua, retro synth master
-                      cleanse. Mustache cliche tempor, williamsburg carles vegan
-                      helvetica. Reprehenderit butcher retro keffiyeh
-                      dreamcatcher synth.
                     </p>
                   </TabPane>
                 </TabContent>

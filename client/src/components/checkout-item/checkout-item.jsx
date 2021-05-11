@@ -5,7 +5,6 @@ import {
   addItem,
   removeItem,
 } from "../../redux/cart/cart-actions";
-import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
 
 import "./checkout-item.scss";
 
