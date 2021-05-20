@@ -493,10 +493,11 @@ class Landing extends React.Component {
                 <Col lg="10">
                   <h2 className="display-3 text-white">Partner With Us</h2>
                   <p className="lead text-white">
-                    According to the National Oceanic and Atmospheric
-                    Administration, Ted, Scambos, NSIDClead scentist, puts the
-                    potentially record low maximum sea ice extent tihs year down
-                    to low ice.
+                    Make money when you want by partnering with a world class
+                    provider that will bring convenience to yourself and the
+                    customers. With 48 hour deliveries, consistent supply of
+                    goods for delivery. You are guaranteed to have less downtime
+                    and increased profits.
                   </p>
                 </Col>
               </Row>
@@ -507,8 +508,9 @@ class Landing extends React.Component {
                   </div>
                   <h5 className="text-white mt-3">Convinient</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Set your own schedule, you can pick up deliveries and
+                    deliver to preferred areas without the hussle of looking for
+                    client.
                   </p>
                 </Col>
                 <Col lg="3">
@@ -517,8 +519,8 @@ class Landing extends React.Component {
                   </div>
                   <h5 className="text-white mt-3">Reliable</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Gurantee of continuous supply of goods for delivery to
+                    multiple areas, country wide.
                   </p>
                 </Col>
                 <Col lg="3">
@@ -527,8 +529,8 @@ class Landing extends React.Component {
                   </div>
                   <h5 className="text-white mt-3">Cost Effective</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Make money on your own terms and capacity. Competitive rates
+                    afforded to all partner drivers.
                   </p>
                 </Col>
                 <Col lg="3">
@@ -537,8 +539,8 @@ class Landing extends React.Component {
                   </div>
                   <h5 className="text-white mt-3">Fast</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Just tap and accept orders and go, pick up at JHB based
+                    distribution centre and off you go to deliver.
                   </p>
                 </Col>
               </Row>
