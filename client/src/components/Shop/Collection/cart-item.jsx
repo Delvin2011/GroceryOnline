@@ -109,11 +109,11 @@ const CollectionItem = ({
           </div>
           {currentUser ? (
             <div className="mt-2">
-              {timeLeft >= 3 && timeLeft < 6 ? (
+              {timeLeft == 2 ? (
                 <Button color="primary">
                   <Spinner color="white" size="sm" />
                 </Button>
-              ) : timeLeft < 3 && timeLeft > 0 ? (
+              ) : timeLeft < 2 && timeLeft > 0 ? (
                 <Button color="primary">
                   <i className="ni ni-check-bold" />
                 </Button>
@@ -122,7 +122,7 @@ const CollectionItem = ({
                   color="primary"
                   onClick={() => {
                     addItem(item);
-                    setTimeLeft(5);
+                    setTimeLeft(2);
                   }}
                 >
                   +

@@ -125,11 +125,11 @@ const OrderCartCarousel = ({ orderCartItems, addItem }) => {
                   <p>Your Cart is Empty</p>
                 )}
               </Carousel>
-              {timeLeft >= 3 && timeLeft < 6 ? (
+              {timeLeft == 2 ? (
                 <Button color="primary">
                   <Spinner color="white" size="sm" />
                 </Button>
-              ) : timeLeft < 3 && timeLeft > 0 ? (
+              ) : timeLeft < 2 && timeLeft > 0 ? (
                 <Button color="primary">
                   <i className="ni ni-check-bold" />
                 </Button>
@@ -138,7 +138,7 @@ const OrderCartCarousel = ({ orderCartItems, addItem }) => {
                   color="primary"
                   onClick={() => {
                     ReOrderItems(orderCart.items);
-                    setTimeLeft(5);
+                    setTimeLeft(2);
                   }}
                 >
                   Re-Order

@@ -89,16 +89,16 @@ const Carousel = ({
               </div>
               {currentUser ? (
                 <div className="mt-2">
-                  {timeLeft >= 3 && timeLeft < 6 ? (
+                  {timeLeft == 2 ? (
                     <Button color="primary">Loading...</Button>
-                  ) : timeLeft < 3 && timeLeft > 0 ? (
+                  ) : timeLeft < 2 && timeLeft > 0 ? (
                     <Button color="primary">Done...</Button>
                   ) : (
                     <Button
                       color="primary"
                       onClick={() => {
                         addItem(item);
-                        setTimeLeft(5);
+                        setTimeLeft(2);
                       }}
                     >
                       Add to Cart
