@@ -28,13 +28,13 @@ const PopulaCarousel = ({ collections }) => {
 
   //const { title, items } = collections;
   //const { ...rest } = props;
-  console.log(collections);
+  //console.log(collections);
 
   return (
     <>
       <Carousel responsive={responsive}>
         {collections
-          .filter((item) => item.id === "Baby")
+          .filter((item) => item.id === "baby")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")
@@ -42,7 +42,7 @@ const PopulaCarousel = ({ collections }) => {
           })}
 
         {collections
-          .filter((item) => item.id === "Breakfast-Cereals")
+          .filter((item) => item.id === "breakfast-cereals")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")
@@ -50,7 +50,7 @@ const PopulaCarousel = ({ collections }) => {
           })}
 
         {collections
-          .filter((item) => item.id === "Cleaning-Detergents")
+          .filter((item) => item.id === "cleaning-detergents")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")
@@ -58,7 +58,7 @@ const PopulaCarousel = ({ collections }) => {
           })}
 
         {collections
-          .filter((item) => item.id === "Cooking-Ingredients")
+          .filter((item) => item.id === "cooking-ingredients")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")
@@ -66,7 +66,7 @@ const PopulaCarousel = ({ collections }) => {
           })}
 
         {collections
-          .filter((item) => item.id === "Dry-Foods")
+          .filter((item) => item.id === "dry-foods")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")
@@ -74,7 +74,7 @@ const PopulaCarousel = ({ collections }) => {
           })}
 
         {collections
-          .filter((item) => item.id === "Health&Beauty")
+          .filter((item) => item.id === "health&beauty")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")

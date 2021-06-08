@@ -2,7 +2,7 @@ import firebase from "firebase/app"; //firebase keyword is going to give us acce
 import "firebase/firestore"; //import dependances for the database
 import "firebase/auth"; //import dependances for the authentification
 
-const config = {
+/*const config = {
   apiKey: "AIzaSyCplMBR0PDYnSYWkQMJQwnVITsBbajyk-A",
   authDomain: "lavie-db.firebaseapp.com",
   databaseURL: "https://lavie-db.firebaseio.com",
@@ -10,6 +10,16 @@ const config = {
   storageBucket: "",
   messagingSenderId: "792040743338",
   appId: "1:792040743338:web:336ca3f57c94719b7c4bd3",
+};*/
+
+const config = {
+  apiKey: "AIzaSyAFyI4KsFs6w-go7tqwTd2B3XiTXbkZrWA",
+  authDomain: "shokoonlinedb.firebaseapp.com",
+  projectId: "shokoonlinedb",
+  storageBucket: "shokoonlinedb.appspot.com",
+  messagingSenderId: "936789836148",
+  appId: "1:936789836148:web:8f3776d6d5d24dae75ac21",
+  measurementId: "G-10KEYMKK5H",
 };
 
 firebase.initializeApp(config); //firebase initialisation

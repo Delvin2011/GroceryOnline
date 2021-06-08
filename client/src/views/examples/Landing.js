@@ -25,6 +25,9 @@ import {
   selectCurrentUser,
   selectCurrentUserLoginError,
 } from "../../redux/user/user-selectors";
+
+import { selectCollectionsForPreview } from "../../redux/shop/shop-selectors";
+
 import { fetchCollectionsStart } from "../../redux/shop/shop-actions";
 import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
 import Baby from "assets/img/theme/Baby.png";
@@ -100,7 +103,7 @@ class Landing extends React.Component {
         customerName: data.get("customerName"),
         phoneNumber: data.get("phoneNumber"),
         subject: "Service Inquiry",
-        message: data.get("message"),
+        message: data.get("message"), //JSON.stringify(this.props.collections), for writing collections to txt file.
       }),
     })
       .then((response) => {
@@ -761,6 +764,7 @@ class Landing extends React.Component {
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   error: selectCurrentUserLoginError,
+  collections: selectCollectionsForPreview,
 });
 
 export default connect(

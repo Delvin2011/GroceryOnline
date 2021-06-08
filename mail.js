@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport(mailGun(auth));
 const sendMail = (email, subject, emailBody, cb) => {
   const mailOptions = {
     from: email, // Twhere the email is coming from
-    to: "takutapfu@gmail.com", // TODO: the receiver email has to be authorized for the free tier
+    to: "shokoenterprise@gmail.com", // TODO: the receiver email has to be authorized for the free tier
     //to: 'starhomecleaners01@gmail.com', // TODO: the receiver email has to be authorized for the free tier
     subject,
     html: emailBody,

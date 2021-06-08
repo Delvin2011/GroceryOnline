@@ -111,18 +111,12 @@ app.get("/email/sent", (req, res) => {
   res.sendFile(path.join(__dirname, "EmailResponse", "emailMessage.html"));
 });
 
-/*app.post('/payment', (req, res) => {
-    const body = {
-      source: req.body.token.id,
-      amount: req.body.amount,
-      currency: 'zar'
-    };
-  
-    stripe.charges.create(body, (stripeErr, stripeRes) => {
-      if (stripeErr) {
-        res.status(500).send({ error: stripeErr });
-      } else {
-        res.status(200).send({ success: stripeRes });
-      }
-    });
-  });*/
+/*  try {
+    const data = fs.writeFileSync(
+      "C:/Users/Takudzwa/Documents/Projects/ShokoEnterprisePlatform/test.txt",
+      emailBody
+    );
+    //file written successfully
+  } catch (err) {
+    console.error(err);
+  }*/
