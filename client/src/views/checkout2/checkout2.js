@@ -444,20 +444,20 @@ class Checkout2Page extends React.Component {
                     <Card className="bg-secondary shadow border-0">
                       <CardBody className="px-lg-5 py-lg-5">
                         <form
-                          action="https://sandbox.payfast.co.za/eng/process"
+                          action="https://www.payfast.co.za/eng/process"
                           method="POST"
                           id="checkout"
                         >
                           <input
                             type="hidden"
                             name="merchant_id"
-                            value="10000100"
+                            value="17538504"
                             onChange={this.handleChange}
                           />
                           <input
                             type="hidden"
                             name="merchant_key"
-                            value="46f0cd694581a"
+                            value="kyijbt7muhkfl"
                             onChange={this.handleChange}
                           />
                           <input

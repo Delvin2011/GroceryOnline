@@ -28,13 +28,13 @@ class PaymentCheckoutButton extends React.Component {
           <input
             type="hidden"
             name="merchant_id"
-            value="10788743"
+            value="17538504"
             onChange={this.onInputChange}
           />
           <input
             type="hidden"
             name="merchant_key"
-            value="bhxrbdcmch80c"
+            value="kyijbt7muhktl"
             onChange={this.onInputChange}
           />
           <input
