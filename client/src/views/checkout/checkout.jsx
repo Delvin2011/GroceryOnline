@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect"; //bcoz we gonna be pulling stufff off the state
-
+import { withRouter } from "react-router-dom";
 import CheckoutItem from "../../components/checkout-item/checkout-item";
 import {
   selectCartItems,
   selectCartTotal,
 } from "../../redux/cart/cart-selectors";
-
+import { Button, Row } from "reactstrap";
 import "./checkout.scss";
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({ cartItems, total, history }) => (
   <section className="fluid lg">
     <div className="checkout-page">
       <div className="checkout-header">
@@ -38,6 +38,19 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className="total">
       <h4>TOTAL: R {total.toFixed(2)}</h4>
     </div>
+    <Row className="align-items-center justify-content-center">
+      <Button
+        color="primary"
+        onClick={() => {
+          history.push("/checkout-page");
+        }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
+      >
+        <span className="btn-inner--icon mr-1">
+          <i className="ni ni-user-run" />
+        </span>
+        <span className="btn-inner--text">Proceed to Checkout</span>
+      </Button>
+    </Row>
   </section>
 );
 
@@ -46,4 +59,4 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal,
 });
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default withRouter(connect(mapStateToProps)(CheckoutPage));
