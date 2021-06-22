@@ -19,7 +19,7 @@ import React from "react";
 
 // reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
-
+import { withRouter } from "react-router-dom";
 class Hero extends React.Component {
   render() {
     return (
@@ -60,6 +60,20 @@ class Hero extends React.Component {
                           Continue Shopping
                         </span>
                       </Button>
+
+                      <Button
+                        color="default"
+                        onClick={() => {
+                          this.props.history.push("/checkout-page");
+                        }} //to fire the toggelCart Hidden action. Used to hinder the dropdown from showing when the cart page is open.
+                      >
+                        <span className="btn-inner--icon mr-1">
+                          <i className="ni ni-user-run" />
+                        </span>
+                        <span className="btn-inner--text">
+                          Proceed to Checkout
+                        </span>
+                      </Button>
                     </div>
                   </Col>
                 </Row>
@@ -88,7 +102,7 @@ class Hero extends React.Component {
   }
 }
 
-export default Hero;
+export default withRouter(Hero);
 
 /*                    <div className="btn-wrapper mt-5">
 <Button
