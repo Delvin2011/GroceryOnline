@@ -208,6 +208,17 @@ class DemoNavbar extends React.Component {
                   className="navbar-nav-hover align-items-lg-center  ml-lg-auto"
                   navbar
                 >
+                  <NavItem className="d-none d-sm-block ml-sm-4">
+                    <NavLink
+                      className="nav-link-icon"
+                      color="default"
+                      href="/"
+                      target=""
+                    >
+                      <span className="nav-link-inner--text">Home</span>
+                    </NavLink>
+                  </NavItem>
+
                   {this.props.currentUser ? (
                     <UncontrolledDropdown nav onClick={this.props.signOutStart}>
                       <DropdownToggle nav>
