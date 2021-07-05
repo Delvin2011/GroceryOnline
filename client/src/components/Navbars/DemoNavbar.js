@@ -249,10 +249,10 @@ class DemoNavbar extends React.Component {
                       >
                         Phone
                       </DropdownItem>*/}
-                      <DropdownItem to="/login-page" tag={Link}>
+                      <DropdownItem href="https://wa.me/27632484581">
                         WhatsApp
                       </DropdownItem>
-                      <DropdownItem to="/register-page" tag={Link}>
+                      <DropdownItem href="https://www.facebook.com/Shokoonline-104380961900153">
                         Facebook
                       </DropdownItem>
                     </DropdownMenu>
