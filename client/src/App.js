@@ -48,6 +48,7 @@ import TransactionSuccess from "views/Transactions/TransactionSuccess.js";
 import TransactionFailed from "views/Transactions/TransactionFailed.js";
 import Shop from "views/shop/shop.jsx";
 import Orders from "views/order/Orders.jsx";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -61,6 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <MessengerCustomerChat pageId="104380961900153" appId="" size="small" />
         <Switch>
           <Route path="/" exact component={LandingPageContainer} />
           <Route

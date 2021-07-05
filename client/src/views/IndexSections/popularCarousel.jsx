@@ -42,7 +42,7 @@ const PopulaCarousel = ({ collections }) => {
           })}
 
         {collections
-          .filter((item) => item.id === "breakfast-cereals")
+          .filter((item) => item.id === "breakfast-drinks")
           .map((filterItem) => {
             return filterItem.items
               .filter((ite) => ite.popular === "1")

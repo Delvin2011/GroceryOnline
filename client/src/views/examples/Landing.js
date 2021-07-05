@@ -277,9 +277,9 @@ class Landing extends React.Component {
                       <Card className="card-lift--hover shadow border-0">
                         <CardBody className="py-5">
                           <h6 className="text-success text-uppercase">
-                            Breakfast Cereals
+                            Breakfast & Drinks
                           </h6>
-                          <Link to="/collection-page/breakfast-cereals">
+                          <Link to="/collection-page/breakfast-drinks">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Cereals.png")}
@@ -288,7 +288,7 @@ class Landing extends React.Component {
                           <Button
                             className="mt-4"
                             color="success"
-                            href="/collection-page/breakfast-cereals"
+                            href="/collection-page/breakfast-drinks"
                           >
                             View more
                           </Button>
@@ -324,7 +324,7 @@ class Landing extends React.Component {
                           <h6 className="text-primary text-uppercase">
                             Health & Beauty
                           </h6>
-                          <Link to="/collection-page/healthy&beauty">
+                          <Link to="/collection-page/health&beauty">
                             <CardImg
                               alt="..."
                               src={require("assets/img/theme/Healthy&Beauty.png")}

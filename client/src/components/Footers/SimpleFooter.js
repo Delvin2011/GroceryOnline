@@ -26,7 +26,7 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip
+  UncontrolledTooltip,
 } from "reactstrap";
 
 class SimpleFooter extends React.Component {
@@ -48,7 +48,7 @@ class SimpleFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
-                  href=""
+                  href="https://twitter.com/shokoonline/status/1411628674584133635?s=24"
                   id="tooltip475038074"
                   target="_blank"
                 >
@@ -76,12 +76,12 @@ class SimpleFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="dribbble"
-                  href=""
+                  href="https://instagram.com/shokoonline?utm_medium=copy_link"
                   id="tooltip829810202"
                   target="_blank"
                 >
                   <span className="btn-inner--icon">
-                    <i className="fa fa-dribbble" />
+                    <i className="fa fa-instagram" />
                   </span>
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip829810202">
@@ -108,10 +108,7 @@ class SimpleFooter extends React.Component {
               <Col md="6">
                 <div className=" copyright">
                   © {new Date().getFullYear()}{" "}
-                  <a
-                    href=""
-                    target="_blank"
-                  >
+                  <a href="" target="_blank">
                     LaVie WebHome
                   </a>
                   .
@@ -120,26 +117,17 @@ class SimpleFooter extends React.Component {
               <Col md="6">
                 <Nav className=" nav-footer justify-content-end">
                   <NavItem>
-                    <NavLink
-                      href="/aboutUs-page"
-                      target="_blank"
-                    >
+                    <NavLink href="/aboutUs-page" target="_blank">
                       About Us
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink
-                      href=""
-                      target="_blank"
-                    >
+                    <NavLink href="" target="_blank">
                       Blog
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink
-                      href=""
-                      target="_blank"
-                    >
+                    <NavLink href="" target="_blank">
                       Help
                     </NavLink>
                   </NavItem>

@@ -75,7 +75,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
-                  href="/"
+                  href="https://twitter.com/shokoonline/status/1411628674584133635?s=24"
                   id="tooltip475038074"
                   target="_blank"
                 >
@@ -89,7 +89,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="facebook"
-                  href=""
+                  href="https://www.facebook.com/Shokoonline-104380961900153"
                   id="tooltip837440414"
                   target="_blank"
                 >
@@ -108,7 +108,7 @@ class CardsFooter extends React.Component {
                   target="_blank"
                 >
                   <span className="btn-inner--icon">
-                    <i className="fa fa-dribbble" />
+                    <i className="fa fa-instagram" />
                   </span>
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip829810202">
