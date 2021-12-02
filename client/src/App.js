@@ -23,6 +23,8 @@ import { createStructuredSelector } from "reselect";
 import { checkUserSession } from "./redux/user/user-actions";
 import { selectCurrentUser } from "./redux/user/user-selectors";
 import { fetchCollectionsStart } from "./redux/shop/shop-actions";
+import { fetchInvoicesStart } from "./redux/invoices/invoices-actions";
+
 /*import "assets/vendor/nucleo/css/nucleo.css";
 import "assets/vendor/font-awesome/css/font-awesome.min.css";
 import "assets/scss/argon-design-system-react.scss?v1.1.0";*/
@@ -54,9 +56,14 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { checkUserSession, fetchCollectionsStart } = this.props;
+    const {
+      checkUserSession,
+      fetchCollectionsStart,
+      fetchInvoicesStart,
+    } = this.props;
     checkUserSession();
     fetchCollectionsStart();
+    fetchInvoicesStart();
   }
 
   render() {
@@ -120,6 +127,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   checkUserSession: () => dispatch(checkUserSession()),
   fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+  fetchInvoicesStart: () => dispatch(fetchInvoicesStart()),
 });
 //App doesn't need the current user state, apart from the header component, it only sets the default state.
 //Therefore passing null.

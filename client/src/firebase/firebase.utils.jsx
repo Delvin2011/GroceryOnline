@@ -145,6 +145,26 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   //console.log(transformedCollection);
 };
 
+export const convertInvoicesSnapshotToMap = (invoices) => {
+  const transformedInvoice = invoices.docs.map((doc) => {
+    const { name } = doc.data();
+
+    return {
+      id: doc.id,
+      name,
+    };
+  });
+
+  //the initla object goew into the 1st new collection, and sets the 1st value equal to the title but in lowe case e.g hats
+  // returns hats and goes intno the 2nd object.
+  //until we have an object where the titles of all the 5 collection objects are the keys and they equal their respective objects
+  return transformedInvoice.reduce((accumulator, invoice) => {
+    accumulator[invoice.name.toLowerCase()] = invoice;
+    return accumulator;
+  }, {});
+  console.log(transformedInvoice);
+};
+
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {

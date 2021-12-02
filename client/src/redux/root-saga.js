@@ -7,6 +7,7 @@ import { userSagas } from "./user/user-sagas";
 import { cartSagas } from "./cart/cart-sagas";
 import { wishCartSagas } from "./wish/wish-sagas";
 import { orderCartSagas } from "./order/order-sagas";
+import { invoicesSagas } from "./invoices/invoices-sagas.js";
 
 export default function* rootSaga() {
   yield all([
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     call(shopSagas),
     call(wishCartSagas),
     call(orderCartSagas),
+    call(invoicesSagas),
   ]); //all handles all sagas. all the code will initialise at the same time.
 }
