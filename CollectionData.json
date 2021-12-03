@@ -1,0 +1,920 @@
+﻿[
+  {
+    "routeName": "baby",
+    "id": "Baby",
+    "title": "Baby",
+    "items": [
+      {
+        "productInfo": "Brand~Purity",
+        "id": "bab1",
+        "popular": "0",
+        "description": "Apple flavoured textured food for your baby, with no preservatives, colourants or artificial flavours, making it a delicious and healthy choice.",
+        "size": "0.2kg",
+        "name": "Purity Apples Baby Food 200ml",
+        "fullDescription": "At around 8 months babies are developmentally ready for more complex tastes and textures. The introduction of textures is important for the development of babies’ speech and chewing skills. This range of textured foods teaches babies to chew regardless of whether they have teeth or not.",
+        "imageUrl": "https://i.ibb.co/SQnFSKG/purity-apples-baby-food-200ml.png",
+        "price": 16.5
+      },
+      {
+        "popular": "0",
+        "name": "Aspen Infacare 100% Apple & Prune Baby Juice Box 200ml",
+        "description": "When the baby is in the weaning stage, liquids are an important part of the diet.",
+        "productInfo": "Brand~Aspen",
+        "imageUrl": "https://i.ibb.co/FYcG0Kf/aspen-infacare-baby-juice-200ml.png",
+        "id": "bab2",
+        "price": 12,
+        "fullDescription": "When the baby is in the weaning stage, liquids are an important part of the diet.",
+        "size": "0.2kg"
+      },
+      {
+        "popular": "0",
+        "name": "Bennetts Regular Baby Wipes 80 Pack",
+        "id": "bab3",
+        "description": "Bennetts Wet Wipes are clinically tested for mildness – fragrance free, alcohol free & pH balanced.",
+        "productInfo": "Brand~Bennetts",
+        "size": "0.08kg",
+        "price": 36,
+        "fullDescription": "Bennetts Wet Wipes are clinically tested for mildness – fragrance free, alcohol free & pH balanced. They are durable, soft & the moisture is consistent from the first to last wipe.",
+        "imageUrl": "https://i.ibb.co/FnFFMm3/bennets-regular-baby-wipes-80-pack.png"
+      },
+      {
+        "id": "bab4",
+        "productInfo": "Brand~Purity & Elizabeth Anne`s",
+        "size": "0.325kg",
+        "name": "Purity & Elizabeth Anne`s Baby Aqueous Cream 325ml",
+        "price": 36,
+        "imageUrl": "https://i.ibb.co/88gsmNq/purity-baby-aqueous-cream-325ml.png",
+        "popular": "0",
+        "description": "The lightly fragranced baby aqueous cream gently moisturises and helps protect your baby`s skin from dryness.",
+        "fullDescription": "Purity & Elizabeth Anne`s essentials is a mild and gentle range of products that leaves your baby`s hair and skin soft, smooth, cuddly and smelling like a baby should. Specially developed with love and care, you can be assured that Purity & Elizabeth Anne`s provides only the best, gentle and effective products for you and your baby."
+      },
+      {
+        "productInfo": "Brand~Pampers",
+        "size": "0.1kg",
+        "description": "Give your baby breathable dryness, a new dimension of overnight dryness.",
+        "popular": "1",
+        "price": 265,
+        "imageUrl": "https://i.ibb.co/0Q2R6Js/pampers-maxi-baby-dry-nappies-62-pack.png",
+        "name": "Pampers Maxi+ Baby-Dry Nappies 62 Pack",
+        "fullDescription": "An inner layer with absorbent Micro-Pearls to lock away wetness for up to 12h. Extra dry-layer that instantly absorbs wetness away from baby`s skin. Unique air channels for breathable dryness overnight and stretchy sides provide a comfortable fit and flex with your baby`s every move.",
+        "id": "bab5"
+      },
+      {
+        "price": 264,
+        "productInfo": "Brand~Nestlé",
+        "description": "Nido products feature instant dry whole milk with Vitamins A & D",
+        "imageUrl": "https://i.ibb.co/V2kbmJx/nestle-nido-preschool-powdered-formula-900g.png",
+        "id": "bab6",
+        "size": "0.9kg",
+        "fullDescription": "Offers a complete range of milk and milk-based products that offer nutrition solutions for each stage of childhood. With its focus on providing a nutritional foundation for growth and development.",
+        "popular": "0",
+        "name": "Nestlé Nido 3+ Preschool Powdered Formula 900g"
+      },
+      {
+        "size": "0.9kg",
+        "popular": "1",
+        "id": "bab7",
+        "name": "Nestlé Nido Toddler No. 1+ Growing Up Formula 900g",
+        "fullDescription": "This powdered milk beverage with a delicious honey flavour has 13 vitamins and minerals to help support your toddler’s healthy growth and development.",
+        "productInfo": "Brand~Nestlé",
+        "imageUrl": "https://i.ibb.co/26hxL3q/nestle-nido-toddler-1-growing-formula-900g.png",
+        "price": 160,
+        "description": "This powdered milk beverage with a delicious honey flavour has 13 vitamins and minerals to help support your toddler’s healthy growth and development."
+      },
+      {
+        "fullDescription": "From 6 months onwards, when your baby is ready to be introduced to solids it is important to start with a single grain. Nestlé Nestum single grain baby cereals are finely textured making them easy for your baby to swallow and come in 4 different flavours.",
+        "size": "0.25kg",
+        "id": "bab8",
+        "popular": "0",
+        "name": "Nestlé Nestum Stage 1 Regular Baby Cereal 250g",
+        "price": 27,
+        "description": "Nestlé Nestum single grain baby cereals are finely textured making them easy for your baby to swallow and come in 4 different flavours.",
+        "productInfo": "Brand~Nestlé",
+        "imageUrl": "https://i.ibb.co/8PjfzFj/nestle-nestum-stage-1-regular-baby-cereal-250g.png"
+      },
+      {
+        "description": "Our most gentle protection - fasten-anywhere tabs for a perfect fit.",
+        "size": "0.076kg",
+        "fullDescription": "Our most gentle protection - fasten-anywhere tabs for a perfect fit.",
+        "price": 180,
+        "id": "bab9",
+        "productInfo": "Brand~Huggies",
+        "name": "Huggies Dry Comfort Jumbo Pack No. 3 Diapers 76 Pack",
+        "imageUrl": "https://i.ibb.co/GsGcTPV/huggies-dry-comfort-lumbo-pack-3-diapers-76-pack.png",
+        "popular": "0"
+      },
+      {
+        "price": 42,
+        "fullDescription": "Cerelac instant cereals include a range of nutritious, easily-digested instant cereals. Suitable as a complementary food for infants from six months onwards, when breast milk alone no longer meets the baby`s growing nutritional requirements. It is not a breast milk substitute",
+        "productInfo": "Brand~Nestlé",
+        "id": "bab10",
+        "description": "Cerelac instant cereals include a range of nutritious, easily-digested instant cereals.",
+        "imageUrl": "https://i.ibb.co/BVDMh3Q/nestle-cerelac-rice-baby-cereal-250g.png",
+        "name": "Nestlé Cerelac Rice Baby Cereal 250g",
+        "popular": "0",
+        "size": "0.25kg"
+      }
+    ]
+  },
+  {
+    "routeName": "breakfast-cereals",
+    "id": "Breakfast-Cereals",
+    "title": "Breakfast Cereals",
+    "items": [
+      {
+        "id": "bre1",
+        "imageUrl": "https://i.ibb.co/Z13jFQt/bokomo-weet-bix-cereal-450g.png",
+        "price": 29,
+        "productInfo": "Brand~Bokomo",
+        "size": "0.45kg",
+        "name": "Bokomo Weet-Bix Cereal 450g",
+        "fullDescription": "With 97% wholegrains, Bokomo Weet-Bix contains no preservatives or colourants, making it one of the healthiest choices you could have for breakfast. High in fibre and energy.",
+        "popular": "0",
+        "description": "High in fibre and energy"
+      },
+      {
+        "popular": "0",
+        "name": "Kellogg`s All Bran Flakes Cereal 500g",
+        "description": "High in natural wheat bran fibre for digestive balance.",
+        "size": "0.5kg",
+        "id": "bre2",
+        "imageUrl": "https://i.ibb.co/c2KxckC/kelloggs-bran-flakes-cereal-500g.png",
+        "price": 50,
+        "productInfo": "Brand~Kellogg`s; Ingredients~Wheat (whole wheat [80%]) (gluten), sugar, malt extract (barley) (gluten), salt, folic acid, niacin, pantothenic acid, vitamin A, vitamin B1, vitamin B2, vitamin B6, vitamin B12, vitamin C, iron.;Allergens~Wheat (gluten) and barley (gluten)",
+        "fullDescription": "A high fibre diet helps you to feel more energized. Feel fuller for longer or promote digestive regularity. Maintain a healthy weight. Lower cholesterol levels. Reduce blood sugar levels and can help to prevent type 2 diabetes. A bowl of Kellogg`s All-Bran flakes is high in fibre and gives you more than a 1/3 of your daily fibre requirement."
+      },
+      {
+        "popular": "1",
+        "price": 69,
+        "id": "bre3",
+        "description": "The original toasted golden cereal flakes.",
+        "imageUrl": "https://i.ibb.co/9NJRZ7p/kelloggs-corn-flakes-cereal-1kg.png",
+        "name": "Kellogg`s Corn Flakes Cereal 1kg",
+        "fullDescription": "Kellogg’s Corn Flakes is the original Kellogg`s cereal. Kellogg’s Corn Flakes are crisp, light flakes of sun-ripened corn that not only taste good but also give your family a nutritious start to the day. Kellogg’s Corn Flakes is a source of 9 vitamins, iron and carbohydrates.",
+        "productInfo": "Brand~Kellogg`s; Ingredients~Corn (89.4%), Sugar, malt extract (barley) (gluten), salt, folic acid, niacin, pantothenic acid, vitamin a, vitamin b1, vitamin b2, vitamin b6, vitamin b12, vitamin c, iron. *Contains genetically modified organisms.;Allergens~Barley (gluten)",
+        "size": "1kg"
+      },
+      {
+        "description": "Mixes instantly with hot or cold milk or water for a smooth, creamy texture.",
+        "id": "bre4",
+        "price": 23,
+        "imageUrl": "https://i.ibb.co/6rNJwRW/iwisa-chocolate-flavoured-instant-porridge-1kg.png",
+        "size": "1kg",
+        "fullDescription": "Iwisa Instant breakfast porridge mixes instantly with hot or cold milk or water for a delicious breakfast that tastes as good as cooked porridge. It’s high in 12 vitamins and it comes in 5 delicious flavors: Original, Strawberry, Banana, Vanilla and includes a Protein & Fibre variant for extra nutrition.",
+        "popular": "1",
+        "name": "Iwisa Chocolate Flavoured Instant Porridge 1kg",
+        "productInfo": "Brand~Iwisa"
+      },
+      {
+        "productInfo": "Brand~Coca-Cola",
+        "price": 22,
+        "description": "The original great taste of Coca-Cola with a light taste, no sugar added and low kilojoules.",
+        "name": "Coca-Cola Zero Soft Drink Bottle 2.25L",
+        "id": "bre5",
+        "imageUrl": "https://i.ibb.co/DLvFWsG/Coca-Cola-Zero-Soft-Drink-Bottle-2-25-L.png",
+        "fullDescription": "The same original Coca-Cola taste loved by people all around the world, but without the sugar. The perfect refreshing drink for the summer heat with Coke`s distinct, refreshing taste will leave you satisfied after every sip.",
+        "popular": "1",
+        "size": "2.25kg"
+      },
+      {
+        "name": "Fanta Sparkling Orange Zero Flavoured Drink Bottle 2.25L",
+        "price": 22,
+        "id": "bre6",
+        "imageUrl": "https://i.ibb.co/QFBdw5P/Fanta-Sparkling-Orange-Zero-Flavoured-Drink-Bottle-2-25-L.png",
+        "popular": "0",
+        "size": "2.25kg",
+        "fullDescription": "Fanta Sparkling Orange Zero Flavoured Drink is the perfect partner for enjoying a moment of fun with friends. Get your Fanta fix now. Best served chilled.",
+        "productInfo": "Brand~Coca-Cola",
+        "description": "Fanta Sparkling Orange Zero Flavoured Drink is the perfect partner for enjoying a moment of fun with friends. Get your Fanta fix now. Best served chilled."
+      },
+      {
+        "fullDescription": "Made from the best coffee beans that are 100% natural using only pure water to seal in the richer aroma and fuller flavour",
+        "price": 86,
+        "productInfo": "Brand~Nescafé",
+        "popular": "1",
+        "size": "0.2kg",
+        "id": "bre7",
+        "imageUrl": "https://i.ibb.co/W0V6j6y/Nescaf-Classic-Instant-Coffee-200g.png",
+        "name": "Nescafé Classic Instant Coffee 200g",
+        "description": "Double filter, rich & full flavoured coffee."
+      },
+      {
+        "description": "Joko Strong Quality Teabags",
+        "imageUrl": "https://i.ibb.co/LCssCpj/Joko-Strong-Quality-Teabags-100-Pack.png",
+        "productInfo": "Brand~Joko",
+        "id": "bre8",
+        "fullDescription": "Joko Strong Quality Teabags",
+        "popular": "1",
+        "size": "0.1kg",
+        "price": 42,
+        "name": "Joko Strong Quality Teabags 100 Pack"
+      },
+      {
+        "size": "1kg",
+        "popular": "1",
+        "id": "bre9",
+        "description": "Orange flavoured dairy mix concentrate.",
+        "price": 16,
+        "fullDescription": "Each one has been made with a lot of love to help you get the most from life.",
+        "productInfo": "Brand~Wild Island",
+        "name": "Wild Island Orange Concentrated Dairy Blend 1L",
+        "imageUrl": "https://i.ibb.co/HDTMSsm/Wild-Island-Orange-Concentrated-Dairy-Blend-1-L.png"
+      },
+      {
+        "productInfo": "Brand~Oros",
+        "popular": "1",
+        "name": "Brookes Oros Orange Squash 2L",
+        "id": "bre10",
+        "price": 42,
+        "size": "2kg",
+        "description": "Mix this 2L tartrazine-free concentrate with cold water for a quick drink",
+        "fullDescription": "Enjoy 8 litres of 100% epic fun with everyone’s favourite flavour: Oros Original Orange!",
+        "imageUrl": "https://i.ibb.co/hZVp5Yn/Brookes-Oros-Orange-Squash-2-L.png"
+      },
+      {
+        "description": "Coffee time is Frisco time",
+        "fullDescription": "Frisco Original is the mainstay of the range, but it is also available in granules, for those who prefer a bolder, stronger flavour.",
+        "imageUrl": "https://i.ibb.co/L8FtFWM/Frisco-Rich-Creamy-Instant-Coffee-750g.png",
+        "name": "Frisco Rich & Creamy Instant Coffee 750g",
+        "id": "bre11",
+        "size": "0.75kg",
+        "popular": "0",
+        "price": 90,
+        "productInfo": "Brand~Frisco"
+      },
+      {
+        "productInfo": "Brand~Trinco",
+        "name": "Trinco Strong Quality Teabags Pouch 200 Pack",
+        "id": "bre12",
+        "description": "Trinco is made from select teas from Africa’s best tea estates.",
+        "size": "0.05kg",
+        "fullDescription": "Trinco is expertly blended to consistently deliver a rich amber colour, a refreshingly strong taste and invigorating aroma in each cup of tea. Trinco is a great cup of tea that everbody will love.",
+        "imageUrl": "https://i.ibb.co/W3GXY09/Trinco-Strong-Quality-Teabags-Pouch-200-Pack.png",
+        "price": 46,
+        "popular": "0"
+      },
+      {
+        "size": "0.5kg",
+        "id": "bre13",
+        "name": "Nescafé Ricoffy Instant Coffee 500g",
+        "popular": "1",
+        "productInfo": "Brand~Nescafe",
+        "fullDescription": "Smooth taste originates from the perfect blending of the finest chicory and coffee beans that have been slow roasted.",
+        "price": 67,
+        "imageUrl": "https://i.ibb.co/2PLxMrQ/Nescaf-Ricoffy-Instant-Coffee-250g.png",
+        "description": "Smooth taste originates from the perfect blending of the finest chicory and coffee beans that have been slow roasted."
+      },
+      {
+        "name": "Jungle Oatso Easy Instant Oats 500g",
+        "id": "bre14",
+        "fullDescription": "High dietary fibre & high-energy wholesome oats, packed in single-serving sachets for convenience.",
+        "imageUrl": "https://i.ibb.co/SB33r6B/Jungle-Oatso-Easy-Oats-500g.png",
+        "price": 37,
+        "productInfo": "Brand~Jungle",
+        "size": "0.5kg",
+        "description": "High dietary fibre & high-energy wholesome oats, packed in single-serving sachets for convenience.",
+        "popular": "0"
+      },
+      {
+        "size": "0.375kg",
+        "productInfo": "Brand~Kellogg's",
+        "fullDescription": "Kellogg's Coco Pops Crunchers have a delicious chocolatey taste and crunchy texture making it a great breakfast cereal or a tasty snack.",
+        "imageUrl": "https://i.ibb.co/djdSJmN/Kelloggs-Coco-375g.png",
+        "popular": "0",
+        "name": "Kellogg's Coco Pops Crunchers Cereal 375g",
+        "id": "bre15",
+        "description": "Kellogg's Coco Pops Crunchers have a delicious chocolatey taste and crunchy texture making it a great breakfast cereal or a tasty snack.",
+        "price": 45
+      },
+      {
+        "description": "Honey Cheerios are made with 5 whole grains: Oats, Wheat, Barley, Maize and Rice.",
+        "productInfo": "Brand~Nestlè",
+        "price": 46,
+        "imageUrl": "https://i.ibb.co/RTc4VLT/Nestl-Cheerios-Honey-375g.png",
+        "size": "0.375kg",
+        "id": "bre16",
+        "fullDescription": "Each irresistible Cheerio is made with whole grains, vitamins, iron and calcium.",
+        "popular": "0",
+        "name": "Nestlè Cheerios Honey Flavoured Cereal 375g,"
+      },
+      {
+        "name": "Jungle Oats Original Porridge 1kg",
+        "id": "bre17",
+        "price": 39,
+        "popular": "1",
+        "description": "100% all-natural, wholegrain rolled oats.",
+        "fullDescription": "Trusted, tasty and satisfying source of good nutrition for a great day.",
+        "imageUrl": "https://i.ibb.co/LCf9dQh/Jungle-Oats-Original-Porridge-1kg.png",
+        "productInfo": "Brand~Jungle",
+        "size": "0.5kg"
+      },
+      {
+        "id": "bre18",
+        "description": "Everfresh UHT Full Cream Milk from Parmalat",
+        "imageUrl": "https://i.ibb.co/y88v6Yr/Parmalat-Everfresh-UHT-Full-Cream-Milk-Pack-6.png",
+        "productInfo": "Brand~Everfresh",
+        "price": 96,
+        "size": "6kg",
+        "popular": "0",
+        "name": "Parmalat Full Cream Milk Pack 6 x 1L",
+        "fullDescription": "Everfresh UHT Full Cream Milk from Parmalat."
+      },
+      {
+        "price": 96,
+        "imageUrl": "https://i.ibb.co/Bw6FyWH/Clover-UHT-Long-Life-Full-Cream-Milk-Carton-6.png",
+        "id": "bre19",
+        "description": "High quality and freshness.",
+        "name": "Clover Long Life Full Cream Milk Carton 6 x 1L",
+        "size": "6kg",
+        "popular": "0",
+        "fullDescription": "High quality and freshness.",
+        "productInfo": "Brand~Clover"
+      }
+    ]
+  },
+  {
+    "routeName": "cleaning-detergents",
+    "id": "Cleaning-Detergents",
+    "title": "Cleaning Detergents",
+    "items": [
+      {
+        "name": "Savlon Antiseptic Liquid 2L",
+        "imageUrl": "https://i.ibb.co/fDDch6b/savlon-antiseptic-liquid-2-L.png",
+        "productInfo": "Brand~Savlon",
+        "id": "cle1",
+        "size": "2kg",
+        "popular": "0",
+        "price": 124,
+        "description": "Savlon Antiseptic Liquid has been formulated to kill over 99.9% of germs on skin within seconds.",
+        "fullDescription": "Savlon Antiseptic Liquid has been formulated to kill over 99.9% of germs on skin within seconds."
+      },
+      {
+        "name": "Sta-Soft Baby Fabric Conditioner Refill Sachet 500ml",
+        "fullDescription": "Delicate skin needs the gentlest touch Sta-soft Baby is specially formulated for your little ones sensitive skin. It is a hypoallergenic fabric conditioner that is suitable for you and your baby. It will pamper you and your family’s senses with its soothing scent while ensuring clothing is unbeatably soft",
+        "price": 35,
+        "imageUrl": "https://i.ibb.co/W2Hk1Bz/sta-soft-baby-fabric-conditioner-refill-sachet-500ml.png",
+        "popular": "0",
+        "productInfo": "Brand~Sta-Soft",
+        "description": "Delicate skin needs the gentlest touch Sta-soft Baby is specially formulated for your little ones sensitive skin.",
+        "id": "cle2",
+        "size": "0.5kg"
+      },
+      {
+        "fullDescription": "Removes tough dirt and grease. Scented to lavender.",
+        "description": "Removes tough dirt and grease. Scented to lavender.",
+        "price": 50,
+        "imageUrl": "https://i.ibb.co/4fQRdJM/handy-andy-lavender-fresh-scented-floor-cleaner-750ml.png",
+        "size": "1.5kg",
+        "name": "Handy Andy Lavender Fresh Scented Floor Cleaner 1.5l",
+        "popular": "1",
+        "id": "cle3",
+        "productInfo": "Brand~Handy Andy"
+      },
+      {
+        "id": "cle4",
+        "price": 55,
+        "fullDescription": "With the combined cleaning power of 100 lemons, Sunlight Dishwashing Liquid easily removes tough grease leaving your dishes shining bright and residue free.",
+        "productInfo": "Brand~Sunlight",
+        "description": "With the combined cleaning power of 100 lemons, Sunlight Dishwashing Liquid easily removes tough grease leaving your dishes shining bright and residue free.",
+        "popular": "0",
+        "name": "Sunlight Dishwash Liquid 1.5L",
+        "imageUrl": "https://i.ibb.co/85BT6Gz/sunlight-dishwash-liquid-1-5l.png",
+        "size": "1.5kg"
+      },
+      {
+        "productInfo": "Brand~Omo",
+        "price": 78,
+        "id": "cle5",
+        "name": "Omo Auto Washing Powder 3kg",
+        "description": "New Omo auto laundry liquid removes tough stains fast. Suitable for all machine types.",
+        "size": "3kg",
+        "popular": "1",
+        "imageUrl": "https://i.ibb.co/Fzg4QkM/omo-auto-washing-powder-3kg.png",
+        "fullDescription": "New Omo auto laundry liquid removes tough stains fast. Suitable for all machine types."
+      },
+      {
+        "size": "0.015kg",
+        "description": "Our range of quality everyday essentials makes Twinsaver the perfect partner to you and your family.",
+        "name": "Twinsaver 1 Ply Toilet Rolls 15 Pack",
+        "id": "cle6",
+        "price": 80,
+        "popular": "0",
+        "fullDescription": "Our range of quality everyday essentials makes Twinsaver the perfect partner to you and your family. That’s why, whether it ’s our affordable 1 ply or Complete Comfort  twin ply with unique Soft-Touch cushions, our toilet tissues are dermatologically tested to ensure a soft, strong product that keeps you clean, comfortable and confident.",
+        "productInfo": "Brand~Twinsaver",
+        "imageUrl": "https://i.ibb.co/FxGDGgL/twinsaver-1-ply-toilet-rols-15-pack.png"
+      },
+      {
+        "productInfo": "Brand~Dettol",
+        "popular": "1",
+        "size": "0.5kg",
+        "imageUrl": "https://i.ibb.co/cTsb7NS/dettol-antiseptic-liquid-500ml.png",
+        "description": "Provides all-round family protection against germs.",
+        "id": "cle7",
+        "fullDescription": "This versatile and trusted Dettol product provides your family protection against germs.",
+        "price": 67,
+        "name": "Dettol Antiseptic Liquid 500ml"
+      },
+      {
+        "imageUrl": "https://i.ibb.co/30q9zVx/sunlight-regular-washing-powder-5kg.png",
+        "size": "5kg",
+        "fullDescription": "Spring sensations with smartfoam technology, washes the foam out of your clothes more easily, saving you rinsing water and effort.",
+        "productInfo": "Brand~Sunlight",
+        "id": "cle8",
+        "name": "Sunlight Regular Washing Powder 5kg",
+        "description": "Spring sensations with smartfoam technology, washes the foam out of your clothes more easily, saving you rinsing water and effort.",
+        "popular": "0",
+        "price": 110
+      },
+      {
+        "popular": "0",
+        "description": "Carefully formulated to protect your family by effectively killing both flying and crawling insects on contact, while being gentle on the senses of all users.",
+        "fullDescription": "Carefully formulated to protect your family by effectively killing both flying and crawling insects on contact, while being gentle on the senses of all users.",
+        "price": 33,
+        "name": "Mortein Odourless Insecticide 300ml",
+        "productInfo": "Brand~Mortein",
+        "imageUrl": "https://i.ibb.co/Nr2ZvYW/mortein-odourless-insecticide-300ml.png",
+        "id": "cle9",
+        "size": "0.3kg"
+      },
+      {
+        "popular": "0",
+        "fullDescription": "Jik Thin Bleach has a Triple Action Formula which whitens, removes stains and kills germs. The versatility allows Jik to be used for 101 uses from laundry, to common household cleaning and chores.",
+        "productInfo": "Brand~Jik",
+        "id": "cle10",
+        "description": "Jik Thin Bleach has a Triple Action Formula which whitens, removes stains and kills germs.",
+        "name": "Jik Pine Fresh Bleach 1.5L",
+        "size": "1.5kg",
+        "price": 41,
+        "imageUrl": "https://i.ibb.co/ZNVk9PM/jik-pine-fresh-bleach-1-5-L.png"
+      },
+      {
+        "description": "Plush Supreme All Purpose Pine Gel cleans and deodorises in one simple process that will leave your home sparkling clean and filled with a fresh pine fragrance.",
+        "size": "1kg",
+        "imageUrl": "https://i.ibb.co/93LHLt9/plush-supreme-pine-jel-1-L.png",
+        "id": "cle11",
+        "popular": "0",
+        "fullDescription": "Plush Supreme All Purpose Pine Gel cleans and deodorises in one simple process that will leave your home sparkling clean and filled with a fresh pine fragrance.",
+        "price": 38,
+        "productInfo": "Brand~Plush",
+        "name": "Plush Supreme Pine Gel All Purpose Cleaner 1L"
+      },
+      {
+        "imageUrl": "https://i.ibb.co/mhpNF44/lion-single-matches-10x10-pack.png",
+        "id": "cle12",
+        "name": "Lion Single Matches 10 x 10 Pack",
+        "popular": "0",
+        "description": "The quality and safety standards of Lion Safety Matches have made it reliable and the first choice in the market.",
+        "size": "0.010kg",
+        "price": 10,
+        "productInfo": "Brand~Lion",
+        "fullDescription": "Lion Safety Matches has been lighting up the nation in ways both big and small for over 100 Years."
+      }
+    ]
+  },
+  {
+    "routeName": "combos",
+    "id": "Combos",
+    "title": "Combos",
+    "items": [
+      {
+        "imageUrl": "https://i.ibb.co/Tt4gq1W/Month-End-Hamper.png",
+        "popular": "0",
+        "fullDescription": "Sunfoil Pure Sunflower Seed Oil 2L. Golden Cloud Cake Wheat Flour 10kg. Joko Strong Quality Teabags 100 Pack. Brookes Oros Orange Squash 2L. Golden Cloud Cake Wheat Flour 10kg. Koo Baked Beans In Tomato Sauce 6 X 410g. Tastic Long Grain Parboiled Rice 10kg. Fatti`S & Moni`S Macaroni Pasta 3kg. Nestlé Cremora Coffee Creamer Box 750g. Selati Golden Brown Sugar 10kg. Colgate Herbal Toothpaste 100ml. Vaseline Blue Seal Original Pure Petroleum Jelly 450m. Dettol Even Tone Bath Soap 175g. Twinsaver 1 Ply Toilet Rolls 15 Pack. Sunlight Regular Washing Powder 5kg. Cerebos Iodated Table Salt 500g.",
+        "size": "55.5kg",
+        "productInfo": "Brand~Multi",
+        "name": "Month-End Grocery Hamper",
+        "id": "com1",
+        "description": "Grocery hamper, enough to keep a family happy.",
+        "price": 1400
+      }
+    ]
+  },
+  {
+    "routeName": "cooking-ingredients",
+    "id": "Cooking-Ingredients",
+    "title": "Cooking Ingredients",
+    "items": [
+      {
+        "name": "Sunfoil Pure Sunflower Seed Oil 2L",
+        "price": 80,
+        "productInfo": "Brand~Sunfoil;Ingredients~100% sunflower seed oil.",
+        "fullDescription": "Pure Sunflower Seed Oil, Free from mineral and added extraneous organic acids.",
+        "imageUrl": "https://i.ibb.co/18KP9xQ/sunflower-seed-oil-2-L.png",
+        "id": "coo1",
+        "size": "2kg",
+        "description": "Pure Sunflower Seed Oil; Free from mineral and added extraneous organic acids.",
+        "popular": "1"
+      },
+      {
+        "description": "Crosse & Blackwell tangy mayonnaise is a classic condiment which has been enjoyed for centuries.",
+        "fullDescription": "The condiment that started it all. Crosse & Blackwell tangy mayonnaise is a classic condiment which has been enjoyed by all",
+        "id": "coo2",
+        "popular": "1",
+        "name": "Crosse & Blackwell Tangy Mayonnaise 750g",
+        "imageUrl": "https://i.ibb.co/0Zt3W2J/crosse-Blackwell-tangy-mayonnaise-750g.png",
+        "price": 35,
+        "size": "0.79kg",
+        "productInfo": "Brand~Crosse & Blackwell"
+      },
+      {
+        "productInfo": "Brand~All Gold",
+        "name": "All Gold Tomato Sauce Bottle 750ml",
+        "id": "coo3",
+        "size": "0.75kg",
+        "imageUrl": "https://i.ibb.co/Czb4fDN/all-gold-tomato-sauce-750ml.png",
+        "description": "It has a thick, smooth texture that can easily be poured and enjoyed with a variety of dishes, such as hotdogs, boerewors rolls, burgers and chips.",
+        "price": 32,
+        "fullDescription": "It has a thick, smooth texture that can easily be poured and enjoyed with a variety of dishes, such as hotdogs, boerewors rolls, burgers and chips.",
+        "popular": "0"
+      },
+      {
+        "id": "coo4",
+        "size": "0.2kg",
+        "imageUrl": "https://i.ibb.co/s5Y0nHF/aromat-seasoning-200g.png",
+        "name": "Aromat Original Seasoning 200g",
+        "productInfo": "Brand~Aromat",
+        "description": "The Real Makoya! The one and only Aromat Original has a savoury, well rounded aromatic flavour to add that little something extra.",
+        "price": 37,
+        "fullDescription": "It’s the perfect seasoning for eggs and everything else.",
+        "popular": "0"
+      },
+      {
+        "id": "coo5",
+        "name": "Rajah Hot Curry Powder 100g",
+        "fullDescription": "Add a burst of hot and spicy flavour to your favourite curry recipes and stew dishes with Rajah Hot Curry Powder.",
+        "size": "0.1kg",
+        "description": "Add a burst of hot and spicy flavour to your favourite curry recipes and stew dishes with Rajah Hot Curry Powder.",
+        "price": 25,
+        "productInfo": "Brand~Rajah",
+        "popular": "0",
+        "imageUrl": "https://i.ibb.co/yVH2hV0/rajar-hot-curry-powder-100g.png"
+      },
+      {
+        "description": "Mrs. Balls Chakalaka Flavoured.",
+        "price": 33,
+        "size": "0.47kg",
+        "fullDescription": "Add one Knorrox Chicken Stock cube to your pap to give it a delicious golden colour and great flavour.",
+        "popular": "1",
+        "imageUrl": "https://i.ibb.co/SBTRBzL/mrs-balls-chakalaka-flavoured-chutney-470g.png",
+        "name": "Mrs. Balls Chutney 470g",
+        "productInfo": "Brand~Mrs. Balls",
+        "id": "coo6"
+      },
+      {
+        "popular": "1",
+        "description": "Sunflower seed oil - triple refined.",
+        "fullDescription": "Sunflower seed oil - triple refined.",
+        "id": "coo7",
+        "imageUrl": "https://i.ibb.co/L6GtwZ1/sunflower-seed-oil-4-L.png",
+        "name": "Sunfoil Sunflower Oil 4L",
+        "productInfo": "Brand~Checkers Housebrand",
+        "price": 135,
+        "size": "4kg"
+      },
+      {
+        "id": "coo8",
+        "size": "0.2kg",
+        "price": 30,
+        "popular": "0",
+        "name": "Snowflake Baking Powder 200g",
+        "description": "The baking powder that always makes the best baking friend.",
+        "productInfo": "Brand~Snowflake",
+        "imageUrl": "https://i.ibb.co/frBMddz/snowflake-baking-powder-200g.png",
+        "fullDescription": "The baking powder that always makes the best baking friend."
+      },
+      {
+        "imageUrl": "https://i.ibb.co/HGpfQF5/cerebos-iodated-table-salt-500g.png",
+        "description": "Highest quality salt is used to ensure customer`s satisfaction.",
+        "size": "0.5kg",
+        "price": 22,
+        "productInfo": "Brand~Cerebos",
+        "popular": "0",
+        "id": "coo9",
+        "fullDescription": "Highest quality salt is used to ensure customer`s satisfaction.",
+        "name": "Cerebos Iodated Table Salt 500g"
+      },
+      {
+        "name": "Knorrox Mutton Flavoured Soya Mince 400g",
+        "fullDescription": "Add meaty taste and make meals go further with Knorrox Mutton Soya Mince! Soak your soya mince in cold water for 10 minutes before adding to your pot.",
+        "id": "coo10",
+        "popular": "1",
+        "size": "0.4kg",
+        "price": 25,
+        "productInfo": "Brand~Knorrox",
+        "description": "Knorrox Mutton Flavoured Soya Mince that adds a meaty taste your meals.",
+        "imageUrl": "https://i.ibb.co/h1qmm7T/knorox-soya-mince-400g.png"
+      },
+      {
+        "productInfo": "Brand~Knorrox",
+        "description": "Add one Knorrox Chicken Stock cube to your pap to give it a delicious golden colour and great flavour.",
+        "fullDescription": "Add one Knorrox Chicken Stock cube to your pap to give it a delicious golden colour and great flavour. Give your homemade deep fried chicken coating a makeover by adding a crumbled Knorrox Chicken Stock Cube for extra flavour. Enrich the flavour of your homemade dumplings by adding a crumbled Knorrox Chicken Stock Cube to the dough – this will add a delicious chicken flavour with minimal effort.",
+        "size": "0.1kg",
+        "imageUrl": "https://i.ibb.co/x8y9j8g/knorrox-chicken-cubes-12-pack.png",
+        "id": "coo11",
+        "name": "Knorrox Soup Assorted",
+        "popular": "0",
+        "price": 17
+      },
+      {
+        "size": "0.4kg",
+        "price": 31,
+        "popular": "0",
+        "description": "Add one Knorrox Chicken Stock cube to your pap to give it a delicious golden colour and great flavour.",
+        "name": "Knorrox Oxtail Flavoured Instant Soup 400g",
+        "imageUrl": "https://i.ibb.co/8Px9r7q/knorrox-oxtail-flavoured-soup-400g.png",
+        "productInfo": "Brand~Knorrox",
+        "fullDescription": "Add one Knorrox Chicken Stock cube to your pap to give it a delicious golden colour and great flavour.",
+        "id": "coo12"
+      }
+    ]
+  },
+  {
+    "routeName": "dry-foods",
+    "id": "Dry-Foods",
+    "title": "DryFoods",
+    "items": [
+      {
+        "id": "dry1",
+        "fullDescription": "Your favourite rice brand that makes every moment perfect.",
+        "name": "Tastic Long Grain Parboiled Rice 10kg",
+        "productInfo": "Brand~Tastic",
+        "size": "10kg",
+        "price": 175,
+        "description": "Your favourite rice brand that makes every moment perfect.",
+        "imageUrl": "https://i.ibb.co/vhs7SB4/tastic-long-grain-parboiled-10kg.png",
+        "popular": "0"
+      },
+      {
+        "price": 110,
+        "name": "White Star Super Maize Meal 10kg",
+        "fullDescription": "IWhite Star Super Maize Meal is the first maize meal rich in vitamin A. White Star is a great source of energy, vitamin A, folic acid, iron, four B-vitamins and zinc. A highly versatile meal that can be used in a wide variety of traditional meals, starters and desserts.",
+        "id": "dry2",
+        "productInfo": "Brand~White Star",
+        "size": "10kg",
+        "popular": "0",
+        "imageUrl": "https://i.ibb.co/Z2756wS/white-star-super-maize-10kg.png",
+        "description": "The wisest option when it comes to maize meal."
+      },
+      {
+        "fullDescription": "Koo`s iconic Baked Beans in a rich tomato sauce. Is extremely versatile and convenient. Delicious on its own, on toast and vetkoek, as a side to a breakfast, or as a quality ingredient in scrumptious weekday meals and curries.",
+        "productInfo": "Brand~Koo",
+        "id": "dry3",
+        "description": "Koo Baked Beans in a deliciously rich tomato sauce, works as a side or addition to any main meal.",
+        "name": "Koo Baked Beans In Tomato Sauce 410g",
+        "size": "0.41kg",
+        "price": 12,
+        "popular": "0",
+        "imageUrl": "https://i.ibb.co/TW4yL2M/koo-baked-beans-tomato-sauce-410g.png"
+      },
+      {
+        "price": 114,
+        "id": "dry4",
+        "size": "10kg",
+        "productInfo": "Brand~Golden Cloud",
+        "fullDescription": "This flour is versatile & perfect for almost any baking recipe! It’s ideal for cakes, scones, biscuits, breads, muffins & vetkoek.",
+        "description": "Savoury, sweet or somewhere in-between, find the secret to the softness in your favourite recipes.",
+        "imageUrl": "https://i.ibb.co/YdZPKwb/golden-cloud-cake-wheat-flour-10kg.png",
+        "popular": "1",
+        "name": "Golden Cloud Cake Wheat Flour 10kg"
+      },
+      {
+        "fullDescription": "You cannot beat an Ace taste! - Ace maize meal is a white, super grade maize meal, fortified with vitamins and minerals for better health. Ace maize meal is versatile, nutritious and it tastes great.",
+        "description": "You cannot beat an Ace taste!",
+        "id": "dry5",
+        "size": "10kg",
+        "name": "Ace Super Maize Meal 10kg",
+        "popular": "0",
+        "productInfo": "Brand~Ace",
+        "price": 91,
+        "imageUrl": "https://i.ibb.co/HpZRWCR/ace-super-maize-meal-10kg.png"
+      },
+      {
+        "id": "dry6",
+        "fullDescription": "Fatti`s & Moni`s proudly produces the most delicious and authentic pasta.",
+        "imageUrl": "https://i.ibb.co/N17t7Yx/fattis-monis-macaroni-pasta-1kg.png",
+        "popular": "1",
+        "price": 85,
+        "description": "Fatti`s & Moni`s proudly produces the most delicious and authentic pasta.",
+        "productInfo": "Brand~Fatti`s & Moni`s",
+        "name": "Fatti`s & Moni`s Macaroni Pasta 3kg",
+        "size": "3kg"
+      },
+      {
+        "imageUrl": "https://i.ibb.co/2Wpm3qm/selati-white-sugar-10kg.png",
+        "id": "dry7",
+        "description": "Brings out the best taste of all your food and drinks",
+        "name": "Selati White Sugar 10kg",
+        "popular": "1",
+        "size": "10kg",
+        "fullDescription": "No.1 sugar brand. Brings out the best taste of all your food and drinks. Without changing the flavour.",
+        "productInfo": "Brand~Selati",
+        "price": 199
+      },
+      {
+        "description": "Selati Brown Sugar is the original homegrown pure cane brown sugar, good and sweet, all the time.",
+        "size": "10kg",
+        "name": "Selati Golden Brown Sugar 10kg",
+        "id": "dry8",
+        "popular": "1",
+        "imageUrl": "https://i.ibb.co/jyhSMRL/selati-golden-brown-sugar-10kg.png",
+        "productInfo": "Brand~Selati",
+        "fullDescription": "Selati Brown Sugar Brings out the best taste in all your food and drinks, without changing the flavour and is naturally high in energy. Use sensibly as part of a high energy diet for growing and active families.",
+        "price": 209
+      },
+      {
+        "size": "0.75kg",
+        "price": 40,
+        "productInfo": "Brand~Nestlé",
+        "name": "Nestlé Cremora Coffee Creamer Box 750g",
+        "fullDescription": "Original creamy taste you love. This is why we make the perfect blend for a smooth, rich and creamy cup of coffee, to be enjoyed over and over again at every occasion.",
+        "imageUrl": "https://i.ibb.co/4jrsP72/nestle-cremora-coffee-creamer-750g.png",
+        "popular": "0",
+        "id": "dry9",
+        "description": "Original creamy taste you love."
+      },
+      {
+        "fullDescription": "This tangy tomato sauce flavour is still known for its superior and consistent quality. Enjoy it on its own or as the main ingredient to your favourite super tasty Lucky Star recipes.",
+        "name": "Lucky Star Pilchards In Tomato Sauce 215g",
+        "size": "0.215kg",
+        "productInfo": "Brand~Lucky Star",
+        "id": "dry10",
+        "price": 20,
+        "imageUrl": "https://i.ibb.co/vVnNmXz/lucky-star-pilchards-tomato-sauce-215g.png",
+        "description": "This tangy tomato sauce flavour is still known for its superior and consistent quality.",
+        "popular": "0"
+      },
+      {
+        "fullDescription": "Looking for a spicy bite? Chilli flavoured pilchards are there for you.",
+        "price": 20,
+        "popular": "0",
+        "productInfo": "Brand~Lucky Star",
+        "size": "0.215kg",
+        "id": "dry11",
+        "imageUrl": "https://i.ibb.co/vB3X6St/lucky-star-pilchards-chilli-sauce-215g.png",
+        "description": "Looking for a spicy bite? Chilli flavoured pilchards are there for you.",
+        "name": "Lucky Star Pilchards In Hot Chilli Sauce 215g"
+      }
+    ]
+  },
+  {
+    "routeName": "health&beauty",
+    "id": "Health&Beauty",
+    "title": "Health & Beauty",
+    "items": [
+      {
+        "description": "Shield Men`s Even Tone roll-on provides you with long-lasting protection and bursts with fragrance as you move.",
+        "price": 20,
+        "size": "0.05kg",
+        "name": "Shield Men Even Tone Roll On 50ml",
+        "id": "hea1",
+        "fullDescription": "Shield Men`s Even Tone roll-on gives you lasting protection on sensitive skin while reducing sweat and odour. Lets you go through the day with complete comfort and confidence.",
+        "imageUrl": "https://i.ibb.co/w0c3xBK/shield-men-even-tone-roll-on-50ml.png",
+        "productInfo": "Brand~Shield",
+        "popular": "0"
+      },
+      {
+        "fullDescription": "Shield`s Even Tone Roll-On was designed to keep you comfortable, free from wetness and prevent malodour. Helps you stay confident during your daily activities with our 48-hour anti-perspirant formula.",
+        "popular": "0",
+        "id": "hea2",
+        "size": "0.05kg",
+        "price": 20,
+        "name": "Shield Ladies Even Tone Roll On 50ml",
+        "productInfo": "Brand~Shield",
+        "imageUrl": "https://i.ibb.co/0XFT8XS/shield-ladies-even-tone-roll-on-50ml.png",
+        "description": "Gentle on skin with 48-hour protection against malodour and wetness."
+      },
+      {
+        "id": "hea3",
+        "price": 29,
+        "productInfo": "Brand~Shield",
+        "size": "0.15kg",
+        "imageUrl": "https://i.ibb.co/v11wRHG/shield-men-even-tone-anti-perspirant-150ml.png",
+        "fullDescription": "Our antiperspirant and deodorant products for men are designed to keep you protected against body odour and excessive sweating, so that you stay fresh all day long. Keep your underarms dry while keeping sweat at bay. Shield deodorant for men products are dermatologically tested and gentle enough for everyday use.",
+        "description": "New Shield Even Tone for men reduces dark underarm marks and bumps in just 7 days.",
+        "name": "Shield Men Even Tone Anti-Perspirant 150ml",
+        "popular": "0"
+      },
+      {
+        "size": "0.15kg",
+        "imageUrl": "https://i.ibb.co/djMvQjZ/shield-ladies-motion-activate-fresh-shower-spray-150ml.png",
+        "name": "Shield Ladies Motion Activate Fresh Shower Spray 150ml",
+        "popular": "0",
+        "productInfo": "Brand~Shield",
+        "description": "Smell shower fresh and feel great whenever you move with Shield Shower Fresh aerosol featuring MotionSense technology.",
+        "price": 29,
+        "fullDescription": "Smell shower fresh and feel great whenever you move with Shield Shower Fresh aerosol featuring MotionSense technology.",
+        "id": "hea4"
+      },
+      {
+        "popular": "0",
+        "id": "hea5",
+        "imageUrl": "https://i.ibb.co/8cQHP7V/yardely-ladies-aerosol-perfume-body-spray-90ml.png",
+        "size": "0.09kg",
+        "productInfo": "Brand~Yardley",
+        "name": "Yardley Gorgeous Ladies Aerosol Perfume Body Spray 90ml",
+        "fullDescription": "Yardley`s ozone friendly, classic sensual perfume body spray is perfect for the elegant, glamorous woman.",
+        "description": "Yardley`s ozone friendly, classic sensual perfume body spray is perfect for the elegant, glamorous woman.",
+        "price": 36
+      },
+      {
+        "fullDescription": "Dove Beauty Cream Bar combines a gentle cleansing formula with our signature ¼ moisturising cream to give you softer, smoother, healthier-looking skin. Dove Beauty Cream Bar’s mild cleansers help your skin to retain its natural moisture rather than stripping it away. Dove Beauty Bars leave it feeling softer and healthier-looking.",
+        "popular": "0",
+        "price": 48,
+        "productInfo": "Brand~Dove",
+        "imageUrl": "https://i.ibb.co/hs01kFM/dove-beauty-cream-bath-soap-4by100g.png",
+        "description": "This gentle cleansing formula contains ¼ moisturising cream to give you softer, smoother, healthier-looking skin.",
+        "name": "Dove Beauty Cream Bath Soap 4 x 100g",
+        "id": "hea7",
+        "size": "0.4kg"
+      },
+      {
+        "fullDescription": "The Kotex Ultra Thin pad offers you discretion and 3-in-1 benefits: Protection against leakage, maximum comfort and a perfect fit with your body. Designed with an innovative core for instant absorption and protection against leakage.",
+        "description": "The Kotex Ultra Thin pad offers you discretion and 3-in-1 benefits: Protection against leakage, maximum comfort and a perfect fit with your body.",
+        "name": "Kotex All Nighter Ultra Total Confidence 3-In-1 Sanitary Pads 7 Pack",
+        "size": "0.05kg",
+        "popular": "1",
+        "id": "hea8",
+        "productInfo": "Brand~Kotex",
+        "imageUrl": "https://i.ibb.co/PZRj6SL/kotex-all-nighter-ultra-total-confidence-3-In-1-sanitary-pads-7-pack.png",
+        "price": 22
+      },
+      {
+        "description": "Aquafresh helps defend your teeth against cavities and plaque with regular brushing.",
+        "popular": "0",
+        "imageUrl": "https://i.ibb.co/c8SPJ5x/aquafresh-mild-minty-toothpaste-100ml.png",
+        "id": "hea9",
+        "size": "0.1kg",
+        "productInfo": "Brand~Aquafresh",
+        "price": 14,
+        "name": "Aquafresh Mild & Minty Toothpaste 100ml",
+        "fullDescription": "Coupled with the proper dental care routine, Aquafresh has different variants of toothpastes that can help protect your mouth from cavities, sensitivity, bad breath or tartar."
+      },
+      {
+        "imageUrl": "https://i.ibb.co/ws87XPJ/colgate-herbal-toothpaste-100ml.png",
+        "name": "Colgate Herbal Toothpaste 100ml",
+        "size": "0.1kg",
+        "description": "Colgate combines oral care science with nature`s best herbs to whiten & strengthen teeth.",
+        "price": 20,
+        "fullDescription": "Colgate Herbal Toothpaste boasts a vegetarian-friendly anti-cavity toothpaste that combines modern oral care science with natural herbs proven to help keep your teeth in healthy condition. Includes eucalyptus, tea tree oil, sage, myrrh and chamomile to provide freshness all day long. ",
+        "productInfo": "Brand~Colgate",
+        "popular": "1",
+        "id": "hea10"
+      },
+      {
+        "name": "Protex Aloe Bath Soap 150g",
+        "description": "Dermatologically tested and boosting moisturising aloe properties. The soap that protects the good health of your skin",
+        "price": 13,
+        "imageUrl": "https://i.ibb.co/D9HPNSN/protex-aloe-bath-soap-150g.png",
+        "popular": "0",
+        "id": "hea10",
+        "fullDescription": "Protex Soap provides your family with superior protection. Its unique benefits will help to protect your family against 99.9% Of germs while also helping to keep their skin healthy.",
+        "productInfo": "Brand~Protex",
+        "size": "0.15kg"
+      },
+      {
+        "id": "hea11",
+        "name": "Dettol Even Tone Bath Soap 175g",
+        "productInfo": "Brand~Dettol",
+        "price": 13,
+        "popular": "0",
+        "fullDescription": "Dettol Even Tone Bath Soap with crushed apricot shell and Dettol’s trusted germ protection helps cleanse your skin by removing dirt, oil and dead skin cells. Leaves you with the confidence of healthy feeling skin for an even better you.",
+        "imageUrl": "https://i.ibb.co/1Q9Nq6y/dettol-even-tone-bath-soap-175g.png",
+        "size": "0.175kg",
+        "description": "Dettol Even Tone Bath Soap with crushed apricot shell."
+      },
+      {
+        "name": "Vaseline Blue Seal Original Pure Petroleum Jelly 450ml",
+        "price": 59,
+        "size": "0.45kg",
+        "productInfo": "Brand~Vaseline",
+        "id": "hea12",
+        "imageUrl": "https://i.ibb.co/LNff0R7/vaseline-blue-seal-priginal-pure-petroleumjelly-450ml.png",
+        "popular": "0",
+        "fullDescription": "Protects and locks in moisture to help dry skin heal.",
+        "description": "Protects and locks in moisture to help dry skin heal."
+      },
+      {
+        "price": 19,
+        "popular": "0",
+        "productInfo": "Brand~Stayfree",
+        "description": "Comfortable all night long with Stayfree Bodyfit Ultra Pad.",
+        "imageUrl": "https://i.ibb.co/72jzZCv/stayfree-body-fit-frangranced-sanitary-pads-7-pack.png",
+        "size": "0.05kg",
+        "name": "Stayfree Body Fit Ultra All Night Cotton Touch Lightly Frangranced Sanitary Pads 7 Pack",
+        "fullDescription": "Specially designed Ultra napkin is extra-long and extra-wide in the back. Prevents leakage from all sides no matter how much you move in your sleep.",
+        "id": "hea13"
+      },
+      {
+        "productInfo": "Brand~Ingram`s",
+        "size": "0.5kg",
+        "price": 49,
+        "fullDescription": "Specifically formulated to help moisture, restore and repair dry, chapped skin. It contains the warming, comforting benefits of camphor as well as glycerine and a blend of rich, moisturising ingredients to soothe, soften and protect dry skin problem areas. It also relieves the irritation caused by sun and wind burn.",
+        "imageUrl": "https://i.ibb.co/DGF2gBb/ingram-s-herbal-bamphor-body-cream-500g.png",
+        "popular": "0",
+        "id": "hea14",
+        "description": "Ingram`s Camphor Cream is dermatologist approved and has been specifically formulated to help moisture, restore and repair dry, chapped skin.",
+        "name": "Ingram`s Herbal Camphor Body Cream 500g."
+      }
+    ]
+  }
+]

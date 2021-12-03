@@ -182,11 +182,11 @@ class Checkout2Page extends React.Component {
   render() {
     const baseCost =
       this.state.destination == "Harare"
-        ? 700
+        ? 700 * 1.2
         : this.state.destination == "Bulawayo"
-        ? 600
+        ? 600 * 1.2
         : this.state.destination == "Gweru"
-        ? 650
+        ? 650 * 1.2
         : 0;
     const transportCost =
       this.props.totalWeight <= 30
