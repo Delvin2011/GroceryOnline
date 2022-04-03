@@ -163,9 +163,12 @@ class Landing extends React.Component {
     ];
 
     const { match } = this.props;
+    //oonly renders withspinner if isCollectionLoaded is true
+    console.log(match);
 
     return (
       <>
+        <main ref="main"></main>
         <CardsFooter />
       </>
     );
