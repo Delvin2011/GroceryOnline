@@ -28,7 +28,7 @@ yarn-error.log*
 *.css
 
 /client/src/components/transactions/payment-button.jsx
-/client/src/firebase/components/firebase.utils.jsx
+/client/src/firebase/firebase.utils.jsx
 /client/public/index.html
 /.vscode
 server.js
